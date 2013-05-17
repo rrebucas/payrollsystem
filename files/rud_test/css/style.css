@@ -1,3 +1,24 @@
 body{
 	margin: 0 auto;
+	background: url('../images/body-bg.jpg') repeat-x scroll 0 0 transparent;
 }
+
+/* HEAD */
+h1{
+	background: url('../images/LOGO.gif') no-repeat scroll 0 0 transparent;
+	width: 210px; 
+	height: 103px;
+	text-indent: -9999px;
+	margin: 0 auto;
+	float: left;
+}
+.title{
+	margin-top: 30px;
+	margin-left: 20px;
+	float: left;
+	font-size: 34px;
+	font-weight: bold;
+}
+
+
+/* End head */
