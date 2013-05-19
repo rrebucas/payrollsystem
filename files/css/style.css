@@ -1,9 +1,10 @@
 
 body{
-	font-family: 'Quicksand', sans-serif;
-
+	font-family: 'Mouse Memoirs', sans-serif;
+	background-color: #262626;
+	color: #fff;
 }
-.container{
+#container{
 	margin: 0 auto;
 	position: relative;
 	width: 960px;
@@ -13,26 +14,37 @@ header{
 	border-bottom: solid 1px #222628;
 	min-height: 300px;
 }
-#content{
-	background: url(../images/body-bg-2.jpg) repeat scroll 0 0 #000;
-	border-top: solid 1px #777;
-	min-height: 300px;
-}
-#content h1 a{
-	background: url(../images/seglogo.png) no-repeat scroll 0 0 transparent;
+header h1 a{
+	font-size: 50px;
+	float: left;
+	margin-top: 30px;
+	font-weight: normal;
+	text-transform: uppercase;
+	text-decoration: none;
 	display: block;
-	text-indent: -9999px;
-	height: 92px;
-	width: 174px;
+	color: #fff;
+	
 }
-#content #login-page{
-	background-color: #fff;
-	margin: 0 auto;
-	position: relative;
-	padding: 20px 30px;
-	width: 300px;
+header #date_time{
+	display: block;
+	font-size: 25px;
+	float: right;
+	width: 185px;
+	text-align: right;
+	margin-top: 25px;
+	
 }
-#login-page form input{
-	border: 1px dashed #ccc;
-	box-shadow: 1px 1px 3px #777;
+aside{
+	padding: 34px;
+}
+aside nav a{
+	display: block;
+	color: #fff;
+	font-size: 16px;
+	font-family:'Century Gothic',sans-serif;
+	text-decoration: none;
+	margin-bottom: 30px;
+}
+aside nav #homeMenu:hover{
+	background-color: #2572EB ;
 }
