@@ -1,11 +1,13 @@
 body{
 	margin: 0 auto;
-	background: url('../images/body-bg.jpg') repeat-x scroll 0 0 transparent;
+}
+#content{
+	margin:0 auto;
 }
 
 /* HEAD */
 h1{
-	background: url('../images/LOGO.gif') no-repeat scroll 0 0 transparent;
+	background: url('../images/LOGO.png') no-repeat scroll 0 0 transparent;
 	width: 210px; 
 	height: 103px;
 	text-indent: -9999px;
@@ -22,3 +24,11 @@ h1{
 
 
 /* End head */
+
+/* list */
+.search_form{
+	margin-left: 185px;
+}
+
+
+/* End list */
