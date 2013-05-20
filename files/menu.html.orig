@@ -18,10 +18,17 @@
 	<nav>
 		<a href="#" id="homeMenu" class="active">Home</a>
 		<a href="#" id="searchMenu">Search</a>
+<<<<<<< HEAD
 		<a href="ps_list_employees.html" target="content" id="listMenu">List of Employees</a>
 		<a href="ps_admin_profile.html" target="content" id="profileMenu">Admin profile</a>
+		<a href="#" id="importMenu">Import</a>
+		<a href="#">Logout</a>
+=======
+		<a href="#" id="listMenu">List of Employees</a>
+		<a href="#" id="profileMenu">Admin profile</a>
 		<a href="ps_xls_import.html" target="content" id="importMenu">Import</a>
 		<a href="#" id="logout">Logout</a>
+>>>>>>> 39001bbae4b03452ed4dedfe529f0df4c463a71e
 	</nav>
 </aside>
 
