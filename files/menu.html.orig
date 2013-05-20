@@ -13,24 +13,34 @@
     <![endif]-->
 </head>
 
-
+<body>
 	<aside>
+<<<<<<< HEAD
+	<ul>
+		<li><a href="#" id="homeMenu"><img src="images/home-icon.png" alt="" />Home</a></li>
+		<li><a href="#" id="searchMenu"><img src="images/search-icon.png" alt="" />Search</a></li>
+		<li><a href="#" id="listMenu"><img src="images/listemployee-icon.png" alt="" />List of Employees</a></li>
+		<li><a href="#" id="profileMenu"><img src="images/admin-icon.png" alt="" />Admin profile</a></li>
+		<li><a href="ps_xls_import.html" target="content" id="importMenu"><img src="images/import-icon.png" alt="" />Import</a></li>
+		<li><a href="#" id="logout"><img src="images/logout-icon.png" alt="" />Logout</a></li>
+	</ul>
+=======
 	<nav>
 		<a href="#" id="homeMenu" class="active">Home</a>
 		<a href="#" id="searchMenu">Search</a>
-<<<<<<< HEAD
 		<a href="ps_list_employees.html" target="content" id="listMenu">List of Employees</a>
 		<a href="ps_admin_profile.html" target="content" id="profileMenu">Admin profile</a>
-		<a href="#" id="importMenu">Import</a>
-		<a href="#">Logout</a>
-=======
-		<a href="#" id="listMenu">List of Employees</a>
-		<a href="#" id="profileMenu">Admin profile</a>
 		<a href="ps_xls_import.html" target="content" id="importMenu">Import</a>
 		<a href="#" id="logout">Logout</a>
->>>>>>> 39001bbae4b03452ed4dedfe529f0df4c463a71e
 	</nav>
+>>>>>>> 7d5c24c8e5039e678a08369f289f64bb5a730c98
 </aside>
+<div class="clear"></div>
+<div id="powered">
+	<a href="#" target="_blank"><img src="images/seglogo.png" alt="" width="174" height="92" /></a>
+</div>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/addclass_menu.js"></script>
 
-
+</body>
 </html>
