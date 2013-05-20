@@ -9,34 +9,41 @@
 	padding: 41px;
 	width: 384px;
 	margin-left: 115px;
-	background-color: #ffffff;
+	background-color: #E4031D;
+	box-shadow: 2px 2px 2px #888888;
 }
 #content-list-employee table{
 	margin-top :50px;
-	font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
-	font-size:14px;
-	color:#333333;
+	font-family: "Open Sans",Arial,sans-serif;
+	color:#fff;
 	border-width: 1px;
 	border-color: #999999;
 	border-collapse: collapse;
+	margin-left: 70px;
+	box-shadow: 2px 2px 2px #888888;
 }
 #content-list-employee table th {
-	background:#AFEEEE;
-	border-width: 1px;
+	background:#1FAEFF;
 	padding: 8px;
-	border-style: solid;
-	border-color: #999999;
+	border-color: #1FAEFF;
 }
 #content-list-employee table td 
 {
-	border-width: 1px;
 	padding: 8px;
-	border-style: solid;
-	border-color: #999999;
+	border-color: #1C9CE5;
 }
 tr:nth-child(even) {
-	background: #CCC
+	background: #1C9CE5;
+	opacity: 0.9;
 }
 tr:nth-child(odd) {
-	background: #FFF
+	background: #1C9CE5;
+}
+tr:nth-child(even):hover {
+	background: #fff;
+	color: #333333;
+}
+tr:nth-child(odd):hover {
+	background: #fff;
+	color: #333333;
 }

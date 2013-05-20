@@ -1,0 +1,22 @@
+#content-view-profile img{
+	float: right;
+}
+.info{
+	margin-top: 126px;
+	font-family: Comic Sans MS, cursive, sans-serif;
+}
+.info input{
+	margin-top: 40px;
+}
+#hourly_rate:hover{
+	background-color: #FFF;
+}
+#ot_rate:hover{
+	background-color: #FFF;
+}
+#night_premium:hover{
+	background-color: #FFF;
+}
+#credit:hover{
+	background-color: #FFF;
+}
