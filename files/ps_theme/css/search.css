@@ -23,11 +23,18 @@ body{
 }
 #content form label{
 	color: #333333;
+	display: inline;
 	font-size: 12px;
-	text-align: center;
+}
+.search_label{
+	bottom: 10px;
+	left: 55px;
+	position: relative;
+}
+.batch_name{
+	padding-left: 20px;
 }
 select{
-	display: block;
 	margin: 0 auto;
 }
 form p{
@@ -37,12 +44,13 @@ form p{
 }
 .btn {
     position: relative;
-    top: -6px;
+    right: 20px;
 }
 .batch{
 	color:#000;
-	margin-top: 20px;
-	text-align: center;
+	font-size: 13px;
+	font-weight: bold;
+	margin-left: 830px;
 }
 hr{
 	color: #262626;
@@ -52,6 +60,7 @@ hr{
 .employee label{
 	color: #000;
 	font-size: 13px;
+	float: left;
 }
 .employee span{
 	color: #000;
@@ -121,4 +130,7 @@ h2{
 .summary tr td{
 	border: 1px solid #c8c8c8;
 	padding: 10px;
+}
+.summary tr td:first-child {
+font-weight: bold;
 }

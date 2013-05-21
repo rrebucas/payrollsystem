@@ -15,22 +15,28 @@
 	<div class="page-holder">
 		<h1>Search Employee</h1>
 		<form method="post" action="#" class="search">
-			<label>To search: Enter Employee's name (i.e. Arn,Mos)</label>
+			<label class="search_label">To search: Enter Employee's name (i.e. Arn,Mos)</label>
 			<p>
+				<label>Employee's Name: </label>
 				<input type="text" size="45" name="search_list" value="" class="search-here" required/>
+			</p>
+			<p>
+				<label class="batch_name">Bactch Name: </label>
 				<select>
 				  <option value="Batch 1">May 1-15</option>
 				  <option value="Batch 2">May 16-31</option>
 				  <option value="Batch 3">June 1-15</option>
 				  <option value="Batch 4">June 16-30</option>
 				</select>
+			</p>
+			<p>
 				<input type="submit" name="search_btn" value="search" class="btn">
 			</p>
 		</form>
-		<p class="batch">Batch 1</p>
 		<hr>
 		<div class="employee">
-				<label>Name of Employee: <span> Arnel M. Moso</span></label>	
+				<label>Name of Employee: <span> Arnel M. Moso</span></label>
+				<p class="batch">Batch 1</p>	
 		</div>
 		<table border="0" class="date">
 		<caption>Cut off Dates</caption>
