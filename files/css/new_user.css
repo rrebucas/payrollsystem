@@ -1,0 +1,39 @@
+body{
+	font-family: 'Century Gothic', sans-serif;
+}
+#new_user_content{
+	margin: 0 auto;
+	width: 600px;
+}
+#user_form{
+	float: left;
+	width: 350px;
+}
+#user_form form input[type="text"],input[type="password"]{
+	border-radius: 2px;
+	padding: 4px 5px;
+	font-size: 13px;
+	height: 16px;
+	line-height: 16px;
+	margin-left: 12px;
+}
+#user_form form label{
+	font-size: 13px;
+	line-height: 16px;
+}
+#user_form #create_reset_btn{
+	float: right;
+	margin-right: 84px;
+}
+#new-user{
+	float: right;
+	margin-top: 20px;
+}
+#new-user #browse_file{
+	display: block;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+#new-user .upload_user{
+	float: right;
+}

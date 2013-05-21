@@ -1,9 +1,14 @@
+body {
+	font-family:'Century Gothic',sans-serif;
+	font-size:12px;
+	margin:30px;
+	background-color:#E4031D;
+	}
 #content-view-profile img{
 	float: right;
 }
 .info{
 	margin-top: 126px;
-	font-family: 'Century Gothic', sans-serif;
 }
 .info input{
 	margin-top: 40px;
