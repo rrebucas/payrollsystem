@@ -1,6 +1,10 @@
 body{
 	font-family: 'Century Gothic', sans-serif;
 }
+.clear{
+	clear: both;
+	display: block;
+}
 #new_user_content{
 	margin: 0 auto;
 	width: 600px;
@@ -24,6 +28,8 @@ body{
 #user_form #create_reset_btn{
 	float: right;
 	margin-right: 84px;
+	margin-bottom: 20px;
+	clear: both;
 }
 #new-user{
 	float: right;

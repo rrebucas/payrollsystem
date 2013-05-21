@@ -14,7 +14,7 @@
 <frameset rows="100,*" frameborder="0" border="0" framespacing="0">
   <frame name="header" src="header.php" scrolling="no">
 <frameset cols="280,*" frameborder="0" border="0" framespacing="0">
-	<frame name="menu" src="menu.php" marginheight="0" marginwidth="0" scrolling="no" noresize>
+	<frame name="menu" src="menu.php" marginheight="0" marginwidth="0" scrolling="auto" noresize>
 	<frame name="content" src="calendar.php" marginheight="0" marginwidth="0" scrolling="auto" noresize>
 	
 

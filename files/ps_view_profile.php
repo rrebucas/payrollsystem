@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="css/view.css"/>
+	<link rel="stylesheet" type="text/css" href="ps_theme/css/view.css"/>
 <style type="text/css">
 body {
 	font-family:verdana,arial,sans-serif;
