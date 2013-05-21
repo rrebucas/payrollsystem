@@ -1,0 +1,27 @@
+#content-admin-profile .info{
+	margin-top: 100px;
+	font-family: verdana,arial,sans-serif;
+}
+#content-admin-profile .info table{
+	background-color: #189800;
+	padding: 10px 0px 10px 10px;
+}
+#content-admin-profile .info input{
+	float: right;
+	margin-right: 32px;
+	margin-top: 50px;
+	display: inline-block;
+}
+#content-admin-profile .profile_pic{
+	float: right;
+}
+#content-admin-profile .profile_pic img{
+	margin-left: -2px;
+}
+#content-admin-profile .profile_pic form{
+	width:200px;
+	margin-top: 10px;
+}
+#content-admin-profile .profile_pic form input{
+	margin-top: 2px;
+}
