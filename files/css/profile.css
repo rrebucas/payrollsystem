@@ -1,3 +1,9 @@
+body {
+	font-family:'Century Gothic', sans-serif;
+	font-size:14px;
+	margin:30px;
+	background-color:#FFF;
+	}
 #content-admin-profile .info{
 	margin-top: 100px;
 	font-family: verdana,arial,sans-serif;

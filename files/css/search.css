@@ -1,0 +1,129 @@
+body{
+	background-color:#fff;
+	color: #000;
+	font-family: 'Mouse Memoirs', sans-serif;
+	margin:0 auto;
+}
+#content{
+	margin: 20px 0 0 20px;	
+}
+#content h1{
+	color: #000;
+	font-size: 2em;
+}
+#content form{
+	margin-top: 10px;
+}
+#content form label{
+	color: #000;
+	display: block;
+	font-size: 18px;
+	margin-bottom: 12px;
+	text-align: center;
+}
+form p{
+	color: #000;
+	font-size: 18px;
+	text-align: center;
+}
+form .search_bar{
+	border:1px solid #017D7D;
+	border-radius: 5px;
+	font-family: 'Love Ya Like A Sister', cursive;
+	font-size: 17px;
+	height: 22px;
+	padding-left: 4px;
+	width: 300px;
+}
+form .search_btn{
+	background-color: #D74F2A;
+	border: 1px solid #505050;
+	border-radius: 4px;
+	box-shadow: 2px 2px #000;
+	cursor: pointer;
+	font-family: 'Love Ya Like A Sister', cursive;
+	height: 24px;
+	margin-left: 10px;
+	width: 70px;
+}
+form .search_btn:hover{
+	background-color: #f9a834;
+}
+form .search_btn:active{
+	position: relative;
+	top: 1px;
+}
+.batch{
+	color:#000;
+	margin-top: 20px;
+	text-align: center;
+}
+hr{
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+.employee label{
+	color: #000;
+	font-size: 18px;
+}
+.employee span{
+	color: #000;
+	font-size: 20px;
+
+}
+h2{
+	margin-top: 20px;
+}
+.date{
+	color: #000;
+	font-size: 18px;
+	margin-top: 8px;
+}
+.date caption{
+	float: left;
+}
+.date tbody{
+	text-indent: 55px;
+}
+.data{
+    color: #000;
+	margin-top: 8px;
+	width: 800px;
+}
+.data tr td{
+	border: 1px solid #000;
+	font-size: 18px;
+	padding: 6px 3px 6px 3px;
+	text-align: center;
+}
+.data thead{
+	background: #1e5799;
+	background: -moz-linear-gradient(top, #1e5799 0%, #50b5d3 0%, #339ab8 100%); /*FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(0%,#50b5d3), color-stop(100%,#339ab8)); /* Chrome, Safari4 */
+	background: -o-linear-gradient(top, #1e5799 0%, #50b5d3 0%, #339ab8 100%); /*Opera 11.10+ */
+	background: -ms-linear-gradient(top, #1e5799 0%,#50b5d3 0%, #339ab8 100%); /* IE10 */
+	background: linear-gradient(to bottom, #1e5799 0%,#50b5d3 0%,#339ab8 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#339ab8',GradientType=0); /* IE6-9 */
+	border:none;
+	color: #fff;
+	font-weight: lighter;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.red{
+	color:red;
+	font-size: 16px;
+	font-weight: bold;
+}
+.button{
+	float: left;
+	margin-top: 14px;    
+}
+.summary{
+	float: right;
+	margin-right: 36px;
+    margin-top: 14px;
+}
+.summary tr td{
+	border: 1px solid #000;
+	padding: 10px;
+}

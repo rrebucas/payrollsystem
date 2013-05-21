@@ -1,3 +1,9 @@
+body {
+	font-family:'Century Gothic',sans-serif;
+	font-size:12px;
+	margin:30px;
+	background-color:#FFF;
+	}
 #content-list-employee .search form p {
 	text-align: center;
 }
@@ -46,4 +52,11 @@ tr:nth-child(even):hover {
 tr:nth-child(odd):hover {
 	background: #fff;
 	color: #333333;
+}
+tr:nth-child(odd):hover{
+	background: none;
+}
+#content-list-employee a{
+	text-decoration: none;
+	color: #ccc;
 }
