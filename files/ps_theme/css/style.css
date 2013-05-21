@@ -1,0 +1,128 @@
+* {
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+}
+body {
+	font-family:'Mouse Memoirs',sans-serif;
+	background-color:#262626;
+	color:#fff;
+}
+.clear {
+	clear:both;
+	display:block;
+	visibility:hidden;
+}
+#header-container {
+	margin:auto 50px;
+	position:relative;
+}
+header h1 a {
+	font-size:50px;
+	float:left;
+	margin-top:30px;
+	font-weight:normal;
+	text-transform:uppercase;
+	text-decoration:none;
+	display:block;
+	color:#fff;
+	text-shadow:1px 1px 2px #000;
+}
+header #date_time {
+	display:block;
+	font-size:25px;
+	float:right;
+	width:185px;
+	text-align:right;
+	margin-top:25px;
+	text-shadow:1px 1px 2px #000;
+}
+header span.seglogo {
+	color:#0095d1;
+}
+aside ul li {
+	margin-bottom:0px;
+	list-style:none;
+	padding:0;
+	float:left;
+	width:100%;
+	opacity:1;
+	overflow:hidden;
+}
+aside ul li a {
+	display:block;
+	font-size:18px;
+	font-family:'Century Gothic',sans-serif;
+	text-decoration:none;
+	padding:30px 20px;
+	color:#AEAEAE;
+	text-shadow:1px 1px 2px #000;
+	height:80px;
+	float:left;
+	width:100%;
+}
+aside ul a:hover,aside ul a.active {
+	-moz-transition:background-color 1s ease 0s;
+	-webkit-transition:background-color 1s ease 0s;
+	-o-transition:background-color 1s ease 0s;
+}
+#homeMenu:hover,#homeMenu.active {
+	background-color:#2572EB;
+	color:#fff;
+}
+#searchMenu:hover,#searchMenu.active {
+	background-color:#4CC40B;
+	color:#fff;
+}
+#listMenu:hover,#listMenu.active {
+	background-color:#E4031D;
+	color:#fff;
+}
+#profileMenu:hover,#profileMenu.active {
+	background-color:#FFCC00;
+	color:#fff;
+}
+#importMenu:hover,#importMenu.active {
+	background-color:#7301ad;
+	color:#fff;
+}
+#logout:hover,#logout.active {
+	background-color:#ad103c;
+	color:#fff;
+}
+aside ul li img {
+	float:left;
+	margin-right:10px;
+	padding:7.5px;
+	margin-top:-15px;
+}
+#homeMenu img {
+	background-color:#2572EB;
+}
+#searchMenu img {
+	background-color:#4CC40B;
+}
+#listMenu img {
+	background-color:#E4031D;
+}
+#profileMenu img {
+	background-color:#FFCC00;
+}
+#importMenu img {
+	background-color:#7301ad;
+}
+#logout img {
+	background-color: #ad103c;
+}
+/* Calendar */
+#calendar {
+	margin:40px auto;
+	width:800px;
+}
+#powered {
+	background-color:#fff;
+	width:100%;
+	display:block;
+	padding-left:30px;
+	padding-bottom: 5px;
+}

@@ -1,0 +1,32 @@
+
+body{
+	background: url("../images/bg-background.png");
+	background-color: #555;
+	font-family: 'Quicksand', sans-serif;
+}
+.container{
+	margin: 0 auto;
+	position: relative;
+	width: 960px;
+}
+#content{
+
+}
+#content h1 a{
+	background: url(../images/seglogo.png) no-repeat scroll 0 0 transparent;
+	display: block;
+	text-indent: -9999px;
+	height: 92px;
+	width: 174px;
+}
+#content #login-page{
+	background-color: #fff;
+	margin: 0 auto;
+	position: relative;
+	padding: 20px 30px;
+	width: 300px;
+}
+#login-page form input{
+	border: 1px dashed #ccc;
+	box-shadow: 1px 1px 3px #777;
+}

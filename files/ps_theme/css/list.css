@@ -1,0 +1,61 @@
+body {
+	font-family:'Century Gothic',sans-serif;
+	font-size:12px;
+	margin:30px;
+	background-color:#FFF;
+	}
+.clear{
+	clear: both;
+	display: block;
+}
+#content-list-employee{
+	position: relative;
+}
+#content-list-employee .search form p {
+	text-align: center;
+}
+#content-list-employee .search form{
+	text-align: center;
+}
+#content-list-employee h1{
+	margin-bottom: 20px;
+}
+#search{
+	background-color: #F9F9F9;
+	padding: 41px;
+	width: 384px;
+	margin: 0 auto;
+	box-shadow: 2px 2px 3px #888888;
+}
+#search .search-here{
+	position: relative;
+	top: 6px;
+}
+#content-list-employee table{
+	border-collapse: collapse;
+	box-shadow: 2px 2px 2px #888888;
+	margin: 40px auto;
+}
+#content-list-employee table th {
+	padding: 8px;
+	border: 1px solid #c8c8c8;
+}
+#content-list-employee table td 
+{
+	border: 1px solid #c8c8c8;
+	padding: 8px;
+}
+#content-list-employee table th{
+	border: none;
+}
+thead{
+	background-color: #262626;
+	border: none;
+	color: #fff;
+	font-size: 12px;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	font-weight: lighter;
+}
+thead th:hover{
+	color: #fff;
+}
