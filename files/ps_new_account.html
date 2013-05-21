@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payroll System</title>
+<link rel="stylesheet" type="text/css" href="css/new_account.css"/>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="js/jquery.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+body {
+	font-family:verdana,arial,sans-serif;
+	font-size:10pt;
+	margin:30px;
+	background-color:#fff;
+	}
+</style>
+</head>
+<body>
+<div class="content-fluid content-new-account">
+	<h1>Add New User</h1>
+	<div class="profile_pic">
+		<div class="img_holder">
+			<img src="http://placehold.it/150x150" class="img-rounded" alt="image"/>
+			<form action="#" method="post">
+				<input type="file" class="file"/>
+				<input type="submit" value="upload" name="upload_btn" class="btn"/>
+				<!--<input type="submit" value="browse" name="browse_btn" class="btn">-->
+			</form>
+		</div>
+		<div class="content-fluid fill-up-form">
+			<form action="#" method="post">
+				<table>
+				<tr>
+					<td>
+						<label class="control-label" for="input_reg_date">Registration Date:</label>
+					</td>
+					<td>
+						<input type="text" id="input_reg_date" placeholder="javascript here">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label class="control-label" for="input_reg_time">Registration Time:</label>
+					</td>
+					<td>
+						<input type="text" id="input_reg_time" placeholder="javascript here">
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label class="control-label" for="input_fname">First Name:</label>
+					</td>
+					<td>
+						<input type="text" id="input_fname" name="fname" required/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label class="control-label" for="input_lname">Last Name:</label>
+					</td>
+					<td>
+						<input type="text" id="input_lname" name="lname" required/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label class="control-label" for="input_uname">User Name:</label>
+					</td>
+					<td>
+						<input type="text" id="input_uname" name="uname" required/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label class="control-label" for="password">Password:</label>
+					</td>
+					<td>
+						<input type="password" id="p1" required/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label class="control-label" for="password">Confirm Password:</label>
+					</td>
+					<td>
+						<input type='password' onfocus="validatePass(document.getElementById('p1'), this);" oninput="validatePass(document.getElementById('p1'), this);" required/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label class="control-label" for="input_pos">Position:</label>
+					</td>
+					<td>
+						<input type="text" id="input_pos" name="position" required/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label class="control-label" for="input_address">Address:</label>
+					</td>
+					<td>
+						<input type="text" id="input_address" name="address" required/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label class="control-label" for="input_country">Country:</label>
+					</td>
+					<td>
+						<input type="text" id="input_country" name="country" required/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="zip">Zip Code:</label>
+					</td>
+					<td>
+						<input type="number" pattern="[0-9]*" maxlength="5" min="0" name="zip" id="zip" required/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label class="control-label" for="input_nat">Nationality:</label>
+					</td>
+					<td>
+						<input type="text" id="input_nat" name="nationality" required/>
+					</td>
+				</tr>
+				</table>
+				<input type="reset" value="reset" name="reset_btn" class="btn" id="res_but">
+				<input type="submit" value="create" name="create_btn" class="btn" id="cre_but">
+			</form>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+function validatePass(p1, p2) {
+    if (p1.value != p2.value || p1.value == '' || p2.value == '') {
+        p2.setCustomValidity('Password incorrect');
+    } else {
+        p2.setCustomValidity('');
+    }
+}
+</script>
+</body>
+</html>
