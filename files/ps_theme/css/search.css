@@ -1,8 +1,8 @@
 body{
 	background-color:#fff;
-	color: #000;
-	font-family: 'Mouse Memoirs', sans-serif;
-	margin:0 auto;
+	font-family: 'Century Gothic',sans-serif;
+	font-size: 12px;
+	margin:30px;
 }
 .page-holder{
 	margin: 0 auto;
@@ -12,50 +12,32 @@ body{
 	margin: 20px 0 0 20px;	
 }
 #content h1{
-	color: #000;
-	font-size: 2em;
+	color: #333333;
 }
-#content form{
-	margin-top: 10px;
+#content .search{
+	background-color: #F9F9F9;
+    box-shadow: 2px 2px 3px #888888;
+    margin: 0 auto;
+    padding: 41px;
+    width: 384px;
 }
 #content form label{
-	color: #000;
-	display: block;
-	font-size: 18px;
-	margin-bottom: 12px;
+	color: #333333;
+	font-size: 12px;
 	text-align: center;
+}
+select{
+	display: block;
+	margin: 0 auto;
 }
 form p{
 	color: #000;
-	font-size: 18px;
+	font-size: 14px;
 	text-align: center;
 }
-form .search_bar{
-	border:1px solid #017D7D;
-	border-radius: 5px;
-	font-family: 'Love Ya Like A Sister', cursive;
-	font-size: 17px;
-	height: 22px;
-	padding-left: 4px;
-	width: 300px;
-}
-form .search_btn{
-	background-color: #D74F2A;
-	border: 1px solid #505050;
-	border-radius: 4px;
-	box-shadow: 2px 2px #000;
-	cursor: pointer;
-	font-family: 'Love Ya Like A Sister', cursive;
-	height: 24px;
-	margin-left: 10px;
-	width: 70px;
-}
-form .search_btn:hover{
-	background-color: #f9a834;
-}
-form .search_btn:active{
-	position: relative;
-	top: 1px;
+.btn {
+    position: relative;
+    top: -6px;
 }
 .batch{
 	color:#000;
@@ -63,16 +45,18 @@ form .search_btn:active{
 	text-align: center;
 }
 hr{
+	color: #262626;
 	margin-bottom: 20px;
 	margin-top: 20px;
 }
 .employee label{
 	color: #000;
-	font-size: 18px;
+	font-size: 13px;
 }
 .employee span{
 	color: #000;
-	font-size: 20px;
+	font-size: 13px;
+	font-weight: bold;
 
 }
 h2{
@@ -80,8 +64,12 @@ h2{
 }
 .date{
 	color: #000;
-	font-size: 18px;
+	font-size: 13px;
 	margin-top: 8px;
+}
+.date .value{
+	font-weight: 13px;
+	font-weight: bold;
 }
 .date caption{
 	float: left;
@@ -90,22 +78,31 @@ h2{
 	text-indent: 55px;
 }
 .data{
+	border-collapse: collapse;
+	box-shadow: 2px 2px 2px #888888;
     color: #000;
 	margin: 8px auto;
-	width: 900px;
+	width: 800px;
 }
-.data tr td{
-	border-color: #1C9CE5;
-	font-size: 18px;
+.data tbody td{
+	border: 1px solid #c8c8c8;
+	color: #333333;
+	font-family: 'Century Gothic',sans-serif;
+    font-size: 12px;
 	padding: 6px 3px 6px 3px;
 	text-align: center;
 }
-.data tr:nth-child(odd){
-	background: none repeat scroll 0 0 #1C9CE5;
-}
 .data thead{
-	background: none repeat scroll 0 0 #1FAEFF;
-    border-color: #1FAEFF;
+	background-color: #262626;
+    border: medium none;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.data .total td{
+	font-weight: bold;
 }
 .red{
 	color:red;
@@ -114,13 +111,14 @@ h2{
 }
 .button{
 	float: left;
-	margin: 40px 0 0 30px;    
+	margin: 40px 0 0 80px;    
 }
 .summary{
+	box-shadow: 2px 2px 2px #888888;
 	float: right;
-    margin: 14px 36px 15px 0;
+    margin: 14px 80px 15px 0;
 }
 .summary tr td{
-	border: 1px solid #000;
+	border: 1px solid #c8c8c8;
 	padding: 10px;
 }

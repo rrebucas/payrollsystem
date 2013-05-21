@@ -46,12 +46,14 @@ body {
 			<input type="submit" name="submit" id="submit" class="btn btn-small btn-primary" value="Import File">
 		</p>
 	</form>
-<?php $start_time = microtime(true); 
 
+
+
+<!--page generate-->
+<?php 
+$start_time = microtime(true); 
 $time_gen = number_format(microtime(true) - $start_time, 9);
-
 ?>
-
 <pre class="prettyprint" id="page=generated" style=" position: absolute; bottom: 0; width: 90%; ">
 This page was generated in <span class="atv"><?php echo"$time_gen"; ?></span> seconds.
 </pre>

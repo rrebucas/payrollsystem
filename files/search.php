@@ -3,10 +3,8 @@
 <head>
 <title>Payroll System | SegWorks Technologies Corporation</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-<link href="http://fonts.googleapis.com/css?family=Mouse+Memoirs" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="css/reset.css"/>
-<link rel="stylesheet" type="text/css" href="css/search.css"/>
+<link rel="stylesheet" type="text/css" href="ps_theme/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="ps_theme/css/search.css"/>
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
@@ -16,11 +14,17 @@
 <div id="content">
 	<div class="page-holder">
 		<h1>Search Employee</h1>
-		<form method="post" action="#">
+		<form method="post" action="#" class="search">
 			<label>To search: Enter Employee's name (i.e. Arn,Mos)</label>
 			<p>
-				<input type="text" class="search_bar" name="search" required/>
-				<input type="submit" name="submit_srch" value="search" class="search_btn" title="Search Data">
+				<input type="text" size="45" name="search_list" value="" class="search-here" required/>
+				<select>
+				  <option value="Batch 1">May 1-15</option>
+				  <option value="Batch 2">May 16-31</option>
+				  <option value="Batch 3">June 1-15</option>
+				  <option value="Batch 4">June 16-30</option>
+				</select>
+				<input type="submit" name="search_btn" value="search" class="btn">
 			</p>
 		</form>
 		<p class="batch">Batch 1</p>
@@ -33,11 +37,11 @@
 		<tbody>
 		<tr>
 			<td>From:</td>
-			<td>May 17, 2013</td>
+			<td class="value">May 17, 2013</td>
 		</tr>
 		<tr>
 			<td>To:</td>
-			<td>May 31, 2013</td>
+			<td class="value">May 31, 2013</td>
 		</tr>
 		</tbody>
 		</table>
@@ -372,19 +376,9 @@
 					<tr>
 						<td colspan="18">&nbsp;</td>
 					</tr>
-					<tr>
+					<tr class="total">
 						<td>Total</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
+						<td colspan="11">&nbsp;</td>
 						<td>121.5</td>
 						<td>123</td>
 						<td>0.0</td>
@@ -395,11 +389,11 @@
 				</tbody>
 			</table>
 			<p class="button">
-				<button class="btn btn-small btn-primary" type="button">Save</button>
-				<button class="btn btn-small btn-success" type="button">Print</button>
+				<button class="btn" type="button">Save</button>
+				<button class="btn" type="button">Print</button>
 			</p>
 		</form>
-		<table border="1" class="bordered-table summary">
+		<table class="table-striped summary">
 			<tr>
 				<td>Creditable Hours</td>
 				<td>88.50</td>
