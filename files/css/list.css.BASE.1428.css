@@ -1,0 +1,49 @@
+#content-list-employee .search form p {
+	text-align: center;
+}
+#content-list-employee .search form{
+	text-align: center;
+}
+.search{
+	border: 1px solid rgb(255, 255, 255);
+	padding: 41px;
+	width: 384px;
+	margin-left: 115px;
+	background-color: #E4031D;
+	box-shadow: 2px 2px 2px #888888;
+}
+#content-list-employee table{
+	margin-top :50px;
+	font-family: "Open Sans",Arial,sans-serif;
+	color:#fff;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+	margin-left: 70px;
+	box-shadow: 2px 2px 2px #888888;
+}
+#content-list-employee table th {
+	background:#1FAEFF;
+	padding: 8px;
+	border-color: #1FAEFF;
+}
+#content-list-employee table td 
+{
+	padding: 8px;
+	border-color: #1C9CE5;
+}
+tr:nth-child(even) {
+	background: #1C9CE5;
+	opacity: 0.9;
+}
+tr:nth-child(odd) {
+	background: #1C9CE5;
+}
+tr:nth-child(even):hover {
+	background: #fff;
+	color: #333333;
+}
+tr:nth-child(odd):hover {
+	background: #fff;
+	color: #333333;
+}

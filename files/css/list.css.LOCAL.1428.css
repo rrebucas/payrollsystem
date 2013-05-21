@@ -1,0 +1,30 @@
+#content-list-employee #search form p {
+	text-align: center;
+	font-style: italic;
+}
+#content-list-employee #search form{
+	text-align: center;
+}
+#search{
+	border: 0;
+	padding: 41px;
+	width: 384px;
+	margin-left: 115px;
+	background-color: #EEEEEE;
+	box-shadow: 2px 2px 2px #888888;
+}
+#content-list-employee table{
+	margin-top :50px;
+	border-width: 1px;
+	border-collapse: collapse;
+	border: 1px solid rgb(221, 221, 221);
+	border-radius: 6px;
+}
+#content-list-employee table th {
+	padding: 8px;
+}
+#content-list-employee table td 
+{
+	padding: 8px;
+}
+
