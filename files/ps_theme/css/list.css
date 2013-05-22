@@ -27,6 +27,13 @@ body {
 	margin: 0 auto;
 	box-shadow: 2px 2px 3px #888888;
 }
+#search p{
+	text-align: center;
+}
+#search form {
+	margin: 0 auto;
+	text-align: center;
+}
 #search .search-here{
 	position: relative;
 	top: 6px;

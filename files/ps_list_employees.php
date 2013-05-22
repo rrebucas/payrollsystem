@@ -11,7 +11,7 @@
 		<h1>List of Employees</h1>
 			<div id="search">
 				<form action="#" method="post">
-					<p>To search: Enter Employee's Name (i.e. Abc,def) </p>
+					<p>Enter <strong>Employee's Name</strong> <em>(i.e. Abc,def)</em> </p>
 						<input class="search-here" type="text" value="" name="search_list" size="45" />
 						<input class="btn" type="submit" value="search" name="search_btn" />
 				</form>
@@ -105,6 +105,17 @@
 				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 		</table>
+			<div class="pagination pagination-small pagination-centered">
+				<ul>
+					<li class="disabled"><a href="#">Prev</a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">Next</a></li>
+				</ul>
+			</div>
 	</div>
 	<div class="clear"></div>
 	<!--Page Generated-->
