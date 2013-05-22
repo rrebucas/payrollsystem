@@ -11,7 +11,7 @@
 		<h1>List of Employees</h1>
 			<div id="search">
 				<form action="#" method="post">
-					<p>To search: Enter Employee's Name (i.e. Abc,def) </p>
+					<p>Enter <strong>Employee's Name</strong> <em>(i.e. Abc,def)</em> </p>
 						<input class="search-here" type="text" value="" name="search_list" size="45" />
 						<input class="btn" type="submit" value="search" name="search_btn" />
 				</form>
