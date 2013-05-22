@@ -40,6 +40,10 @@ header #date_time {
 header span.seglogo {
 	color:#0095d1;
 }
+aside{
+	height: 500px;
+	overflow: auto;
+}
 aside #accordion ul {
 	list-style: none;
 	padding: 0 0 0 0;

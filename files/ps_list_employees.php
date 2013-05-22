@@ -105,6 +105,17 @@
 				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 		</table>
+			<div class="pagination pagination-small pagination-centered">
+				<ul>
+					<li class="disabled"><a href="#">Prev</a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">Next</a></li>
+				</ul>
+			</div>
 	</div>
 	<div class="clear"></div>
 	<!--Page Generated-->
