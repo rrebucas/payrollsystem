@@ -21,7 +21,7 @@
 				<input type="text" size="45" name="search_list" value="" class="search-here" required/>
 			</p>
 			<p>
-				<label class="batch_name">Bactch Name: </label>
+				<label class="batch_name">Batch Name: </label>
 				<select>
 				  <option value="Batch 1">May 1-15</option>
 				  <option value="Batch 2">May 16-31</option>
@@ -36,7 +36,7 @@
 		<hr>
 		<div class="employee">
 				<label>Name of Employee: <span> Arnel M. Moso</span></label>
-				<p class="batch">Batch 1</p>	
+				<p class="batch">Batch Number: <span> Batch 1</span></p>	
 		</div>
 		<table border="0" class="date">
 		<caption>Cut off Dates</caption>
@@ -399,6 +399,11 @@
 				<button class="btn" type="button">Print</button>
 			</p>
 		</form>
+		<div class="clear"></div>
+		<aside>
+			<a href="#">Download as PDF!</a>
+			<a href="#">Download as Microsoft Word!</a>
+		</aside>
 		<table class="table-striped summary">
 			<tr>
 				<td>Creditable Hours</td>
