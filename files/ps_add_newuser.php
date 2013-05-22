@@ -34,7 +34,7 @@
 					<label>First Name:</label>
 				</td>
 				<td>
-					<input type="text" name="Fname" required />
+					<input type="text" name="Fname" required pattern="[a-zA-Z ]+" />
 				</td>
 			</tr>
 			<tr>
@@ -42,7 +42,7 @@
 					<label>Last Name:</label>
 				</td>
 				<td>
-					<input type="text" name="Lname" required />
+					<input type="text" name="Lname" required pattern="[a-zA-Z ]+" />
 				</td>
 			</tr>
 			<tr>
@@ -55,18 +55,18 @@
 			</tr>
 			<tr>
 				<td>
-					<label>Password:</label>
+					<label for="password">Password:</label>
 				</td>
 				<td>
-					<input type="password" name="pword" required />
+					<input type="password" name="pword" id="p1" required />
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<label>Confirm Password:</label>
+					<label for="password">Confirm Password:</label>
 				</td>
 				<td>
-					<input type="password" name="ConfirnmPword" required />
+					<input type="password" name="ConfirnmPword" onfocus="validatePass(document.getElementById('p1'), this);" oninput="validatePass(document.getElementById('p1'), this);" required />
 				</td>
 			</tr>
 			<tr>
@@ -95,10 +95,10 @@
 			</tr>
 			<tr>
 				<td>
-					<label>Zip Code:</label>
+					<label for="zip">Zip Code:</label>
 				</td>
 				<td>
-					<input type="text" name="user_zipcode" required />
+					<input type="text" name="zip" required pattern="[0-9]{4}" />
 				</td>
 			</tr>
 			<tr>
@@ -136,5 +136,14 @@ $time_gen = number_format(microtime(true) - $start_time, 9);
 <pre class="prettyprint" id="page=generated" style="width: 90%; clear: both; margin: 0 auto; margin-bottom: 20px;">
 This page was generated in <span class="atv"><?php echo"$time_gen"; ?></span> seconds.
 </pre>
+<script type="text/javascript">
+function validatePass(p1, p2) {
+    if (p1.value != p2.value || p1.value == '' || p2.value == '') {
+        p2.setCustomValidity('Password incorrect');
+    } else {
+        p2.setCustomValidity('');
+    }
+}
+</script>
 </body>
 </html>

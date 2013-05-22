@@ -30,8 +30,22 @@
 	<li>
 	<a href="ps_admin_profile.php" target="content" id="profileMenu"><img src="ps_theme/images/admin-icon.png" alt=""/>Settings</a></li>
 	<ul>
+<<<<<<< HEAD
 		<li><a href="#">Admin Profile</a></li>
 		<li><a href="#">Add New User</a></li>
+=======
+		<li><a href="#" id="homeMenu"><img src="ps_theme/images/home-icon.png" alt="" />Home</a></li>
+		<li><a href="search.php" target="content" id="searchMenu"><img src="ps_theme/images/search-icon.png" alt="" />Search</a></li>
+		<!--conflict-->
+		
+		<li>
+		<a href="ps_list_employees.php" target="content" id="listMenu"><img src="ps_theme/images/listemployee-icon.png" alt="" />List of Employees</a></li>
+<li>
+		<a href="ps_admin_profile.php" target="content" id="profileMenu"><img src="ps_theme/images/admin-icon.png" alt="" />Admin Profile</a>
+		</li>
+		<li><a href="ps_xls_import.php" target="content" id="importMenu"><img src="ps_theme/images/import-icon.png" alt="" />Import</a></li>
+		<li><a href="#" id="logout"><img src="ps_theme/images/logout-icon.png" alt="" />Logout</a></li>
+>>>>>>> upstream/master
 	</ul>
 	
 	<li><a href="#" id="logout"><img src="ps_theme/images/logout-icon.png" alt=""/>Logout</a></li>

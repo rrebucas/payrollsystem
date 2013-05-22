@@ -7,11 +7,23 @@ body {
 #content-view-profile img{
 	float: right;
 }
-.info{
+.information{
 	margin-top: 126px;
 }
-.info input{
+.information table{
+	font-family:verdana,arial,sans-serif;
+	font-size:10pt;
+	border: none;
+}
+.information input{
 	margin-top: 40px;
+}
+.information table th {
+	padding: 8px;
+}
+.information table td 
+{
+	padding: 8px;
 }
 #hourly_rate:hover{
 	background-color: #FFF;

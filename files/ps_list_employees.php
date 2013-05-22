@@ -19,7 +19,7 @@
 
 		<table border="1" width="550" class="table-striped">
 			<thead>
-<tr>
+			<tr>
 				<th>ID No.</th>
 				<th>Employee's Name</th>
 				<th >Action</th>

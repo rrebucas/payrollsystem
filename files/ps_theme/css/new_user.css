@@ -20,6 +20,7 @@ body{
 	height: 16px;
 	line-height: 16px;
 	margin-left: 12px;
+	width: 135px;
 }
 #user_form form label{
 	font-size: 13px;
