@@ -2,7 +2,7 @@
 /* vertical scrollbar */
 .mCSB_container{
 	width:auto;
-	margin-right:16px;
+	margin-right:30px;
 	overflow:hidden;
 }
 .mCSB_container.mCS_no_scrollbar{
@@ -162,7 +162,8 @@
 .mCSB_scrollTools .mCSB_buttonDown,
 .mCSB_scrollTools .mCSB_buttonLeft,
 .mCSB_scrollTools .mCSB_buttonRight{
-	background: url(../images/mCSB_buttons.png) no-repeat scroll 0 0 transparent;
+	background-image:url(../mCSB_buttons.png);
+	background-repeat:no-repeat;
 	opacity:0.4;
 	filter:"alpha(opacity=40)"; -ms-filter:"alpha(opacity=40)"; /* old ie */
 }
