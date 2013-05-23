@@ -1,0 +1,89 @@
+
+body{
+	font-family: 'Mouse Memoirs', sans-serif;
+	background-color: #262626;
+	color: #fff;
+}
+#container{
+	margin: 0 auto;
+	position: relative;
+	width: 960px;
+}
+header{
+	background: url(../images/body-bg.jpg) repeat-x scroll 0 0 #000;
+	border-bottom: solid 1px #222628;
+	min-height: 300px;
+}
+header h1 a{
+	font-size: 50px;
+	float: left;
+	margin-top: 30px;
+	font-weight: normal;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: block;
+	color: #fff;
+	text-shadow: 1px 1px 2px #000;
+}
+header #date_time{
+	display: block;
+	font-size: 25px;
+	float: right;
+	width: 185px;
+	text-align: right;
+	margin-top: 25px;
+	text-shadow: 1px 1px 2px #000;
+	
+}
+aside{
+	
+}
+aside nav a{
+	display: block;
+	font-size: 16px;
+	font-family:'Century Gothic',sans-serif;
+	text-decoration: none;
+	margin-bottom: 20px;
+	padding: 20px 50px;
+	font-weight: bold;
+	color: #AEAEAE;
+	text-shadow: 1px 1px 2px #000;
+}
+aside nav a:hover, aside a.active{
+	-moz-transition:background-color 1s ease 0s;
+	-webkit-transition:background-color 1s ease 0s;
+	-o-transition:background-color 1s ease 0s;
+}
+aside nav #homeMenu:hover{
+	background-color: #2572EB ;
+	color: #fff;
+}
+aside nav #searchMenu:hover{
+	background-color: #4CC40B  ;
+	color: #fff;
+}
+aside nav #listMenu:hover{
+	background-color: #E4031D  ;
+	color: #fff;
+}
+aside nav #profileMenu:hover{
+	background-color: #FFCC00 ;
+	color: #fff;
+}
+aside nav #importMenu:hover{
+	background-color: #7301ad ;
+	color: #fff;
+}
+aside nav #calendar:hover{
+	background-color: #56c5ff ;
+	color: #fff;
+}
+aside nav #logout:hover{
+	color: #fff;
+}
+
+/* Calendar */
+#calendar{
+	margin: 40px auto;
+	width: 800px;
+}
