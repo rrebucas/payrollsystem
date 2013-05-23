@@ -1,6 +1,7 @@
 body{
 	font-family: 'Century Gothic', sans-serif;
 }
+
 .clear{
 	clear: both;
 	display: block;
@@ -11,7 +12,7 @@ body{
 }
 #user_form{
 	float: left;
-	width: 350px;
+	width: 312px;
 }
 #user_form form input[type="text"],input[type="password"]{
 	border-radius: 2px;
@@ -28,7 +29,7 @@ body{
 }
 #user_form #create_reset_btn{
 	float: right;
-	margin-right: 84px;
+	margin-right: 40px;
 	margin-bottom: 20px;
 	clear: both;
 }
@@ -40,7 +41,4 @@ body{
 	display: block;
     margin-bottom: 5px;
     margin-top: 10px;
-}
-#new-user .upload_user{
-	float: right;
 }

@@ -2,6 +2,9 @@
 
 require_once 'ps_connect_db.php';
 
+//include the following 2 files
+require_once 'ps_includes/phpexcel/Classes/PHPExcel.php';
+require_once 'ps_includes/phpexcel/Classes/PHPExcel/IOFactory.php';
 
 
 ?>
@@ -60,6 +63,9 @@ z-index: 100;
 overflow: hidden;
 text-align: center;
 }
+.input-small{
+	padding: 3px;
+}
 </style>
 </head>
 <body>
@@ -79,13 +85,19 @@ if (!isset($_FILES['file_import'])) {
 
 
 	<form enctype="multipart/form-data" id="import-upload-form" method="post" class="wp-upload-form" action="#">
+		
+
 		<p>
 		<label for="upload">Choose a file from your computer:</label> (Maximum size: 2 MB)
 		<input type="file" id="upload" name="file_import" size="25">
-		
+		</p>
+			
+		<p>	
+		File Name <em style="color:#e82c00;font-weight: bold;">*</em><br>
+			<input type="text" name="filename" />
 		</p>
 		<p class="submit">
-			<input type="submit" name="submit" id="submit" class="btn btn-small btn-primary" value="Import File">
+			<input type="submit" name="submit" id="submit" class="btn btn-small btn-primary" value="Upload file and Import">
 		</p>
 	</form>
 <?php
@@ -93,20 +105,73 @@ if (!isset($_FILES['file_import'])) {
 
 else {
 
-	$error = array();
-	$allowed_ext = array('jpg','jpeg','png','gif');
+	$errors = array();
+	$allowed_ext = array('xls','xlsx');
 
 	$file_name = $_FILES['file_import']['name'];
-	$file_ext= explode('.', $file_name);
+	$file_ext_explode = explode('.', $file_name);
+	$file_ext= strtolower(end($file_ext_explode));
 	$file_size = $_FILES['file_import']['size'];
 	$file_tmp = $_FILES['file_import']['tmp_name'];
 
+	if (in_array($file_ext, $allowed_ext)=== false) {
+	
+		$errors[]= 'Extension not allowed..';	
+
+	}
+
+	if ($file_size > 2097152 )  {
+
+		$errors[] = 'File size must be under 2MB..';
+	
+	}
 
 	
 
+	if (empty($errors)) {
+		$sec = gettimeofday();
+		$import_loc = 'ps_files/import/'.$sec['sec'].'_'.$file_name;
+		move_uploaded_file($file_tmp, $import_loc)
+		?>
+		<h4 class="text-success">Successfully Added</h4>
+		<a href="javascript:import_preview('<?php echo "$import_loc"; ?>') " class="btn btn-mini btn-success">Preview</a>
+		<?php
 
 
-}
+		$path = "import_loc";
+
+		$objPHPExcel = PHPExcel_IOFactory::load($path);
+
+
+
+
+
+
+
+
+
+
+
+	} else {
+		?>
+		<h4 class="text-error">Oops! There has been an error.</h4>
+		<?php
+		foreach ($errors as $error ) {
+			?>
+			
+			<p class="text-error"> <em><?php echo "$error"; ?></em> </p>
+		<?php
+		} 
+
+		?>
+		<a href="ps_xls_import.php" class="btn btn-mini btn-danger">[Back]</a>
+
+		<?php
+	}
+
+
+	
+} //end main else
 
 
 
@@ -125,6 +190,17 @@ This page was generated in <span class="atv"><?php echo"$time_gen"; ?></span> se
 
 
 </div>
+<script language="javascript" >
+<!-- 
+function import_preview(x)
+{
+	
+	urlholder="ps_import_preview.php?preview_loc="+x;
+	helpwin=window.open(urlholder,"helpwin","width=790,height=540,menubar=no,resizable=yes,scrollbars=yes");
+	window.helpwin.moveTo(0,0);
+}
+// -->
+</script> 
 </body>
 </html>
 
