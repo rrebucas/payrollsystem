@@ -4,15 +4,12 @@
 <title>Payroll System | SegWorks Technologies Corporation</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <link href="http://fonts.googleapis.com/css?family=Mouse+Memoirs" rel="stylesheet" type="text/css"/>
-<<<<<<< HEAD:files/header.php
 <link rel="stylesheet" type="text/css" href="ps_theme/css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="ps_theme/css/style.css"/>
 <script type="text/javascript" src="ps_theme/js/modernizr.custom.58301.js"></script>
-=======
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <script type="text/javascript" src="js/modernizr.custom.58301.js"></script>
->>>>>>> ad14e88f37e80c9c504a2269d04918e0e37d8b5e:files/header.html
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
