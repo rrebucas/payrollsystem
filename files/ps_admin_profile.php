@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <link href="ps_includes/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
@@ -7,9 +7,10 @@
 <script src="ps_includes/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="content-admin-profile">
+<header>
 	<h1>Admin Profile</h1>
-	
+</header>
+<div id="content-admin-profile">
 	<div id="employee_info">
 		<form action="#" method="post">
 			<table border="0" width="400" class="table table-striped" >

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<title>Creat New Account | Payroll Management System</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <link href="ps_includes/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
 <link rel="stylesheet" type="text/css" href="ps_theme/css/new_user.css"/>
 <script src="ps_includes/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="new_user_content">
+<header>
 	<h1>Add New User</h1>
+</header>
+<div id="new_user_content">
 	<div id="user_form">
 		<form action="#" method="post">
 			<table border="0">

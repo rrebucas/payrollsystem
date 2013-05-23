@@ -1,32 +1,54 @@
-
 body{
-	background: url("../images/bg-background.png");
-	background-color: #555;
-	font-family: 'Quicksand', sans-serif;
+	background: none #262626;
+	color: #777;
+	font-family: 'Arial Narrow', sans-serif;
 }
-.container{
-	margin: 0 auto;
-	position: relative;
-	width: 960px;
+#psLoginContainer{
+	font-size: 13px;
+	margin: 100px auto;
+	width: 320px;
 }
-#content{
-
+#psLoginContainer h1 a{
+	font: normal 37px 'Mouse Memoirs',sans-serif;
+	text-transform:uppercase;
+	text-decoration:none;
+	display:block;
+	color:#fff;
+	text-shadow:1px 1px 2px #000;
+	text-align: center;
 }
-#content h1 a{
-	background: url(../images/seglogo.png) no-repeat scroll 0 0 transparent;
-	display: block;
-	text-indent: -9999px;
-	height: 92px;
-	width: 174px;
+#psLoginContainer span{
+	color:#0095d1;
 }
-#content #login-page{
-	background-color: #fff;
-	margin: 0 auto;
-	position: relative;
-	padding: 20px 30px;
-	width: 300px;
+#psLoginContainer form{
+	background: none repeat scroll 0 0 #FFFEFE;
+    border-radius: 4px;
+	box-shadow: 2px 4px 10px #A09999;
+    font-weight: normal;
+	margin-top: 10px;
+    padding: 26px 50px 15px 36px;
 }
-#login-page form input{
-	border: 1px dashed #ccc;
-	box-shadow: 1px 1px 3px #777;
+#psLoginContainer  .form-horizontal .controls{
+	margin: 0;
+}
+#psLoginContainer  .form-horizontal .controls .logIn-btn{
+	padding-top: 10px;
+}
+#psLoginContainer .form-horizontal .control-label{
+	margin-bottom: 7px;
+	text-align: left;
+}
+#psLoginContainer  .form-horizontal .controls input[type="text"],input[type="password"]{
+	color: #BDBBBB;
+	width: 100%;
+}
+#psAccountContainer{
+	clear: both;
+	margin-top: 20px;
+}
+#psAccountContainer #lostPword{
+	float: left;
+}
+#psAccountContainer #newAccnt{
+	float: right;
 }

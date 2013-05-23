@@ -1,12 +1,17 @@
 body{
 	font-family: 'Century Gothic', sans-serif;
+	margin: 20px;
 }
 .clear{
 	clear: both;
 	display: block;
 }
+header{
+	position: fixed;
+	top: 0;
+}
 #new_user_content{
-	margin: 0 auto;
+	margin: 80px auto;
 	width: 600px;
 }
 #user_form{

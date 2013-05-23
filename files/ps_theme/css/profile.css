@@ -1,20 +1,22 @@
 body {
 	font-family:'Century Gothic', sans-serif;
 	font-size:14px;
-	margin:30px;
+	margin: 20px;
 	}
 	.clear{
 	clear: both;
 	display: block;
 }
+header{
+	position: fixed;
+	top: 0;
+}
 #content-admin-profile{
-	margin: 10px;
-	position: relative;
+	margin: 100px;
 }
 #employee_info{
 	float: left;
 	line-height: 29px;
-	width: 400px;
 }
 #content-admin-profile #employee_info input{
 	float: right;
@@ -24,7 +26,6 @@ body {
 }
 #content-admin-profile #profile_pic{
 	float: right;
-	width: 217px;
 }
 #content-admin-profile #profile_pic img{
 	margin-left: -2px;
