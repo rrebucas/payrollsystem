@@ -56,23 +56,39 @@ text-align: center;
 </head>
 <body>
 
-<div id="loading"><img src="ps_theme/images/ajax-loader.gif" /></div>
+<div id="loading"><img src="ps_theme/images/ajax-loader_page.gif" /></div>
 <div id="body-wrapper">
 
 <?php
 
 
-//include the following 2 files
-require_once 'ps_includes/phpexcel/Classes/PHPExcel.php';
-require_once 'ps_includes/phpexcel/Classes/PHPExcel/IOFactory.php';
+
 
 $file_loc =$_GET['preview_loc'];
+
+$check_file_exists = file_exists("$file_loc");
+
+
+
+if ($check_file_exists == 0) {
+   ?>
+
+    <h4 class="text-error">Oops! There has been an error.</h4>
+    <p class="text-error">File does not exist.</p>
+
+   <?php 
+die();
+
+}
+else {
 
 
 
 $path = $file_loc;
 
-
+//include the following 2 files
+require_once 'ps_includes/phpexcel/Classes/PHPExcel.php';
+require_once 'ps_includes/phpexcel/Classes/PHPExcel/IOFactory.php';
 
 
 $objPHPExcel = PHPExcel_IOFactory::load($path);
@@ -101,7 +117,7 @@ foreach ($objPHPExcel->getWorksheetIterator() as $worksheet) {
     echo '</table>';
 }
 
-
+} //end else
 ?>
 
 </div>
