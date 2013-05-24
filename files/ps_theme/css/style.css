@@ -40,7 +40,16 @@ header #date_time {
 header span.seglogo {
 	color:#0095d1;
 }
-aside ul li {
+aside{
+	height: 570px;
+	overflow: auto;
+}
+aside #accordion ul {
+	list-style: none;
+	padding: 0 0 0 0;
+	display: none;
+}
+aside #accordion li {
 	margin-bottom:0px;
 	list-style:none;
 	padding:0;
@@ -49,7 +58,7 @@ aside ul li {
 	opacity:1;
 	overflow:hidden;
 }
-aside ul li a {
+aside #accordion li a {
 	display:block;
 	font-size:18px;
 	font-family:'Century Gothic',sans-serif;
@@ -61,7 +70,7 @@ aside ul li a {
 	float:left;
 	width:100%;
 }
-aside ul a:hover,aside ul a.active {
+aside #accordion a:hover,aside #accordion a.active {
 	-moz-transition:background-color 1s ease 0s;
 	-webkit-transition:background-color 1s ease 0s;
 	-o-transition:background-color 1s ease 0s;
@@ -90,7 +99,7 @@ aside ul a:hover,aside ul a.active {
 	background-color:#ad103c;
 	color:#fff;
 }
-aside ul li img {
+aside #accordion li img {
 	float:left;
 	margin-right:10px;
 	padding:7.5px;
@@ -118,11 +127,4 @@ aside ul li img {
 #calendar {
 	margin:40px auto;
 	width:800px;
-}
-#powered {
-	background-color:#fff;
-	width:100%;
-	display:block;
-	padding-left:30px;
-	padding-bottom: 5px;
 }

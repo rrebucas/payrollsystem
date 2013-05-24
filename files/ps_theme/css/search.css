@@ -4,6 +4,9 @@ body{
 	font-size: 12px;
 	margin:30px;
 }
+.clear{
+	clear: both;
+}
 .page-holder{
 	margin: 0 auto;
 	width: 960px;
@@ -23,11 +26,18 @@ body{
 }
 #content form label{
 	color: #333333;
+	display: inline;
 	font-size: 12px;
-	text-align: center;
+}
+.search_label{
+	bottom: 10px;
+	left: 55px;
+	position: relative;
+}
+.batch_name{
+	padding-left: 28px;
 }
 select{
-	display: block;
 	margin: 0 auto;
 }
 form p{
@@ -37,12 +47,15 @@ form p{
 }
 .btn {
     position: relative;
-    top: -6px;
+    right: 20px;
 }
 .batch{
 	color:#000;
-	margin-top: 20px;
-	text-align: center;
+	font-size: 13px;
+	margin-left: 800px;
+}
+.batch span{
+	font-weight: bold;
 }
 hr{
 	color: #262626;
@@ -52,6 +65,7 @@ hr{
 .employee label{
 	color: #000;
 	font-size: 13px;
+	float: left;
 }
 .employee span{
 	color: #000;
@@ -82,7 +96,7 @@ h2{
 	box-shadow: 2px 2px 2px #888888;
     color: #000;
 	margin: 8px auto;
-	width: 800px;
+	width: 960px;
 }
 .data tbody td{
 	border: 1px solid #c8c8c8;
@@ -111,14 +125,25 @@ h2{
 }
 .button{
 	float: left;
-	margin: 40px 0 0 80px;    
+	margin: 40px 0 0 20px;    
+}
+aside{
+	float: left;
+	margin-top: 30px;
+}
+aside a{
+	display: block;
+	margin-top: 5px;
 }
 .summary{
 	box-shadow: 2px 2px 2px #888888;
 	float: right;
-    margin: 14px 80px 15px 0;
+    margin: 14px 8px 15px 0;
 }
 .summary tr td{
 	border: 1px solid #c8c8c8;
 	padding: 10px;
+}
+.summary tr td:first-child {
+font-weight: bold;
 }

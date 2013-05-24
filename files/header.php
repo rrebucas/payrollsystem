@@ -7,6 +7,9 @@
 <link rel="stylesheet" type="text/css" href="ps_theme/css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="ps_theme/css/style.css"/>
 <script type="text/javascript" src="ps_theme/js/modernizr.custom.58301.js"></script>
+<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<script type="text/javascript" src="js/modernizr.custom.58301.js"></script>
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
