@@ -28,81 +28,81 @@
 			<tr>
 				<td>1</td>
 				<td>Arnel Moso</td>
-				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
+				<td><center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 			<tr>
 				<td>15</td>
 				<td>Vanessa Saren</td>
-				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
+				<td><center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 			<tr>
 				<td>38</td>
 				<td>Aloysius Torres</td>
-				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
+				<td><center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 			<tr>
 				<td>39</td>
 				<td>Shandy Mar Tabanao</td>
-				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
+				<td><center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 			<tr>
 				<td>38</td>
 				<td>Aloysius Torres</td>
-				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
+				<td><center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 			<tr>
 				<td>39</td>
 				<td>Shandy Mar Tabanao</td>
-				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
+				<td><center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 			<tr>
 				<td>1</td>
 				<td>Arnel Moso</td>
-				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
+				<td><center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 			<tr>
 				<td>15</td>
 				<td>Vanessa Saren</td>
-				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
+				<td><center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 			<tr>
 				<td>38</td>
 				<td>Aloysius Torres</td>
-				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
+				<td><center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 			<tr>
 				<td>39</td>
 				<td>Shandy Mar Tabanao</td>
-				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
+				<td><center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 			<tr>
 				<td>38</td>
 				<td>Aloysius Torres</td>
-				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
+				<td><center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center></td>
 			</tr><tr>
 				<td>1</td>
 				<td>Arnel Moso</td>
-				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
+				<td><center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 			<tr>
 				<td>15</td>
 				<td>Vanessa Saren</td>
-				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
+				<td><center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 			<tr>
 				<td>38</td>
 				<td>Aloysius Torres</td>
-				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
+				<td><center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 			<tr>
 				<td>39</td>
 				<td>Shandy Mar Tabanao</td>
-				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
+				<td><center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 			<tr>
 				<td>38</td>
 				<td>Aloysius Torres</td>
-				<td><center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center></td>
+				<td><center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center></td>
 			</tr>
 		</table>
 	</div>

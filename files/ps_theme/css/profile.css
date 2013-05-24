@@ -24,7 +24,7 @@ body {
 }
 #content-admin-profile #profile_pic{
 	float: right;
-	width: 217px;
+	width: 150px;
 }
 #content-admin-profile #profile_pic img{
 	margin-left: -2px;
@@ -44,4 +44,8 @@ body {
 	font-size: 12px;
 	font-family: Arial, sans-serif;
 	padding: 3px 8px;
+}
+.polaroid{
+	width: 150px;
+	height: 150px;
 }
