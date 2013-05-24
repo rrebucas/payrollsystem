@@ -26,7 +26,10 @@ header{
 }
 #content-admin-profile #profile_pic{
 	float: right;
+<<<<<<< HEAD
 	width: 150px;
+=======
+>>>>>>> 2205f9e71868323e88cc119917d38740ab5c7836
 }
 #content-admin-profile #profile_pic img{
 	margin-left: -2px;

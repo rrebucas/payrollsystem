@@ -19,6 +19,9 @@ header{
 	float: left;
 	width: 312px;
 }
+#user_form table{
+	border: none;
+}
 #user_form form input[type="text"],input[type="password"]{
 	border-radius: 2px;
 	padding: 4px 5px;

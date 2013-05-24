@@ -2,9 +2,8 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="ps_theme/css/view.css"/>
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<script src="js/jquery.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<link href="ps_includes/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="ps_includes/bootstrap/js/bootstrap.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
 body {
@@ -54,7 +53,7 @@ body {
 				 Holiday Rate:
 			</td>
 			<td>
-				<i class="icon-edit"></i>
+				<i class="icon-edit black"></i>
 			</td>
 			<td contenteditable id="hourly_rate">
 				 2
