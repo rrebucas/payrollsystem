@@ -1,3 +1,9 @@
+<?php
+
+require_once 'ps_connect_db.php';
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,8 +99,8 @@ $('#mytable :checkbox.ot').change(function() {
 		</tr>
 		</tbody>
 		</table>
+			<p style="text-align: center;"><span class="red">*</span> Double Click on the cell to edit the value! <span class="red">*</span></p>
 		<form action="#" method="post">
-			<p><span class="red">*</span> Double Click on the cell to edit the value! <span class="red">*</span></p>
 			<table class="table-striped data" border="1" id="mytable">
 				<thead>
 					<tr>
@@ -121,26 +127,32 @@ $('#mytable :checkbox.ot').change(function() {
 					</tr>
 				</thead>
 				<tbody>
+					<?php 
+							$result = mysqli_query($con,"SELECT * FROM seg_employee_import");
+							while($row = mysqli_fetch_array($result))
+								$id=$row['id'];
+							?>
 					<tr>
 						<td>May 17 (fri)</td>
 						<td style="width: 18px;"><input class="night" type="checkbox"></td>
 						<td style="width: 18px;"><input class="holiday" type="checkbox"></td>
 						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">05</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">59</td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"><?php echo $row['date_time'] ?></td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"><?php echo $row['batch_name'] ?></td>
 						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
 						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
 						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
 						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">02</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">42</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.1</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.2</td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"><?php echo $row['date_time'] ?></td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"><?php echo $row['date_time'] ?></td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"><?php echo $row['lastname'] ?></td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"><?php echo $row['lastname'] ?></td>
 						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
 						<td style="width: 48px;height: 34px;"><input class="holidayvalue" type="text" value="" /><span class="origholidayvalue">0.0</span></td>
 						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
 						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
 					</tr>
+					
 					<tr>
 						<td>May 18 (sat)</td>
 						<td style="width: 18px;"><input class="night" type="checkbox"></td>
@@ -421,6 +433,7 @@ $('#mytable :checkbox.ot').change(function() {
 						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
 						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
 					</tr>
+					
 					<tr>
 						<td colspan="18">&nbsp;</td>
 					</tr>
@@ -486,3 +499,7 @@ function submitNewName(textfield)
  </script>
 </body>
 </html>
+<?php
+
+mysqli_close($con);
+?>
