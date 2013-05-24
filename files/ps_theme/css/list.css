@@ -8,17 +8,20 @@ body {
 	clear: both;
 	display: block;
 }
+header{
+	/*background: none #262626;
+	color: #fff;*/
+	position: fixed;
+	top: 0;
+}
 #content-list-employee{
-	position: relative;
+	margin-top: 100px;
 }
 #content-list-employee .search form p {
 	text-align: center;
 }
 #content-list-employee .search form{
 	text-align: center;
-}
-#content-list-employee h1{
-	margin-bottom: 20px;
 }
 #search{
 	background-color: #F9F9F9;

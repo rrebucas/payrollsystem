@@ -7,6 +7,9 @@
 
 <!--<link rel="stylesheet" type="text/css" href="css/style.css"/>-->
 <script type="text/javascript" src="ps_theme/js/modernizr.custom.58301.js"></script>
+<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+<!--<link rel="stylesheet" type="text/css" href="css/style.css"/>-->
+<script type="text/javascript" src="js/modernizr.custom.58301.js"></script>
 <title>Dashboard | Payroll Management System</title>
 </head>
 
@@ -16,6 +19,9 @@
 <frameset cols="280,*" frameborder="0" border="0" framespacing="0">
 	<frame name="menu" src="menu.php" marginheight="0" marginwidth="0" scrolling="no" noresize>
 	<frame name="content" src="calendar.php" marginheight="0" marginwidth="0" scrolling="auto" noresize>
+
+	<frame name="menu" src="menu.html" marginheight="0" marginwidth="0" scrolling="no" noresize>
+	<frame name="calendar" src="calendar.html" marginheight="0" marginwidth="0" scrolling="auto" noresize>
 	
 
 

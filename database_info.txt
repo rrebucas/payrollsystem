@@ -1,0 +1,28 @@
+Database Name: seg_dbtest
+
+///////////////////////////////
+
+Table 1: seg_employee_import
+
+Name(s)
+
+batch_name 	VARCHAR (50)	
+id		INT(5)
+date_time 	VARCHAR (50) 
+status		vARCHAR (10)
+
+
+////////////////////
+
+Table 2: seg_employee_list
+
+Name(s)
+
+id			INT 	(5)	*primary
+name			VARCHAR (8)	*unique
+holiday_rate		VARCHAR (8) 
+ot_rate			vARCHAR (8)
+night_premium		vARCHAR (8)
+creditable_hours 	vARCHAR (8)
+
+///////////////
