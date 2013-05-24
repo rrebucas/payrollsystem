@@ -27,7 +27,7 @@ if (mysqli_connect_errno($con))
 			<table border="0" width="400" class="table table-striped" >
 			<tr>
 				<td>
-					Registration Date:
+					Registered Last:
 				</td>
 				<td>
 					March 21, 2008
@@ -160,8 +160,8 @@ if(!empty($_FILES["file"]["tmp_name"]))
 $name=$_FILES["file"]["name"];
 $file=$_FILES["file"]["tmp_name"];
 move_uploaded_file($_FILES["file"]["tmp_name"],
-      "uploaded_img/" . $_FILES["file"]["name"]);
-$file=mysql_real_escape_string("uploaded_img/" .$_FILES["file"]["name"]);
+      "ps_files/user_img/" . $_FILES["file"]["name"]);
+$file=mysql_real_escape_string("ps_files/user_img/" .$_FILES["file"]["name"]);
 }
 $sql="INSERT INTO image_tbl (image) VALUES ('$file') ";
 

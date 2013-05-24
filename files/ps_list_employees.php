@@ -225,12 +225,6 @@
 </div>
 <div class="clear">
 </div>
-<!--Page Generated-->
-<?php $start_time = microtime(true); 
-			</tr>
-		</table>
-	</div>
-	<div class="clear"></div>
 	<!--Page Generated-->
 	<?php $start_time = microtime(true); 
 
