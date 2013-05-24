@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <link href="ps_includes/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
 <link rel="stylesheet" type="text/css" href="ps_theme/css/list.css"/>
+<link rel="stylesheet" type="text/css" href="ps_theme/css/floating_img.css"/>
 <script src="ps_includes/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -223,7 +224,8 @@
 		</ul>
 	</div>
 </div>
-<div class="clear">
+<div id="divBottomRight">
+	<a href="#"><img src="ps_theme/images/seglogo.png" alt="" title="Segworks Technologies Corporation" class="masterTooltip" /></a>
 </div>
 <!--Page Generated-->
 <?php $start_time = microtime(true); 
@@ -233,5 +235,8 @@ $time_gen = number_format(microtime(true) - $start_time, 9);
 	 This page was generated in <span class="atv"><?php echo"$time_gen"; ?>
 	</span> seconds.
 </pre>
+<script type="text/javascript" src="ps_theme/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="ps_theme/js/floating_image.js"></script>
+<script type="text/javascript" src="ps_theme/js/float_image.js"></script>
 </body>
 </html>
