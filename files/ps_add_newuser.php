@@ -36,7 +36,7 @@ if (mysqli_connect_errno($con))
 			<td>
 				<label>Registration Time:</label>
 			</td>
-			<td><input type="text" value="<?php $date = new DateTime("now"); echo date("h:i:s A");?>" name="reg_time" id="reg_time" />
+			<td><input type="text" value="<?php $date = new DateTime("now"); echo date("H:i:s");?>" name="reg_time" id="reg_time" />
 			</td>
 		</tr>
 		<br/>

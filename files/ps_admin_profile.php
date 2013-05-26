@@ -8,12 +8,7 @@
 
 <?php
 // Create connection
-$con=mysqli_connect("localhost","root","","seg_ps_db");
-// Check connection
-if (mysqli_connect_errno($con))
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
+require_once 'ps_connect_db.php'
 ?> 
 
 </head>
@@ -108,7 +103,7 @@ if (mysqli_connect_errno($con))
 
 while($row = mysqli_fetch_array($result))
   {
-  echo "<img src=" . $row['image'] . " alt=profile_picture />" ;
+  echo "<img src=" . $row['image'] . " alt=profile_picture class=img-polaroid />" ;
   }
 		?>
 		
