@@ -1,0 +1,60 @@
+body{
+	background: none #111212;
+	color: #141515;
+	font-family: 'Century Gothic', sans-serif;
+}
+header{
+	margin: 40px auto 0 auto;
+	width: 600px;
+}
+header h1 a {
+	font-family:'Mouse Memoirs',sans-serif;
+	font-size:50px;
+	font-weight:normal;
+	text-transform:uppercase;
+	text-decoration:none;
+	display:block;
+	color:#fff;
+	text-shadow:1px 1px 2px #000;
+	text-align: center;
+}
+header h1 a:hover{
+	color: #fff;
+	text-decoration: none;
+}
+header span {
+	color:#0095d1;
+}
+#form_newuser{
+	background: none #FFFEFE;
+	border-radius: 10px;
+	border: 1px solid #51B7D5;
+	margin: 30px auto 40px auto;
+	position: relative;
+	width: 600px;
+}
+#form_newuser form{
+	margin: 0 auto;
+	width: 370px;
+}
+#form_newuser form input [type="text"],input[type="password"]{
+	color: #777;	
+}
+#create_reset_btn{
+	margin: 10px 0 0 130px;
+	padding: 0 0 30px 0;
+}
+#form_newuser h2{
+	color: #161a19;
+	margin: 15px 0 0 40px;
+}
+.tooltip {
+	display:none;
+	position:absolute;
+	border:1px solid #333;
+	background-color:#161616;
+	border-radius:5px;
+	padding:10px;
+	color:#fff;
+	font-size:12px Arial;
+}

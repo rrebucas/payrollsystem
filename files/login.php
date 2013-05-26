@@ -37,7 +37,7 @@
 	</form>
 	<div id="psAccountContainer">
 		<p id="lostPword"><a href="#" title="Password Lost and Found">Lost your password?</a></p>
-		<p id="newAccnt"><a href="ps_add_newuser.php">Create New Account</a></p>
+		<p id="newAccnt"><a href="ps_new_user.php">Create New Account</a></p>
 	</div>
 </div>
 </body>
