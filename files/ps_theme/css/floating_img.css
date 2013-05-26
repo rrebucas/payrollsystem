@@ -1,0 +1,64 @@
+#divBottomRight
+{
+position:absolute;
+z-index:10000;
+/* min-width: 142px; */
+}
+#divBottomRight img, #acurax_si_simple img, #short_code_si_icon img
+{
+margin-left:1px;
+border: 0;
+border: 0 !important;
+display: inline;
+-webkit-transition: all 0.2s ease-in;
+-moz-transition: all 0.2s ease-in;
+transition: all 0.2s ease;
+}
+#divBottomRight a, #acurax_si_simple a, #short_code_si_icon a
+{
+	background: none !important;
+}
+#divBottomRight a:hover, #acurax_si_simple a:hover, #short_code_si_icon a:hover
+{
+	text-decoration: none;
+	border: 0;
+}
+
+#divBottomRight  img.fade:hover, #acurax_si_simple  img.fade:hover, #short_code_si_icon  img.fade:hover {
+	opacity: 1 !important;
+	-moz-opacity: 1 !important;
+	-webkit-transition: all 0.2s ease-in;
+	-moz-transition: all 0.2s ease-in;
+	transition: all 0.2s ease;
+}
+
+#divBottomRight  img.scale:hover, #acurax_si_simple  img.scale:hover , #short_code_si_icon  img.scale:hover  {
+	-moz-transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+	-webkit-transition: all 0.2s ease-in;
+	-moz-transition: all 0.2s ease-in;
+	-ms-zoom: 1.2;
+	transition: all 0.2s ease;
+}
+	
+#divBottomRight  img.bounce:hover, #acurax_si_simple  img.bounce:hover, #short_code_si_icon  img.bounce:hover {
+	transform: translate(0px, -2px);
+	-moz-transform: translate(0px, -2px);
+	-webkit-transform: translate(0px, -2px);
+	-webkit-transition: -webkit-transform 0.2s ease-in;
+	-moz-transition: all 0.2s ease-in;
+	transition: all 0.2s ease;
+	
+}
+
+#divBottomRight  img.combo:hover, #acurax_si_simple  img.combo:hover, #short_code_si_icon  img.combo:hover {
+	transform: translate(0px, -4px);
+	-moz-transform: scale(1.1) translate(0px, -4px);
+	-webkit-transform: scale(1.1) translate(0px, -4px);
+	-ms-zoom: 1.1;
+	opacity: 1 !important;
+	-moz-opacity: 1 !important;
+	-webkit-transition: all 0.2s ease-in;
+	-moz-transition: all 0.2s ease-in;
+	transition: all 0.2s ease;
+}
