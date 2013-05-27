@@ -19,10 +19,28 @@ Table 2: seg_employee_list
 Name(s)
 
 id			INT 	(5)	*primary
-name			VARCHAR (8)	*unique
+name			VARCHAR (50)	*unique
 holiday_rate		VARCHAR (8) 
 ot_rate			vARCHAR (8)
 night_premium		vARCHAR (8)
 creditable_hours 	vARCHAR (8)
 
 ///////////////
+
+
+
+Table 3: seg_ps_users
+
+Name(s)
+
+id					INT 	(5)		*Auto Increment	*Primary 
+reg_date_time		VARCHAR	(50)
+username			VARCHAR	(20)	*Unique
+password			VARCHAR	(20)
+firstname			VARCHAR	(20)
+lastname			VARCHAR	(20)
+position			VARCHAR	(50)
+address				VARCHAR	(50)
+country				VARCHAR	(20)
+zipcode				INT		(5)
+image				VARCHAR	(50)

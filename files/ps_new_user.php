@@ -1,3 +1,10 @@
+<?php
+
+require_once ('ps_connect_db.php');
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +23,7 @@
 	<h1><a href="#">Payroll Management <span>System</span></a></h1>
 </header>
 <div id="form_newuser">
+	
 	<h2>Creat New Account</h2>
 	<form action="#" method="post">
 		<table border="0">
@@ -122,6 +130,7 @@
 			<input class="btn" type="reset" name="position" value="Reset" />
 		</div>
 	</form>
+
 </div>
 <div id="divBottomRight">
 	<a href="#"><img src="ps_theme/images/seglogo.png" alt="" title="Segworks Technologies Corporation"/></a>
@@ -131,3 +140,7 @@
 <script type="text/javascript" src="ps_theme/js/float_image.js"></script>
 </body>
 </html>
+<?php
+
+mysqli_close($con);
+?>
