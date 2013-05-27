@@ -62,11 +62,11 @@ $('#mytable :checkbox.ot').change(function() {
 <div id="content">
 	<div class="page-holder">
 		<h1>Search Employee</h1>
-		<form method="post" action="#" class="search">
+		<form action="<?=$_SERVER['PHP_SELF']?>" method="GET" class="search">
 			<label class="search_label">To search: Enter Employee's name (i.e. Arn,Mos)</label>
 			<p>
 				<label>Employee's Name: </label>
-				<input type="text" size="45" name="search_list" value="" class="search-here" required/>
+				<input type="text" size="45" name="search_key" value="" class="search-here" required/>
 			</p>
 			<p>
 				<label class="batch_name">Batch Name: </label>
@@ -81,11 +81,20 @@ $('#mytable :checkbox.ot').change(function() {
 				<input type="submit" name="search_btn" value="search" class="btn">
 			</p>
 		</form>
+		<?php
+			$result = mysqli_query($con,"SELECT DISTINCT batch_name FROM seg_employee_import");
+
+			while($row = mysqli_fetch_array($result))
+  		{
+  		?>
 		<hr>
 		<div class="employee">
 				<label>Name of Employee: <span> Arnel M. Moso</span></label>
-				<p class="batch">Batch Number: <span> Batch 1</span></p>	
+				<p class="batch">Batch Number: <span><?php echo ucfirst($row['batch_name']); ?></span></p>	
 		</div>
+		<?php
+			}
+		?>
 		<table border="0" class="date">
 		<caption>Cut off Dates</caption>
 		<tbody>
@@ -129,311 +138,74 @@ $('#mytable :checkbox.ot').change(function() {
 				<tbody>
 					<?php 
 							$result = mysqli_query($con,"SELECT * FROM seg_employee_import");
-							while($row = mysqli_fetch_array($result))
+							while($row = mysqli_fetch_array($result)){
 								$id=$row['id'];
+
+								$time =  $row['date_time'];
+								$explode_space = array ();
+								$explode_space = explode(" ",$time);
+								$explode_time = explode(":",$explode_space[1]);
+
+								$timediff = $row['date_time'];
+
+
 							?>
 					<tr>
-						<td>May 17 (fri)</td>
+						<td><?php echo $explode_space[0]; ?></td>
 						<td style="width: 18px;"><input class="night" type="checkbox"></td>
 						<td style="width: 18px;"><input class="holiday" type="checkbox"></td>
 						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"><?php echo $row['date_time'] ?></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"><?php echo $row['batch_name'] ?></td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">
+							<?php
+								$mystring = $row['date_time'];		//checker if AM or PM
+								$findme   = 'AM';					//checker if AM or PM
+								$pos = strpos($mystring, $findme);	//checker if AM or PM
+
+								
+								//$checker = $row['status'];
+								//if()
+
+
+								if ($pos === false) {
+								    echo "";
+								} else {
+								    echo $explode_time[0];
+								}
+								?>								
+						</td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">
+							<?php
+								$mystring = $row['date_time'];
+								$findme   = 'AM';
+								$pos = strpos($mystring, $findme);
+
+								// Note our use of ===.  Simply == would not work as expected
+								// because the position of 'a' was the 0th (first) character.
+								if ($pos === false) {
+								    echo " ";
+								} else {
+								    echo $explode_time[1];
+								}
+							?>
+							</td>
 						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
 						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
 						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
 						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"><?php echo $row['date_time'] ?></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"><?php echo $row['date_time'] ?></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"><?php echo $row['lastname'] ?></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"><?php echo $row['lastname'] ?></td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"></td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"></td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"></td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"></td>
 						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
 						<td style="width: 48px;height: 34px;"><input class="holidayvalue" type="text" value="" /><span class="origholidayvalue">0.0</span></td>
 						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
 						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
 					</tr>
 					
-					<tr>
-						<td>May 18 (sat)</td>
-						<td style="width: 18px;"><input class="night" type="checkbox"></td>
-						<td style="width: 18px;"><input class="holiday" type="checkbox"></td>
-						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">05</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">59</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">02</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">42</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.1</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.2</td>
-						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="holidayvalue" type="text" value="" /><span class="origholidayvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
-						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
-					</tr>
-					<tr>
-						<td>May 19 (sun)</td>
-						<td style="width: 18px;"><input class="night" type="checkbox"></td>
-						<td style="width: 18px;"><input class="holiday" type="checkbox"></td>
-						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">05</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">59</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">02</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">42</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.1</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.2</td>
-						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="holidayvalue" type="text" value="" /><span class="origholidayvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
-						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
-					</tr>
-					<tr>
-						<td>May 20 (mon)</td>
-						<td style="width: 18px;"><input class="night" type="checkbox"></td>
-						<td style="width: 18px;"><input class="holiday" type="checkbox"></td>
-						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">05</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">59</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">02</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">42</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.1</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.2</td>
-						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="holidayvalue" type="text" value="" /><span class="origholidayvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
-						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
-					</tr>
-					<tr>
-						<td>May 21 (tue)</td>
-						<td style="width: 18px;"><input class="night" type="checkbox"></td>
-						<td style="width: 18px;"><input class="holiday" type="checkbox"></td>
-						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">05</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">59</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">02</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">42</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.1</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.2</td>
-						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="holidayvalue" type="text" value="" /><span class="origholidayvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
-						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
-					</tr>
-					<tr>
-						<td>May 22 (wed)</td>
-						<td style="width: 18px;"><input class="night" type="checkbox"></td>
-						<td style="width: 18px;"><input class="holiday" type="checkbox"></td>
-						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">05</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">59</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">02</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">42</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.1</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.2</td>
-						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="holidayvalue" type="text" value="" /><span class="origholidayvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
-						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
-					</tr>
-					<tr>
-						<td>May 23 (thu)</td>
-						<td style="width: 18px;"><input class="night" type="checkbox"></td>
-						<td style="width: 18px;"><input class="holiday" type="checkbox"></td>
-						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">05</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">59</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">02</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">42</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.1</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.2</td>
-						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="holidayvalue" type="text" value="" /><span class="origholidayvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
-						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
-					</tr>
-					<tr>
-						<td>May 24 (fri)</td>
-						<td style="width: 18px;"><input class="night" type="checkbox"></td>
-						<td style="width: 18px;"><input class="holiday" type="checkbox"></td>
-						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">05</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">59</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">02</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">42</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.1</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.2</td>
-						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="holidayvalue" type="text" value="" /><span class="origholidayvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
-						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
-					</tr>
-					<tr>
-						<td>May 25 (sat)</td>
-						<td style="width: 18px;"><input class="night" type="checkbox"></td>
-						<td style="width: 18px;"><input class="holiday" type="checkbox"></td>
-						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">05</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">59</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">02</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">42</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.1</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.2</td>
-						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="holidayvalue" type="text" value="" /><span class="origholidayvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
-						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
-					</tr>
-					<tr>
-						<td>May 26 (sun)</td>
-						<td style="width: 18px;"><input class="night" type="checkbox"></td>
-						<td style="width: 18px;"><input class="holiday" type="checkbox"></td>
-						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">05</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">59</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">02</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">42</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.1</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.2</td>
-						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="holidayvalue" type="text" value="" /><span class="origholidayvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
-						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
-					</tr>
-					<tr>
-						<td>May 27 (mon)</td>
-						<td style="width: 18px;"><input class="night" type="checkbox"></td>
-						<td style="width: 18px;"><input class="holiday" type="checkbox"></td>
-						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">05</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">59</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">02</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">42</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.1</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.2</td>
-						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="holidayvalue" type="text" value="" /><span class="origholidayvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
-						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
-					</tr>
-					<tr>
-						<td>May 28 (tue)</td>
-						<td style="width: 18px;"><input class="night" type="checkbox"></td>
-						<td style="width: 18px;"><input class="holiday" type="checkbox"></td>
-						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">05</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">59</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">02</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">42</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.1</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.2</td>
-						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="holidayvalue" type="text" value="" /><span class="origholidayvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
-						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
-					</tr>
-					<tr>
-						<td>May 29 (wed)</td>
-						<td style="width: 18px;"><input class="night" type="checkbox"></td>
-						<td style="width: 18px;"><input class="holiday" type="checkbox"></td>
-						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">05</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">59</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">02</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">42</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.1</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.2</td>
-						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="holidayvalue" type="text" value="" /><span class="origholidayvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
-						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
-					</tr>
-					<tr>
-						<td>May 30 (thu)</td>
-						<td style="width: 18px;"><input class="night" type="checkbox"></td>
-						<td style="width: 18px;"><input class="holiday" type="checkbox"></td>
-						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">05</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">59</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">02</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">42</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.1</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.2</td>
-						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="holidayvalue" type="text" value="" /><span class="origholidayvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
-						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
-					</tr>
-					<tr>
-						<td>May 31 (fri)</td>
-						<td style="width: 18px;"><input class="night" type="checkbox"></td>
-						<td style="width: 18px;"><input class="holiday" type="checkbox"></td>
-						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">05</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">59</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">02</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">42</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.1</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">8.2</td>
-						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="holidayvalue" type="text" value="" /><span class="origholidayvalue">0.0</span></td>
-						<td style="width: 48px;height: 34px;"><input class="otvalue" type="text" value="" /><span class="origotvalue">0.0</span></td>
-						<td onDblClick="javascript:changeContent(this);">&nbsp;</td>
-					</tr>
-					
+					<?php
+				} // end while
+
+				?>
 					<tr>
 						<td colspan="18">&nbsp;</td>
 					</tr>
