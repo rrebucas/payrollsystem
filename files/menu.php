@@ -24,7 +24,7 @@
 	</ul>
 	<!--conflict-->
 	<li>
-	<a href="ps_list_employees.php" target="content" id="listMenu"><img src="ps_theme/images/listemployee-icon.png" alt=""/>List of Employees</a></li>
+	<a href="ps_list_employees_ren.php" target="content" id="listMenu"><img src="ps_theme/images/listemployee-icon.png" alt=""/>List of Employees</a></li>
 	<ul>
 	</ul>
 	<li><a href="ps_xls_import.php" target="content" id="importMenu"><img src="ps_theme/images/import-icon.png" alt=""/>Import</a></li>
@@ -47,7 +47,7 @@
 	</ul>
 	<!--conflict-->
 	<li>
-	<a href="ps_list_employees.php" target="content" id="listMenu"><img src="ps_theme/images/listemployee-icon.png" alt=""/>List of Employees</a></li>
+	<a href="ps_list_employees_ren.php" target="content" id="listMenu"><img src="ps_theme/images/listemployee-icon.png" alt=""/>List of Employees</a></li>
 	<ul>
 	</ul>
 	<li><a href="ps_xls_import.php" target="content" id="importMenu"><img src="ps_theme/images/import-icon.png" alt=""/>Import</a></li>

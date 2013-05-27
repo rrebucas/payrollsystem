@@ -69,3 +69,26 @@ thead{
 thead th:hover{
 	color: #fff;
 }
+#employee_listview table{
+	box-shadow: 2px 2px 2px #888;
+	margin: 30px auto;
+}
+#employee_listview table th{
+	background-color: #000;
+	padding: 0;
+	color: #fff;
+	font-size: 14px;
+	width: 100%;
+}
+#employee_listview table td{
+	padding: 8px;
+	border: 1px solid #c8c8c8;
+}
+#employee_listview table input{
+	border: 1px solid #c8c8c8;
+	width: 40px;
+}
+#submit-reset-btn{
+	margin: 0 auto;
+	width: 15%;
+}

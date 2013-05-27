@@ -101,7 +101,7 @@ else {
 
 	if (in_array($file_ext, $allowed_ext)=== false) {
 	
-		$errors[]= 'Extension not allowed..';	
+		$errors[]= 'Extension file is not allowed..';	
 
 	}
 
@@ -125,16 +125,16 @@ else {
 
 		$path = $import_loc;
 
-		$filename = $_POST['file_name'];
+		$filename = strtoupper($_POST['file_name']);
 
 		$objPHPExcel = PHPExcel_IOFactory::load($path);
 		foreach ($objPHPExcel->getWorksheetIterator() as $worksheet) {
-    $worksheetTitle     = $worksheet->getTitle();
-    $highestRow         = $worksheet->getHighestRow(); // e.g. 10
-    $highestColumn      = $worksheet->getHighestColumn(); // e.g 'F'
-    $highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn);
-    $nrColumns = ord($highestColumn) - 64;
-}
+		    $worksheetTitle     = $worksheet->getTitle();
+		    $highestRow         = $worksheet->getHighestRow(); // e.g. 10
+		    $highestColumn      = $worksheet->getHighestColumn(); // e.g 'F'
+		    $highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn);
+		    $nrColumns = ord($highestColumn) - 64;
+		}
 		for ($row = 2; $row <= $highestRow; ++ $row) {
 
 			$val=array();
@@ -147,7 +147,7 @@ else {
 
 			 $result = mysqli_query($con, $sql);
 
-			 $sql_employee_list="INSERT INTO seg_employee_list(id, name) VALUES('".$val[1]."','" . $val[0] . "')";
+			 $sql_employee_list="INSERT INTO seg_employee_list(id, name) VALUES('".$val[1]."','" . strtoupper($val[0]) . "')";
 
 			 $result_employee_list = mysqli_query($con, $sql_employee_list);
 
@@ -211,9 +211,9 @@ $(document).ready(function(){
       }
     });
     //
-    $('#textbox_filename').keyup(function(){
+    $('#textbox_filename').change(function(){
    		//alert('Hi');
-   		$("#subm_btn_import").attr("disabled", true);
+   		$("#submit_btn_import").attr("disabled", 'disabled');
    		$("#check_filename_text").html('<img src="ps_theme/images/ajax-loader_s.gif" />');
    		var val_filename = $("#textbox_filename").val();
    		var data_val_filename = "filename=" + val_filename;
@@ -228,7 +228,16 @@ $(document).ready(function(){
 		        url:"ps_theme/ajax/ps_ajax_check_import_filename.php",
 		        data:data_val_filename,
 		        success:function(data){
-		            $("#check_filename_text").html(data);
+		            //$("#check_filename_text").html(data);
+		            if (data == 0) {
+		            	$("#submit_btn_import").attr("disabled", false);
+		            	$('#check_filename_text').html('<span class="text-success"><small><em>Available</em></small></span>')
+
+		            }else {
+		            	$('#check_filename_text').html('<span class="text-error"><small><em>Not Available</em></small></span>')
+
+		            	
+		            };
 		        }
 		        });
       	}
