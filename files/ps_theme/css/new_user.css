@@ -50,3 +50,12 @@ header{
     margin-bottom: 5px;
     margin-top: 10px;
 }
+#ajax_checkusername{
+	margin-top: -11px;
+	margin-left: 3px;
+}
+#user_country{
+	width: 147px;
+	margin-left: 12px;
+	height: 27px;
+}

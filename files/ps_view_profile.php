@@ -17,7 +17,7 @@ body {
 <body>
 <div id="content-view-profile">
 	<h1>Employee's Profile</h1>
-	<img src="http://placehold.it/150x150" class="img-rounded" alt="image"/>
+	<img src="http://placehold.it/150x150" class="img-polaroid img-rounded" alt="image"/>
 </div>
 <div class="information">
 	<form action="#" method="post">

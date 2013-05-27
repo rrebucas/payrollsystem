@@ -43,7 +43,7 @@
 			Arnel Moso
 		</td>
 		<td>
-			<center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center>
+			<center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center>
 		</td>
 	</tr>
 	<tr>
@@ -54,7 +54,7 @@
 			Vanessa Saren
 		</td>
 		<td>
-			<center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center>
+			<center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center>
 		</td>
 	</tr>
 	<tr>
@@ -65,7 +65,7 @@
 			Aloysius Torres
 		</td>
 		<td>
-			<center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center>
+			<center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center>
 		</td>
 	</tr>
 	<tr>
@@ -76,7 +76,7 @@
 			Shandy Mar Tabanao
 		</td>
 		<td>
-			<center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center>
+			<center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center>
 		</td>
 	</tr>
 	<tr>
@@ -87,7 +87,7 @@
 			Aloysius Torres
 		</td>
 		<td>
-			<center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center>
+			<center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center>
 		</td>
 	</tr>
 	<tr>
@@ -98,7 +98,7 @@
 			Shandy Mar Tabanao
 		</td>
 		<td>
-			<center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center>
+			<center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center>
 		</td>
 	</tr>
 	<tr>
@@ -109,7 +109,7 @@
 			Arnel Moso
 		</td>
 		<td>
-			<center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center>
+			<center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center>
 		</td>
 	</tr>
 	<tr>
@@ -120,7 +120,7 @@
 			Vanessa Saren
 		</td>
 		<td>
-			<center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center>
+			<center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center>
 		</td>
 	</tr>
 	<tr>
@@ -131,7 +131,7 @@
 			Aloysius Torres
 		</td>
 		<td>
-			<center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center>
+			<center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center>
 		</td>
 	</tr>
 	<tr>
@@ -142,7 +142,7 @@
 			Shandy Mar Tabanao
 		</td>
 		<td>
-			<center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center>
+			<center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center>
 		</td>
 	</tr>
 	<tr>
@@ -153,7 +153,7 @@
 			Aloysius Torres
 		</td>
 		<td>
-			<center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center>
+			<center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center>
 		</td>
 	</tr>
 	<tr>
@@ -164,7 +164,7 @@
 			Arnel Moso
 		</td>
 		<td>
-			<center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center>
+			<center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center>
 		</td>
 	</tr>
 	<tr>
@@ -175,7 +175,7 @@
 			Vanessa Saren
 		</td>
 		<td>
-			<center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center>
+			<center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center>
 		</td>
 	</tr>
 	<tr>
@@ -186,7 +186,7 @@
 			Aloysius Torres
 		</td>
 		<td>
-			<center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center>
+			<center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center>
 		</td>
 	</tr>
 	<tr>
@@ -197,7 +197,7 @@
 			Shandy Mar Tabanao
 		</td>
 		<td>
-			<center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center>
+			<center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center>
 		</td>
 	</tr>
 	<tr>
@@ -208,7 +208,7 @@
 			Aloysius Torres
 		</td>
 		<td>
-			<center><a href="ps_view_profile.html" class="btn btn-info btn-mini">view</a></center>
+			<center><a href="ps_view_profile.php" class="btn btn-info btn-mini">view</a></center>
 		</td>
 	</tr>
 	</table>

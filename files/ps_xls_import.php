@@ -116,7 +116,7 @@ else {
 	if (empty($errors)) {
 		$sec = gettimeofday();
 		$import_loc = 'ps_files/import/'.$sec['sec'].'_'.$file_name;
-		move_uploaded_file($file_tmp, $import_loc)
+		move_uploaded_file($file_tmp, $import_loc);
 		?>
 		<h4 class="text-success"> File Name: <?php echo $_POST['file_name']; ;?> is successfully added..</h4>
 		<a href="javascript:import_preview('<?php echo "$import_loc"; ?>') " class="btn btn-mini btn-success">Preview</a>

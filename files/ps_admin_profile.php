@@ -100,12 +100,12 @@ require_once 'ps_connect_db.php'
 		<?php
 
 
-		$result = mysqli_query($con,"SELECT image FROM image_tbl");
+/*		$result = mysqli_query($con,"SELECT image FROM  seg_ps_users");
 
 while($row = mysqli_fetch_array($result))
   {
-  echo "<img src=" . $row['image'] . " alt=profile_picture class=img-polaroid />" ;
-  }
+  echo "<img src=" . $row['image'] . " alt=profile_picture class=img-polaroid img-rounded />" ;
+  }*/
 		?>
 		
 	
@@ -130,11 +130,15 @@ while($row = mysqli_fetch_array($result))
 	<?php $start_time = microtime(true); 
 
 $time_gen = number_format(microtime(true) - $start_time, 9);
-
 ?>
 
 <pre class="prettyprint" id="page=generated" style="width: 90%; ">
 This page was generated in <span class="atv"><?php echo"$time_gen"; ?></span> seconds.
 </pre>
+
 </body>
 </html>
+<?php
+}
+mysqli_close($con);
+?>
