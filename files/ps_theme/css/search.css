@@ -104,7 +104,7 @@ h2{
 	color: #333333;
 	font-family: 'Century Gothic',sans-serif;
     font-size: 12px;
-	padding: 4px 1px 4px 1px;
+	padding: 4px;
 	text-align: center;
 }
 .data thead{
@@ -147,4 +147,7 @@ aside a{
 }
 .summary tr td:first-child {
 font-weight: bold;
+}
+ input [type="text"]{
+	margin: 5px;
 }
