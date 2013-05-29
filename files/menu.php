@@ -42,7 +42,7 @@
 	<li><a href="#" id="homeMenu"><img src="ps_theme/images/home-icon.png" alt=""/>Home</a></li>
 	<ul>
 	</ul>
-	<li><a href="#" id="searchMenu"><img src="ps_theme/images/search-icon.png" alt=""/>Search</a></li>
+	<li><a href="search_ren.php" target="_blank" id="searchMenu"><img src="ps_theme/images/search-icon.png" alt=""/>Search</a></li>
 	<ul>
 	</ul>
 	<!--conflict-->

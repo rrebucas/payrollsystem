@@ -1,0 +1,26 @@
+
+
+Note * : Name of Employee id == id batch name 
+	: seg_employee_import sort by date
+
+
+
+$row_date_time = <3/14/13 9:32:52 AM>
+$row_date_time_explode = explode(' ', $row_date_time)
+
+$var_date= $row_date_time_explode[0]
+$var_time= $row_date_time_explode[1]
+$var_time_status= $row_date_time_explode[2]
+
+$var_time_explode = explode (':', $var_time)
+$var_hour = $var_time_explode[0]
+$var_min = $var_time_explode[1]
+
+$var_employee_status = <C/In>
+
+$var_date_array=array[];
+
+
+
+
+

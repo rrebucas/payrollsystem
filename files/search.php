@@ -22,10 +22,9 @@ require_once 'ps_connect_db.php';
 	display: none;
 	font-family: 'Century Gothic',sans-serif;
 	font-size: 12px;
-	height: 14px;
 	position: relative;
 	text-align: center;
-	top: 5px;
+
 	width: 36px;
 }
 </style>
