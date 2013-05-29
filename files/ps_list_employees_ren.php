@@ -18,7 +18,7 @@ require_once ('ps_connect_db.php');
 </header>
 <div id="content-list-employee">
 	<div id="search">
-		<form action="<?=$_SERVER['PHP_SELF']?>" method="GET">
+		<form action="ps_list_employees_ren.php" method="GET">
 			<p>
 				Enter <strong>Employee's Name</strong><em>(i.e. Renante, Aljohn, Jegger, Rudy)</em>
 			</p>
