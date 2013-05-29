@@ -6,7 +6,7 @@
 <!--ps css-->
 <link rel="stylesheet" type="text/css" href="ps_theme/css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="ps_theme/css/style.css"/>
-<link rel="stylesheet" type="text/css" href="ps_includes/jquery_scroller/css/jquery.mCustomScrollbar.css"/>
+<link rel="stylesheet" type="text/css" href="ps_includes/jquery_scroller/css/jquery.mCustomScrollbar.css" />
 <!--ps js-->
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -30,7 +30,12 @@
 	</li>
 	<li><a href="#" id="logout"><img src="ps_theme/images/logout-icon.png" alt=""/>Logout</a></li>
 	<li><a href="#" id="homeMenu"><img src="ps_theme/images/home-icon.png" alt=""/>Home</a></li>
-	<li><a href="#" id="searchMenu"><img src="ps_theme/images/search-icon.png" alt=""/>Search</a></li>
+	<ul>
+	</ul>
+	<li><a href="search_ren.php" target="content" id="searchMenu"><img src="ps_theme/images/search-icon.png" alt=""/>Search</a></li>
+	<ul>
+	</ul>
+	<!--conflict-->
 	<li>
 	<a href="ps_list_employees_ren.php" target="content" id="listMenu"><img src="ps_theme/images/listemployee-icon.png" alt=""/>List of Employees</a></li>
 	<li><a href="ps_xls_import.php" target="content" id="importMenu"><img src="ps_theme/images/import-icon.png" alt=""/>Import</a></li>

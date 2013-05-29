@@ -7,15 +7,70 @@ body{
 .clear{
 	clear: both;
 }
+#top-title{
+	background-color: #262626;
+	position: fixed;
+	top: 0;
+	height: 80px;
+	width: 100%;
+	z-index: 2;
+}
+#top-title h1{
+	color: #fff;
+}
+#top-title h1 span{
+	color:#0095d1;
+}
+#top-btn{
+	position: fixed;
+	top: 0;
+	z-index: 2;
+	right: 20px;
+	margin: 20px;
+}
+#top-btn a{
+	color: #fff;
+	text-decoration: none;
+}
+#top-btn a:hover{
+	color: #fff;
+}
+#top-btn a#newtab-btn{
+	background: url(../images/newtab-icon.png) no-repeat scroll 0 0 transparent;
+	display: inline-block;
+	width: 30px;
+	height: 35px;
+	text-indent: -9999px;
+	margin-right: 10px;
+}
+#top-btn a#refresh-btn{
+	background: url(../images/refresh-icon.png) no-repeat scroll 0 0 transparent;
+	display: inline-block;
+	width: 30px;
+	height: 35px;
+	text-indent: -9999px;
+	margin-right: 10px;
+}
+#top-btn a#close-btn{
+	background: url(../images/close-icon.png) no-repeat scroll 0 0 transparent;
+	display: inline-block;
+	width: 30px;
+	height: 35px;
+	text-indent: -9999px;
+	margin-right: 25px;
+}
+
+#top-wrapper{
+	margin: 20px;
+}
 .page-holder{
 	margin: 0 auto;
 	width: 960px;
+	padding-top: 150px;
+
 }
 #content{
 	margin: 20px 0 0 20px;	
-}
-#content h1{
-	color: #333333;
 }
 #content .search{
 	background-color: #F9F9F9;
@@ -31,7 +86,6 @@ body{
 }
 .search_label{
 	bottom: 10px;
-	left: 55px;
 	position: relative;
 }
 .batch_name{
@@ -52,10 +106,13 @@ form p{
 .batch{
 	color:#000;
 	font-size: 13px;
-	margin-left: 650px;
+	float: right;
 }
 .batch span{
 	font-weight: bold;
+}
+#search-btn{
+	margin-left: 40px;
 }
 hr{
 	color: #262626;
@@ -65,8 +122,7 @@ hr{
 .employee label{
 	color: #000;
 	font-size: 13px;
-	float: left;
-	margin-left: 100px;
+	cursor: default;
 }
 .employee span{
 	color: #000;
@@ -80,7 +136,6 @@ h2{
 .date{
 	color: #000;
 	font-size: 13px;
-	margin-left: 100px;
 	margin-top: 8px;
 }
 .date .value{
@@ -125,8 +180,7 @@ h2{
 	font-weight: bold;
 }
 .button{
-	float: left;
-	margin: 35px 0 0 125px;   
+	margin-top: 35px;  
 }
 aside{
 	float: left;
@@ -138,8 +192,7 @@ aside a{
 }
 .summary{
 	box-shadow: 2px 2px 2px #888888;
-	float: right;
-    margin: -36px 104px 15px 0;
+    margin-top: 30px;
 }
 .summary tr td{
 	border: 1px solid #c8c8c8;
