@@ -12,6 +12,7 @@ require_once 'ps_connect_db.php';
 <link rel="stylesheet" type="text/css" href="ps_theme/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="ps_theme/css/search.css"/>
 <link rel="stylesheet" type="text/css" href="ps_includes/jquery_validator/css/validationEngine.jquery.css" />
+<link rel="stylesheet" type="text/css" href="ps_theme/css/floating_img.css"/>
 <script type="text/javascript" src="ps_theme/js/jquery-1.9.1.min.js"></script>
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -24,6 +25,9 @@ require_once 'ps_connect_db.php';
 	top: 5px;
 	width: 36px;
 	color: #000;
+	}
+	body{
+		padding-bottom: 80px;
 	}
 	body, #content{
 		margin: 0;
@@ -41,8 +45,19 @@ require_once 'ps_connect_db.php';
 <body>
 
 <div id="content">
+			<div id="top-title" class="pull-left">
+				<div id="top-wrapper">
+					<h1>Employees <span>Record</span></h1>
+				</div>
+			</div>
+			<div id="top-btn" class="pull-right">
+				
+					<a id="newtab-btn" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Open New Tab" target="_blank">New</a>
+					<a id="refresh-btn" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Refresh">Refresh</a>
+					<a id="close-btn" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Close">Close</a>
+				
+			</div>
 	<div class="page-holder">
-		<h1>Search Employee</h1>
 		<?php
 		// fetch employee list and filename
 
@@ -87,7 +102,7 @@ require_once 'ps_connect_db.php';
 				</select>
 			</p>
 			<p>
-				<input type="submit" name="submit" value="search" class="btn">
+				<input id="search-btn" type="submit" name="submit" value="Search" class="btn btn-info">
 			</p>
 		</form>
 
@@ -208,31 +223,31 @@ require_once 'ps_connect_db.php';
 		</tr>
 		</tbody>
 		</table>
-			<p style="text-align: center;"><span class="red">*</span> Double Click on the cell to edit the value! <span class="red">*</span></p>
+			
 		<form action="#" method="post" id="validateForm" class="formular">
 			<table class="table table-striped data" border="1" id="mytable" width="800">
 				<thead>
 					<tr>
-						<td rowspan="2">Date</td>
+						<td rowspan="2" style="text-align:center;vertical-align:middle;">Date</td>
 						<td colspan="3">&nbsp;</td>
-						<td colspan="4">AM</td>
-						<td colspan="4">PM</td>					
-						<td rowspan="2" style="word-wrap:break-word;width:20px;">Actual Hours</td>
-						<td rowspan="2" style="word-wrap:break-word;width:20px;">Cred. Hours</td>
+						<td colspan="4" style="text-align:center;">AM</td>
+						<td colspan="4" style="text-align:center;">PM</td>					
+						<td rowspan="2" style="word-wrap:break-word;width:20px;text-align:center;">Actual Hours</td>
+						<td rowspan="2" style="word-wrap:break-word;width:20px;text-align:center;">Cred. Hours</td>
 						<td colspan="3">&nbsp;</td>
-						<td rowspan="2">Remarks</td>
+						<td rowspan="2" style="text-align:center;vertical-align:middle;">Remarks</td>
 					</tr>		
 					<tr>
-						<td>&nbsp;Night?&nbsp;</td>
-						<td>&nbsp;Holiday?&nbsp;</td>
-						<td>&nbsp;&nbsp;OT?&nbsp;&nbsp;</td>
-						<td colspan="2">In</td>
-						<td colspan="2" >Out</td>
-						<td colspan="2">In</td>
-						<td colspan="2">Out</td>
-						<td>Night</td>
-						<td>Holiday</td>
-						<td>OT</td>
+						<td style="text-align:center;">Night?</td>
+						<td style="text-align:center;">Holiday?</td>
+						<td style="text-align:center;">OT?</td>
+						<td colspan="2" style="text-align:center;">In</td>
+						<td colspan="2" style="text-align:center;">Out</td>
+						<td colspan="2" style="text-align:center;">In</td>
+						<td colspan="2" style="text-align:center;">Out</td>
+						<td style="text-align:center;">Night</td>
+						<td style="text-align:center;">Holiday</td>
+						<td style="text-align:center;">OT</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -259,7 +274,7 @@ require_once 'ps_connect_db.php';
 						if ($class_tr == 'warning') {
 							?>
 							<br>
-							<a href="#" title="Remove"> <i class="icon-remove"></i> </a>
+							<a  title="Remove" class="remove-btn" style="cursor:pointer;"> <i class="icon-remove"></i> </a>
 							<?php
 							
 						}else{
@@ -424,72 +439,77 @@ require_once 'ps_connect_db.php';
 					<tr class="total">
 						<td>Total</td>
 						<td colspan="11">&nbsp;</td>
-						<td>121.5</td>
-						<td>123</td>
-						<td>0.0</td>
-						<td>0.0</td>
-						<td>0.0</td>
+						<td style="width: 30px;"><input type="text" name="subTotal_actualHours"  style="margin:5px;width:36px;padding:2px;text-align:center;" readonly></td>
+						<td style="width: 30px;"><input type="text" name="subTotal_credHours"  style="margin:5px;width:36px;padding:2px;text-align:center;" readonly></td>
+						<td style="width: 30px;"><input type="text" name="subTotal_nightHours"  style="margin:5px;width:36px;padding:2px;text-align:center;" readonly></td>
+						<td style="width: 30px;"><input type="text" name="subTotal_holidayHours"  style="margin:5px;width:36px;padding:2px;text-align:center;" readonly></td>
+						<td style="width: 30px;"><input type="text" name="total_otHours"  style="margin:5px;width:36px;padding:2px;text-align:center;" readonly></td>
 						<td>&nbsp;</td>
 					</tr>
 				</tbody>
 			</table>
-			<div>
-			<table class="table" style=" width: 55%; ">
-		  <thead>
-		    <tr>
-		      <th style=" width: 35%; ">Color Code</th>
-		      <th>Description</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr>
-		      <td style="background-color:#fcf8e3;"></td>
-		      <td>Indicates a warning that might need attention</td>
-		    </tr>
-		    <tr>
-		      <td style="background-color:#f2dede;"></td>
-		      <td>Indicates a dangerous  negative action.</td>
-		    </tr>
-		  </tbody>
-		</table>
-		</div>
+			<div class="row">
+				<div class="span6">
+					<table class="table" style=" width: 433px;font-size:11px; ">
+					  <thead>
+				   		 <tr>
+					      <th style=" width: 35%; ">Legend</th>
+					      <th>Description</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <td style="background-color:#fcf8e3;"></td>
+					      <td>Indicates a warning that might need attention</td>
+					    </tr>
+					    <!--<tr>
+					      <td style="background-color:#f2dede;"></td>
+					      <td>Indicates a dangerous  negative action.</td>
+					    </tr>-->
+					  </tbody>
+					</table>
+				</div>
+				<div class="span5">
+					<p class="button">
+						<button class="btn btn-info" type="button">Save</button>
+						
+					</p>
+				</div>
+					<div class="pull-right">
+					<table class="table table-striped summary">
+						<tr>
+							<td>Creditable Hours</td>
+							<td><input type="text" name="total_credHours" style="margin:5px;width:36px;padding:2px;text-align:center;" readonly/></td>
+						</tr>
+						<tr>
+							<td>Night Premium</td>
+							<td><input type="text" name="total_nightPremium" style="margin:5px;width:36px;padding:2px;text-align:center;" readonly/></td>
+						</tr>
+						<tr>
+							<td>Total Holidays</td>
+							<td><input type="text" name="total_holidays" style="margin:5px;width:36px;padding:2px;text-align:center;" readonly/></td>
+						</tr>
+						<tr>
+							<td>Total Overtime</td>
+							<td><input type="text" name="total_overTime" style="margin:5px;width:36px;padding:2px;text-align:center;" readonly/></td>
+						</tr>
+						<tr>
+							<td>Total Hours</td>
+							<td><input type="text" name="total_hours" style="margin:5px;width:36px;padding:2px;text-align:center;" readonly/></td>
+						</tr>
+				</table>
+				</div>
+			</div>
 			<?php
 
 			/*print_r($var_date_store_array);*/
 
 			?>
-			<p class="button">
-				<button class="btn" type="button">Save</button>
-				<button class="btn" type="button">Print</button>
-			</p>
+			
 		</form>
 		<div class="clear"></div>
-		<aside>
-			<a href="#">Download as PDF!</a>
-			<a href="#">Download as Microsoft Word!</a>
-		</aside>
-		<table class="table-striped summary">
-			<tr>
-				<td>Creditable Hours</td>
-				<td>123.00</td>
-			</tr>
-			<tr>
-				<td>Night Premium</td>
-				<td>0.0</td>
-			</tr>
-			<tr>
-				<td>Total Holidays</td>
-				<td>0.0</td>
-			</tr>
-			<tr>
-				<td>Total Overtime</td>
-				<td>0.0</td>
-			</tr>
-			<tr>
-				<td>Total Hours</td>
-				<td>123.00</td>
-			</tr>
-		</table>
+	
+		
 		<?php
 
 		 } else {
@@ -504,10 +524,15 @@ require_once 'ps_connect_db.php';
 
 	</div>
 	</div>
-
+<div id="divBottomRight">
+	<a href="#"><img src="ps_theme/images/seglogo.png" alt="" title="Segworks Technologies Corporation"/></a>
+</div>
 
 <script type="text/javascript" src="ps_includes/jquery_validator/js/jquery.validationEngine-en.js" /></script>
 <script type="text/javascript" src="ps_includes/jquery_validator/js/jquery.validationEngine.js"></script>
+<script type="text/javascript" src="ps_theme/js/floating_image.js"></script>
+<script type="text/javascript" src="ps_theme/js/float_image.js"></script>
+<script type="text/javascript" src="ps_includes/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function(){
 			// binds form submission and fields to the validation engine
@@ -515,9 +540,15 @@ jQuery(document).ready(function(){
 			jQuery("#search_employee_form").validationEngine('attach');
 
 		});
-
+   $( ".tip-title" ).tooltip({
+      show: {
+        effect: "slideDown",
+        delay: 250
+      }
+    });
 
  </script>
+
 <script type="text/javascript" src="ps_theme/js/ps_calc_js.js"></script>
 </body>
 </html>
