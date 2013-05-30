@@ -44,23 +44,22 @@ aside{
 	height: 570px;
 	overflow: auto;
 }
-aside #accordion ul {
+aside #collapse-menu li ul {
 	list-style: none;
 	padding: 0 0 0 0;
 	display: none;
 }
-aside #accordion li {
+aside #collapse-menu li {
 	margin-bottom:0px;
 	list-style:none;
 	padding:0;
 	float:left;
 	width:100%;
 	opacity:1;
-	overflow:hidden;
 }
-aside #accordion li a {
+aside #collapse-menu li a {
 	display:block;
-	font-size:18px;
+	font-size:16px;
 	font-family:'Century Gothic',sans-serif;
 	text-decoration:none;
 	padding:30px 20px;
@@ -70,16 +69,21 @@ aside #accordion li a {
 	float:left;
 	width:100%;
 }
-aside #accordion a:hover,aside #accordion a.active {
+aside #collapse-menu a:hover,aside #collapse-menu a.active {
 	-moz-transition:background-color 1s ease 0s;
 	-webkit-transition:background-color 1s ease 0s;
 	-o-transition:background-color 1s ease 0s;
+}
+#recordMenu{
+	background: url(../images/newtab-icon-mini.png) no-repeat scroll 230px center transparent;
+	height: 18px;
+	width: 20px;
 }
 #homeMenu:hover,#homeMenu.active {
 	background-color:#2572EB;
 	color:#fff;
 }
-#searchMenu:hover,#searchMenu.active {
+#recordMenu:hover,#recordMenu.active {
 	background-color:#4CC40B;
 	color:#fff;
 }
@@ -87,7 +91,7 @@ aside #accordion a:hover,aside #accordion a.active {
 	background-color:#E4031D;
 	color:#fff;
 }
-#profileMenu:hover,#profileMenu.active {
+#settingMenu:hover,#settingMenu.active {
 	background-color:#FFCC00;
 	color:#fff;
 }
@@ -95,11 +99,15 @@ aside #accordion a:hover,aside #accordion a.active {
 	background-color:#7301ad;
 	color:#fff;
 }
+#exportMenu:hover,#exportMenu.active {
+	background-color:#fd7f03;
+	color:#fff;
+}
 #logout:hover,#logout.active {
 	background-color:#ad103c;
 	color:#fff;
 }
-aside #accordion li img {
+aside #collapse-menu li img {
 	float:left;
 	margin-right:10px;
 	padding:7.5px;
@@ -108,17 +116,20 @@ aside #accordion li img {
 #homeMenu img {
 	background-color:#2572EB;
 }
-#searchMenu img {
+#recordMenu img {
 	background-color:#4CC40B;
 }
 #listMenu img {
 	background-color:#E4031D;
 }
-#profileMenu img {
+#settingMenu img {
 	background-color:#FFCC00;
 }
 #importMenu img {
 	background-color:#7301ad;
+}
+#exportMenu img{
+	background-color: #fd7f03;
 }
 #logout img {
 	background-color: #ad103c;
