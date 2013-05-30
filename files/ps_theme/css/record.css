@@ -31,6 +31,7 @@ body{
 #top-btn a{
 	color: #fff;
 	text-decoration: none;
+	cursor: pointer;
 }
 #top-btn a:hover{
 	color: #fff;

@@ -6,7 +6,8 @@
 <link href="http://fonts.googleapis.com/css?family=Mouse+Memoirs" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" type="text/css" href="ps_theme/css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="ps_theme/css/style.css"/>
-<link rel="stylesheet" type="text/css" href="ps_theme/css/fullcalendar.css" />
+<link rel="stylesheet" type="text/css" href="ps_theme/css/jquery-ui.css" />
+<!--<link rel="stylesheet" type="text/css" href="ps_theme/css/fullcalendar.css" />
 <script type="text/javascript" src="ps_theme/js/modernizr.custom.58301.js"></script>
 <script type="text/javascript" src="ps_theme/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="ps_theme/js/jquery-ui-1.10.2.custom.min.js"></script>
@@ -80,13 +81,16 @@
 <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
+ <script type="text/javascript" src="ps_theme/js/jquery-1.9.1.min.js"></script>
+ <script type="text/javascript" src="ps_theme/js/jquery-ui.js"></script>
 </head>
 
 <body style="background-color: #c8c8c8;">
-<div id="calendar">
+<div id="datepicker">
 
 </div>
-
-
+<script type="text/javascript">
+	$( "#datepicker" ).datepicker();
+</script>
 </body>
 </html>

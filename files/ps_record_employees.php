@@ -10,10 +10,12 @@ require_once 'ps_connect_db.php';
 <title>Payroll System | SegWorks Technologies Corporation</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <link rel="stylesheet" type="text/css" href="ps_theme/css/bootstrap.min.css"/>
-<link rel="stylesheet" type="text/css" href="ps_theme/css/search.css"/>
+<link rel="stylesheet" type="text/css" href="ps_theme/css/record.css"/>
+<link rel="stylesheet" type="text/css" href="ps_theme/css/jquery-ui.css"/>
+
 <link rel="stylesheet" type="text/css" href="ps_includes/jquery_validator/css/validationEngine.jquery.css" />
 <link rel="stylesheet" type="text/css" href="ps_theme/css/floating_img.css"/>
-<script type="text/javascript" src="ps_theme/js/jquery-1.9.1.min.js"></script>
+
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -35,6 +37,52 @@ require_once 'ps_connect_db.php';
 	.page-holder{
 		width: 90%;
 	}
+	.ui-tooltip, .arrow:after {
+    background: black;
+    border: 2px solid white;
+  }
+  .ui-tooltip {
+    padding: 10px 20px;
+    color: white;
+    border-radius: 20px;
+    font: bold 14px "Helvetica Neue", Sans-Serif;
+    text-transform: uppercase;
+    box-shadow: 0 0 7px black;
+  }
+  .arrow {
+    width: 70px;
+    height: 16px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    margin-left: -35px;
+    bottom: -16px;
+  }
+  .arrow.top {
+    top: -16px;
+    bottom: auto;
+  }
+  .arrow.left {
+    left: 20%;
+  }
+  .arrow:after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    width: 25px;
+    height: 25px;
+    box-shadow: 6px 5px 9px -9px black;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    tranform: rotate(45deg);
+  }
+  .arrow.top:after {
+    bottom: -20px;
+    top: auto;
+  }
 </style>
 
 
@@ -50,8 +98,9 @@ require_once 'ps_connect_db.php';
 					<h1>Employees <span>Record</span></h1>
 				</div>
 			</div>
+
 			<div id="top-btn" class="pull-right">
-					<a id="back-btn" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Back to Main Page">back</a>
+					<a id="back-btn" href="main.php" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Go to Main Page">back</a>
 	
 					<a id="refresh-btn" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Refresh">Refresh</a>
 					<a id="close-btn" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Close">Close</a>
@@ -154,45 +203,7 @@ require_once 'ps_connect_db.php';
   				$row_date_time_employee_status_array_count = count($row_date_time_employee_status_array);
 
 		?>
-		<?php
-/*
-		echo "<p>Date and Time and Employees status Array: ";
-		echo print_r($row_date_time_employee_status_array);
-		echo "</p><br/>";
-
-		echo "<p>Date and Time Array: ";
-		echo print_r($row_date_time_array);
-		echo "</p><br/>";
-
-		echo "<p>Date and Time and Employees Array Count: ";
-		echo $row_date_time_employee_status_array_count;
-		echo "</p><br/>";
-
-		echo "<p>Date and Time Array Count: ";
-		echo $row_date_time_array_count;
-		echo "</p><br/>";
-
-
-		echo "<p>Date Array: ";
-		echo print_r($row_date_array);
-		echo "</p><br/>";
-
-		echo "<p>Time Array: ";
-		echo print_r($row_time_array);
-		echo "</p><br/>";
-
-		echo "<p>Date Unique Array: ";
-		echo print_r($row_date_array_unique);
-		echo "</p><br/>";
-
-		echo "<p>Date Unique Array Sequence: ";
-		echo print_r($row_date_array_seq);
-		echo "</p><br/>";
-
-		echo "<p>Date Unique Array Count: ";
-		echo $row_date_array_unique_count;
-		echo "</p><br/>";*/
-		?>
+		<form action="<?=$_SERVER['PHP_SELF']?>" method="post" id="validateForm" class="formular">
 		<div class="employee">
 				<label>Name of Employee: <span><?php echo "$var_employee_name";?></span></label>
 				<p class="batch">Batch Number: <span><?php echo "$var_batchname"; ?></span></p>	
@@ -224,7 +235,7 @@ require_once 'ps_connect_db.php';
 		</tbody>
 		</table>
 			
-		<form action="#" method="post" id="validateForm" class="formular">
+		
 			<table class="table table-striped data" border="1" id="mytable" width="800">
 				<thead>
 					<tr>
@@ -255,6 +266,7 @@ require_once 'ps_connect_db.php';
 					<?php
 						$var_date_store_array=array();
 
+
 					for ($row_tr=0; $row_tr < $row_date_time_employee_status_array_count ; $row_tr++) {
 
 					
@@ -262,13 +274,15 @@ require_once 'ps_connect_db.php';
 					if (in_array($row_date_array[$row_tr], $var_date_store_array)) {
 						
 						$class_tr = "warning";
+						$i++;
 					}
 					else{
 						$class_tr = '';
+						$i= '0';
 					}
 					$var_date_store_array[]=  $row_date_array[$row_tr];
 					?>
-					<tr class="<?php echo "$class_tr";?>">
+					<tr class="<?php if ( "$i" > 1 ){ echo 'error';} else {echo "$class_tr"; } ?>">
 						<td style=" font-weight: bold; "><?php echo $row_date_array[$row_tr];
 
 						if ($class_tr == 'warning') {
@@ -304,17 +318,15 @@ require_once 'ps_connect_db.php';
 								
 						
 							?>
-							<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="am-in-hr-<?php echo "$row_tr"; ?> " class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-							<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="am-in-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+							<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="am-in-hr-<?php echo "$row_tr"; ?> " class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+							<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="am-in-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
 							<?php
 								}// end if  AM IN
 								else{
-
-									$var_hour='';
-									$var_min= '';
+	
 									?>
-									<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="am-in-hr-<?php echo "$row_tr"; ?> " class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-									<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="am-in-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+									<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-hr-<?php echo "$row_tr"; ?> " class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+									<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
 
 
 							<?php
@@ -330,17 +342,16 @@ require_once 'ps_connect_db.php';
 								$var_min =	$var_time_explode[1];
 
 						?>
-							<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="am-out-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-							<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="am-out-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+							<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="am-out-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+							<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="am-out-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
 						<?php
 						} //end if  AM OUT
 						else{
 
-								$var_hour='';
-								$var_min= '';
+								
 						?>
-						<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="am-out-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-							<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="am-out-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+							<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
 						<?php	
 						} //end else AM OUT
 						?>
@@ -373,17 +384,16 @@ require_once 'ps_connect_db.php';
 								
 						
 							?>
-						<td style="width: 30px;"><input  value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="pm-in-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-						<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="pm-in-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+						<td style="width: 30px;"><input  value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="pm-in-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?>" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+						<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="pm-in-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?>" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
 						<?php
 								}// end if  PM IN
 								else{
 
-									$var_hour='';
-									$var_min= '';
+									
 						?>
-									<td style="width: 30px;"><input  value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="pm-in-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-									<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="pm-in-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+									<td style="width: 30px;"><input  value="" type="text" maxlength="2" name="pm-in-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+									<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-in-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
 						<?php
 									} //end else PM IN
 
@@ -399,16 +409,15 @@ require_once 'ps_connect_db.php';
 
 						?>
 
-						<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="pm-out-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-						<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="pm-out-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+						<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="pm-out-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+						<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="pm-out-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
 						<?php
 					} // end if PM OUT
 					else {
-							$var_hour='';
-							$var_min= '';
+						
 						?>
-						<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="pm-out-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?>></td>
-						<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="pm-out-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?>></td>
+						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?>></td>
+						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?>></td>
 
 						<?php
 						} //end else PM OUT
@@ -423,12 +432,12 @@ require_once 'ps_connect_db.php';
 
 						}	//end if PM
 						?>
-						<td style="width: 30px;"><input type="text" maxlength="2" name="actual_hrs" class="validate[custom[number]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<td style="width: 30px;"><input type="text" maxlength="2" name="cred_hrs" class="validate[custom[number]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+						<td style="width: 30px;"><input type="text" maxlength="2" name="actual_hrs-<?php echo "$row_tr"; ?>" class="validate[custom[number]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+						<td style="width: 30px;"><input type="text" maxlength="2" name="cred_hrs-<?php echo "$row_tr"; ?>" class="validate[custom[number]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
 						<td style="width:30px;"><input class="nightvalue validate[custom[number]] text-input" type="text" name="night_textbox-<?php echo "$row_tr"; ?>"  maxlength="5" value="" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> /></td>
 						<td style="width:30px;"><input class="holidayvalue validate[custom[number]] text-input" type="text" value="" maxlength="5" name="holiday_textbox-<?php echo "$row_tr"; ?>" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> /></td>
 						<td style="width: 30px;"><input class="otvalue validate[custom[number]] text-input" type="text" value="" maxlength="5" name="ot_textbox-<?php echo "$row_tr"; ?>" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> /></td>
-						<td><input type="text" maxlength="2" name="remarks" class="validate[custom[integer]] text-input" style="margin:5px;width:72px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+						<td><input type="text" maxlength="2" name="remarks-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:72px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
 					</tr>
 					<?php
 						} //end for
@@ -471,7 +480,7 @@ require_once 'ps_connect_db.php';
 				</div>
 				<div class="span5">
 					<p class="button">
-						<button class="btn btn-info" type="button">Save</button>
+						<button class="btn btn-info" type="submit" name="submit_btn_export">Save</button>
 						
 					</p>
 				</div>
@@ -507,6 +516,10 @@ require_once 'ps_connect_db.php';
 			?>
 			
 		</form>
+		<?php
+
+		
+		?>
 		<div class="clear"></div>
 	
 		
@@ -520,19 +533,39 @@ require_once 'ps_connect_db.php';
 		 	<?php
 		}// end else
 	} //end if
-		?>
 
+	//end employee record
+		?>
+		<?php
+
+
+		if (isset($_POST['submit_btn_export'])) {
+			
+			echo "<h1 class='text-success'>Success.. Ready for export</h1>";
+		}
+
+?>
 	</div>
 	</div>
+
 <div id="divBottomRight">
-	<a href="#"><img src="ps_theme/images/seglogo.png" alt="" title="Segworks Technologies Corporation"/></a>
+	<a><img src="ps_theme/images/seglogo.png" alt="" title="Segworks Technologies Corporation"/></a>
 </div>
+
+<div id="dialog-confirm-remove" title="Delete this item" style="display:none">
+  <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>These items will be temporary deleted.</p>
+</div>
+
+<script type="text/javascript" src="ps_theme/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="ps_theme/js/jquery-ui.js"></script>
 
 <script type="text/javascript" src="ps_includes/jquery_validator/js/jquery.validationEngine-en.js" /></script>
 <script type="text/javascript" src="ps_includes/jquery_validator/js/jquery.validationEngine.js"></script>
 <script type="text/javascript" src="ps_theme/js/floating_image.js"></script>
 <script type="text/javascript" src="ps_theme/js/float_image.js"></script>
-<script type="text/javascript" src="ps_includes/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="ps_theme/js/ps_calc_js.js"></script>
+
+
 <script type="text/javascript">
 jQuery(document).ready(function(){
 			// binds form submission and fields to the validation engine
@@ -540,16 +573,15 @@ jQuery(document).ready(function(){
 			jQuery("#search_employee_form").validationEngine('attach');
 
 		});
-   $( ".tip-title" ).tooltip({
-      show: {
-        effect: "slideDown",
-        delay: 250
-      }
-    });
-
+	   jQuery('#refresh-btn').click(function(){
+	   		location.reload();
+	    });
+	   jQuery('#close-btn').click(function(){
+	   		window.close();
+	    });
+	   
  </script>
 
-<script type="text/javascript" src="ps_theme/js/ps_calc_js.js"></script>
 </body>
 </html>
 <?php

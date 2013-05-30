@@ -10,11 +10,17 @@ require_once ('ps_connect_db.php');
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <link href="ps_includes/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
 <link rel="stylesheet" type="text/css" href="ps_theme/css/list.css"/>
-<script src="ps_includes/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 <header>
-	<h1>List of Employees</h1>
+	<h1>List of <span>Employees</span></h1>
+		<div id="top-btn" class="pull-right">
+						
+					<a id="refresh-btn" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Refresh">Refresh</a>
+					<a id="close-btn" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Close">Close</a>
+				
+			</div>
+
 </header>
 <div id="content-list-employee">
 	<div id="search">
@@ -245,6 +251,21 @@ if ($currentpage_search != $totalpages_search) {
 	 This page was generated in <span class="atv"><?php echo"$time_gen"; ?>
 	</span> seconds.
 </pre>
+<script type="text/javascript" src="ps_themes/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="ps_includes/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+   jQuery('#refresh-btn').click(function(){
+	   		location.reload();
+	    });
+	   jQuery('#close-btn').click(function(){
+	   		window.close();
+	    });
+
+ });
+
+ 
+</script>
 </body>
 </html>
 <?php

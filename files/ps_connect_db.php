@@ -1,6 +1,6 @@
 <?php
 // Create connection
-$con=mysqli_connect("localhost","root","","seg_dbtest");
+$con=mysqli_connect("localhost","root","renantemySQ","seg_dbtest");
 
 // Check connection
 if (mysqli_connect_errno($con))
