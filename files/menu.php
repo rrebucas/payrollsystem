@@ -17,6 +17,7 @@
 <aside>
 <ul id="collapse-menu" class="sample-menu">
 	<li><a href="#" id="homeMenu"><img src="ps_theme/images/home-icon.png" alt=""/>Home</a></li>
+<<<<<<< HEAD
 	<li><a href="#" id="searchMenu"><img src="ps_theme/images/search-icon.png" alt=""/>Search</a></li>
 	<li>
 	<a href="ps_list_employees_ren.php" target="content" id="listMenu"><img src="ps_theme/images/listemployee-icon.png" alt=""/>List of Employees</a></li>
@@ -39,6 +40,23 @@
 	<li>
 	<a href="ps_list_employees_ren.php" target="content" id="listMenu"><img src="ps_theme/images/listemployee-icon.png" alt=""/>List of Employees</a></li>
 	<li><a href="ps_xls_import.php" target="content" id="importMenu"><img src="ps_theme/images/import-icon.png" alt=""/>Import</a></li>
+=======
+
+	<li><a href="ps_record_employees.php"  target="_blank" id="recordMenu"><img src="ps_theme/images/record-icon.png" alt=""/>Employees Record</a></li>
+
+	<li>
+	<a href="ps_list_employees.php" target="content" id="listMenu"><img src="ps_theme/images/listemployee-icon.png" alt=""/>List of Employees</a></li>
+	
+	<li><a href="ps_import.php" target="content" id="importMenu"><img src="ps_theme/images/import-icon.png" alt=""/>Import</a></li>
+	<li><a href="ps_export.php" target="content" id="exportMenu"><img src="ps_theme/images/export-icon.png" alt=""/>Export</a></li>
+	<li>
+	<a href="ps_admin_profile.php" target="content" id="profileMenu"><img src="ps_theme/images/settings-icon.png" alt=""/>Settings</a></li>
+	
+	<li><a href="#" id="logout"><img src="ps_theme/images/logout-icon.png" alt=""/>Logout</a></li>
+	
+	
+	
+>>>>>>> upstream/master
 </ul>
 </aside>
 <div class="clear">
