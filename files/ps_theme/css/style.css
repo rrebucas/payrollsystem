@@ -44,21 +44,20 @@ aside{
 	height: 570px;
 	overflow: auto;
 }
-aside #accordion ul {
+aside #collapse-menu li ul {
 	list-style: none;
 	padding: 0 0 0 0;
 	display: none;
 }
-aside #accordion li {
+aside #collapse-menu li {
 	margin-bottom:0px;
 	list-style:none;
 	padding:0;
 	float:left;
 	width:100%;
 	opacity:1;
-	overflow:hidden;
 }
-aside #accordion li a {
+aside #collapse-menu li a {
 	display:block;
 	font-size:16px;
 	font-family:'Century Gothic',sans-serif;
@@ -70,7 +69,7 @@ aside #accordion li a {
 	float:left;
 	width:100%;
 }
-aside #accordion a:hover,aside #accordion a.active {
+aside #collapse-menu a:hover,aside #collapse-menu a.active {
 	-moz-transition:background-color 1s ease 0s;
 	-webkit-transition:background-color 1s ease 0s;
 	-o-transition:background-color 1s ease 0s;
@@ -108,7 +107,7 @@ aside #accordion a:hover,aside #accordion a.active {
 	background-color:#ad103c;
 	color:#fff;
 }
-aside #accordion li img {
+aside #collapse-menu li img {
 	float:left;
 	margin-right:10px;
 	padding:7.5px;
