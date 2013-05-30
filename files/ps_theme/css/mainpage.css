@@ -1,0 +1,30 @@
+body{
+	font-family: 'Century Gothic', sans-serif;
+}
+#mainpage-wrapper{
+	margin: 20px;
+}
+header{
+	position: fixed;
+	top: 0;
+	background-color: #454647;
+	box-shadow: 1px 1px 5px #777;
+	height: 80px;
+	width: 100%;
+}
+header h1{
+	color: #fff;
+	font-size: 30px;
+	font-family: 'Century Gothic', sans-serif;
+	text-shadow: -2px -3px 1px #000;
+}
+header h1 span{
+	color: #0095D1;
+}
+#content{
+	margin-top: 90px;
+}
+#content #calendar-widget{
+	float: left;
+	width: 400px;
+}

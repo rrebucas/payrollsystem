@@ -9,6 +9,7 @@ body{
 }
 #top-title{
 	background-color: #262626;
+	box-shadow: 1px 1px 5px #777;
 	position: fixed;
 	top: 0;
 	height: 80px;
@@ -17,6 +18,7 @@ body{
 }
 #top-title h1{
 	color: #fff;
+	font-size: 30px;
 }
 #top-title h1 span{
 	color:#0095d1;

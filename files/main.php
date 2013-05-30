@@ -20,7 +20,7 @@
 	<frame name="menu" src="menu.php" marginheight="0" marginwidth="0" scrolling="no" noresize>
 	<frame name="content" src="calendar.php" marginheight="0" marginwidth="0" scrolling="auto" noresize>
 
-	<frame name="menu" src="menu.html" marginheight="0" marginwidth="0" scrolling="no" noresize>
+	<frame name="menu" src="menu.html" marginheight="0" marginwidth="0" scrolling="yes" noresize>
 	<frame name="calendar" src="calendar.html" marginheight="0" marginwidth="0" scrolling="auto" noresize>
 	
 

@@ -1,18 +1,62 @@
 body {
 	font-family:'Century Gothic',sans-serif;
 	font-size:12px;
-	margin:30px;
 	background-color:#FFF;
 	}
 .clear{
 	clear: both;
 	display: block;
 }
+#list-wrapper{
+	margin-left: 35px;
+}
 header{
-	/*background: none #262626;
-	color: #fff;*/
+	background-color: #454647;
+	box-shadow: 1px 1px 5px #777;
 	position: fixed;
 	top: 0;
+	height: 63px;
+	width: 100%;
+	z-index: 2;
+}
+header h1{
+	text-shadow: -2px -3px 1px #000;
+	color: #fff;
+	font-size: 23px;
+}
+header h1 span{
+	color: #0095d1;
+}
+#top-btn{
+	float: right;
+}
+#top-btn{
+	position: fixed;
+	top: 0;
+	z-index: 2;
+	right: 20px;
+	top: 15px;
+}
+#top-btn a{
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+}
+#top-btn a#refresh-btn{
+	background: url(../images/refresh-icon.png) no-repeat scroll 0 0 transparent;
+	display: inline-block;
+	width: 30px;
+	height: 35px;
+	text-indent: -9999px;
+	margin-right: 10px;
+}
+#top-btn a#close-btn{
+	background: url(../images/close-icon.png) no-repeat scroll 0 0 transparent;
+	display: inline-block;
+	width: 30px;
+	height: 35px;
+	text-indent: -9999px;
+	margin-right: 25px;
 }
 #content-list-employee{
 	margin-top: 100px;

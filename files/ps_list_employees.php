@@ -10,11 +10,20 @@ require_once ('ps_connect_db.php');
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <link href="ps_includes/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
 <link rel="stylesheet" type="text/css" href="ps_theme/css/list.css"/>
-<script src="ps_includes/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="ps_theme/css/floating_img.css"/>
 </head>
 <body>
 <header>
-	<h1>List of Employees</h1>
+	<div id="list-wrapper">
+		<h1>List of <span>Employees</span></h1>
+		<div id="top-btn">
+			
+	
+					<a id="refresh-btn" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Refresh">Refresh</a>
+					<a id="close-btn" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Close">Close</a>
+
+		</div>
+	</div>
 </header>
 <div id="content-list-employee">
 	<div id="search">
@@ -237,14 +246,39 @@ if ($currentpage_search != $totalpages_search) {
 	<br>
 </div>
 	<div class="clear"></div>
+	<div id="divBottomRight">
+	<a><img src="ps_theme/images/seglogo.png" alt="" title="Segworks Technologies Corporation"/></a>
+</div>
+
 	<!--Page Generated-->
 	<?php $start_time = microtime(true); 
 		$time_gen = number_format(microtime(true) - $start_time, 9);
 	?>
-<pre class="prettyprint" id="page=generated" style="width: 90%; ">
+<pre class="prettyprint" id="page=generated" style="width: 90%; margin-left:30px;">
 	 This page was generated in <span class="atv"><?php echo"$time_gen"; ?>
 	</span> seconds.
 </pre>
+
+<script type="text/javascript" src="ps_theme/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="ps_theme/js/floating_image.js"></script>
+<script type="text/javascript" src="ps_theme/js/float_image.js"></script>
+
+<script src="ps_includes/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+   jQuery( ".tip-title" ).tooltip({
+	      show: {
+	        effect: "slideDown",
+	        delay: 250
+	      }
+	    });
+	   jQuery('#refresh-btn').click(function(){
+	   		location.reload();
+	    });
+	   jQuery('#close-btn').click(function(){
+	   		window.close();
+	    });
+
+</script>
 </body>
 </html>
 <?php
