@@ -16,31 +16,9 @@
 <body>
 <aside>
 <ul id="collapse-menu" class="sample-menu">
+
 	<li><a href="#" id="homeMenu"><img src="ps_theme/images/home-icon.png" alt=""/>Home</a></li>
-<<<<<<< HEAD
-	<li><a href="#" id="searchMenu"><img src="ps_theme/images/search-icon.png" alt=""/>Search</a></li>
-	<li>
-	<a href="ps_list_employees_ren.php" target="content" id="listMenu"><img src="ps_theme/images/listemployee-icon.png" alt=""/>List of Employees</a></li>
-	<li><a href="ps_xls_import.php" target="content" id="importMenu"><img src="ps_theme/images/import-icon.png" alt=""/>Import</a></li>
-	<li>
-	<a href="#" id="profileMenu"><img src="ps_theme/images/admin-icon.png" alt=""/>Settings</a>
-	<ul id="collapse">
-		<li><a href="ps_admin_profile.php" target="content">Admin Profile</a></li>
-		<li><a href="#">Add New User</a></li>
-	</ul>
-	</li>
-	<li><a href="#" id="logout"><img src="ps_theme/images/logout-icon.png" alt=""/>Logout</a></li>
-	<li><a href="#" id="homeMenu"><img src="ps_theme/images/home-icon.png" alt=""/>Home</a></li>
-	<ul>
-	</ul>
-	<li><a href="search_ren.php" target="content" id="searchMenu"><img src="ps_theme/images/search-icon.png" alt=""/>Search</a></li>
-	<ul>
-	</ul>
-	<!--conflict-->
-	<li>
-	<a href="ps_list_employees_ren.php" target="content" id="listMenu"><img src="ps_theme/images/listemployee-icon.png" alt=""/>List of Employees</a></li>
-	<li><a href="ps_xls_import.php" target="content" id="importMenu"><img src="ps_theme/images/import-icon.png" alt=""/>Import</a></li>
-=======
+
 
 	<li><a href="ps_record_employees.php"  target="_blank" id="recordMenu"><img src="ps_theme/images/record-icon.png" alt=""/>Employees Record</a></li>
 
@@ -54,9 +32,6 @@
 	
 	<li><a href="#" id="logout"><img src="ps_theme/images/logout-icon.png" alt=""/>Logout</a></li>
 	
-	
-	
->>>>>>> upstream/master
 </ul>
 </aside>
 <div class="clear">
