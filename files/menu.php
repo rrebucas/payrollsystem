@@ -26,7 +26,7 @@
 	<li><a href="ps_import.php" target="content" id="importMenu"><img src="ps_theme/images/import-icon.png" alt=""/>Import</a></li>
 	<li><a href="ps_export.php" target="content" id="exportMenu"><img src="ps_theme/images/export-icon.png" alt=""/>Export</a></li>
 	<li>
-	<a href="ps_admin_profile.php" target="content" id="profileMenu"><img src="ps_theme/images/settings-icon.png" alt=""/>Settings</a></li>
+	<a href="ps_setting.php" target="content" id="settingMenu"><img src="ps_theme/images/settings-icon.png" alt=""/>Settings</a></li>
 	
 	<li><a href="#" id="logout"><img src="ps_theme/images/logout-icon.png" alt=""/>Logout</a></li>
 	

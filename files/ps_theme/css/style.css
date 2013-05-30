@@ -92,7 +92,7 @@ aside #accordion a:hover,aside #accordion a.active {
 	background-color:#E4031D;
 	color:#fff;
 }
-#profileMenu:hover,#profileMenu.active {
+#settingMenu:hover,#settingMenu.active {
 	background-color:#FFCC00;
 	color:#fff;
 }
@@ -123,7 +123,7 @@ aside #accordion li img {
 #listMenu img {
 	background-color:#E4031D;
 }
-#profileMenu img {
+#settingMenu img {
 	background-color:#FFCC00;
 }
 #importMenu img {
