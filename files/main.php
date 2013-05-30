@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <!--<link rel="stylesheet" type="text/css" href="css/style.css"/>-->
 <script type="text/javascript" src="js/modernizr.custom.58301.js"></script>
-<title>Dashboard | Payroll Management System</title>
+<title> Segworks Corp. | Payroll Management System</title>
 </head>
 
 

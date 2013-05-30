@@ -35,16 +35,16 @@ body{
 #top-btn a:hover{
 	color: #fff;
 }
-#top-btn a#newtab-btn{
-	background: url(../images/newtab-icon.png) no-repeat scroll 0 0 transparent;
+#top-btn a#refresh-btn{
+	background: url(../images/refresh-icon.png) no-repeat scroll 0 0 transparent;
 	display: inline-block;
 	width: 30px;
 	height: 35px;
 	text-indent: -9999px;
 	margin-right: 10px;
 }
-#top-btn a#refresh-btn{
-	background: url(../images/refresh-icon.png) no-repeat scroll 0 0 transparent;
+#top-btn a#back-btn{
+	background: url(../images/back-icon.png) no-repeat scroll 0 0 transparent;
 	display: inline-block;
 	width: 30px;
 	height: 35px;

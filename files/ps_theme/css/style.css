@@ -59,7 +59,7 @@ aside #collapse-menu li {
 }
 aside #collapse-menu li a {
 	display:block;
-	font-size:18px;
+	font-size:16px;
 	font-family:'Century Gothic',sans-serif;
 	text-decoration:none;
 	padding:30px 20px;
@@ -74,11 +74,16 @@ aside #collapse-menu a:hover,aside #collapse-menu a.active {
 	-webkit-transition:background-color 1s ease 0s;
 	-o-transition:background-color 1s ease 0s;
 }
+#recordMenu{
+	background: url(../images/newtab-icon-mini.png) no-repeat scroll 230px center transparent;
+	height: 18px;
+	width: 20px;
+}
 #homeMenu:hover,#homeMenu.active {
 	background-color:#2572EB;
 	color:#fff;
 }
-#searchMenu:hover,#searchMenu.active {
+#recordMenu:hover,#recordMenu.active {
 	background-color:#4CC40B;
 	color:#fff;
 }
@@ -94,6 +99,10 @@ aside #collapse-menu a:hover,aside #collapse-menu a.active {
 	background-color:#7301ad;
 	color:#fff;
 }
+#exportMenu:hover,#exportMenu.active {
+	background-color:#fd7f03;
+	color:#fff;
+}
 #logout:hover,#logout.active {
 	background-color:#ad103c;
 	color:#fff;
@@ -107,7 +116,7 @@ aside #collapse-menu li img {
 #homeMenu img {
 	background-color:#2572EB;
 }
-#searchMenu img {
+#recordMenu img {
 	background-color:#4CC40B;
 }
 #listMenu img {
@@ -118,6 +127,9 @@ aside #collapse-menu li img {
 }
 #importMenu img {
 	background-color:#7301ad;
+}
+#exportMenu img{
+	background-color: #fd7f03;
 }
 #logout img {
 	background-color: #ad103c;
