@@ -91,7 +91,7 @@ aside #collapse-menu a:hover,aside #collapse-menu a.active {
 	background-color:#E4031D;
 	color:#fff;
 }
-#profileMenu:hover,#profileMenu.active {
+#settingMenu:hover,#settingMenu.active {
 	background-color:#FFCC00;
 	color:#fff;
 }
@@ -122,7 +122,7 @@ aside #collapse-menu li img {
 #listMenu img {
 	background-color:#E4031D;
 }
-#profileMenu img {
+#settingMenu img {
 	background-color:#FFCC00;
 }
 #importMenu img {

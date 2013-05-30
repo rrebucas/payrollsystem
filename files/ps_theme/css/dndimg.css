@@ -1,0 +1,27 @@
+#dropbox {
+	width: 150px;
+	height: 150px;
+	background-color: #FEFFEC;
+	text-align: center;
+	color: #BBB;
+	font-size: 2em;
+	font-family: Arial, sans-serif;
+}
+
+#progressbar {
+	margin-left: 20px;
+	margin-right: 20px;
+	position: relative;
+	top: 75%;
+}
+
+#droplabel {
+	position: relative;
+	top: 69%;
+	font-size:9px;
+	color: #000000;
+}
+#dropbox img{
+	margin-top:-49px;
+	font-size: 12px;
+}
