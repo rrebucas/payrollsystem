@@ -51,8 +51,8 @@ require_once 'ps_connect_db.php';
 				</div>
 			</div>
 			<div id="top-btn" class="pull-right">
-				
-					<a id="newtab-btn" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Open New Tab" target="_blank">New</a>
+					<a id="back-btn" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Back to Main Page">back</a>
+	
 					<a id="refresh-btn" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Refresh">Refresh</a>
 					<a id="close-btn" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Close">Close</a>
 				
