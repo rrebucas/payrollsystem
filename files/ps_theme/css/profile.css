@@ -43,9 +43,12 @@ header{
 }
 #update_add a{
 	display: inline;
-	font-size: 12px;
+	font-size: 14px;
 	font-family: Arial, sans-serif;
-	padding: 3px 8px;
+	padding: 4px 8px;
+}
+#update_add{
+	margin-top: 10px;
 }
 .polaroid{
 	width: 150px;
