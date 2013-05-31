@@ -5,92 +5,61 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <link href="http://fonts.googleapis.com/css?family=Mouse+Memoirs" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" type="text/css" href="ps_theme/css/reset.css"/>
-<link rel="stylesheet" type="text/css" href="ps_theme/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="ps_theme/css/home.css"/>
 <link rel="stylesheet" type="text/css" href="ps_theme/css/jquery-ui.css" />
-<!--<link rel="stylesheet" type="text/css" href="ps_theme/css/fullcalendar.css" />
-<script type="text/javascript" src="ps_theme/js/modernizr.custom.58301.js"></script>
-<script type="text/javascript" src="ps_theme/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="ps_theme/js/jquery-ui-1.10.2.custom.min.js"></script>
-<script type="text/javascript" src="ps_theme/js/fullcalendar.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-	
-		var date = new Date();
-		var d = date.getDate();
-		var m = date.getMonth();
-		var y = date.getFullYear();
-		
-		$('#calendar').fullCalendar({
-			header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,basicWeek,basicDay'
-			},
-			editable: true,
-			events: [
-				{
-					title: 'All Day Event',
-					start: new Date(y, m, 1)
-				},
-				{
-					title: 'Long Event',
-					start: new Date(y, m, d-5),
-					end: new Date(y, m, d-2)
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: new Date(y, m, d-3, 16, 0),
-					allDay: false
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: new Date(y, m, d+4, 16, 0),
-					allDay: false
-				},
-				{
-					title: 'Meeting',
-					start: new Date(y, m, d, 10, 30),
-					allDay: false
-				},
-				{
-					title: 'Lunch',
-					start: new Date(y, m, d, 12, 0),
-					end: new Date(y, m, d, 14, 0),
-					allDay: false
-				},
-				{
-					title: 'Birthday Party',
-					start: new Date(y, m, d+1, 19, 0),
-					end: new Date(y, m, d+1, 22, 30),
-					allDay: false
-				},
-				{
-					title: 'Click for Google',
-					start: new Date(y, m, 28),
-					end: new Date(y, m, 29),
-					url: 'http://google.com/'
-				}
-			]
-		});
-		
-	});
-</script>
+<link rel="stylesheet" type="text/css" href="ps_theme/css/floating_img.css"/>
+<link rel="stylesheet" type="text/css" href="ps_theme/css/black_calculator.css" />
+<link rel="stylesheet" type="text/css" href="ps_theme/css/black_calculator_ie.css" />
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
- <script type="text/javascript" src="ps_theme/js/jquery-1.9.1.min.js"></script>
- <script type="text/javascript" src="ps_theme/js/jquery-ui.js"></script>
 </head>
 
-<body style="background-color: #c8c8c8;">
-<div id="datepicker">
+<body>
+<header>
+	<div class="wrapper">
+		<h1>Welcome to <span>Segworks</span></h1>
+	</div>
+</header>
+<div id="content">
+	
+		<div class="main">
+			<h2>Calendar</h2>
+			<div id="datepicker"></div>
+		</div>
+		<div class="main calculator-space">
+			<h3>Calculator</h3>
+			 <div id="calc-holder">
+			 	<div class="calculator"></div>
+			 </div>
+		</div>
 
 </div>
+<div id="divBottomRight">
+  <a><img src="ps_theme/images/seglogo.png" alt="" title="Segworks Technologies Corporation"/></a>
+</div>
+<!--page generate-->
+<?php 
+$start_time = microtime(true); 
+$time_gen = number_format(microtime(true) - $start_time, 9);
+?>
+<pre class="prettyprint" id="page=generated" style="text-align:center; font-size: 13px; color: #333; margin: 20px auto; border-radius: 4px; background-color:#F7F7F9; border: 1px solid #E1E1E8; padding: 8px; bottom: 0; width: 90%; ">
+This page was generated in <span class="atv" style="color: #DD1144;"><?php echo"$time_gen"; ?></span> seconds.
+</pre>
+<script type="text/javascript" src="ps_theme/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="ps_theme/js/jquery-ui.js"></script>
+<script type="text/javascript" src="ps_theme/js/jquery.blackcalculator-1.0.min.js"></script>
+<script type="text/javascript" src="ps_theme/js/floating_image.js"></script>
+<script type="text/javascript" src="ps_theme/js/float_image.js"></script>
 <script type="text/javascript">
-	$( "#datepicker" ).datepicker();
+	$(document).ready(function(){
+$( "#datepicker" ).datepicker();
+
+	 $('.calculator').blackCalculator({type:'advanced', allowKeyboard:false,});
+
+	});
+
 </script>
 </body>
 </html>

@@ -20,7 +20,7 @@ require_once ('ps_connect_db.php');
 			
 	
 					<a id="refresh-btn" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Refresh">Refresh</a>
-					<a id="close-btn" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Close">Close</a>
+					<a id="close-btn" href="calendar.php" data-toggle="tooltip" data-placement="bottom" class="tip-title" title="Close">Close</a>
 
 		</div>
 	</div>
