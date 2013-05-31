@@ -17,7 +17,7 @@
 <aside>
 <ul id="collapse-menu" class="sample-menu">
 
-	<li><a href="#" id="homeMenu"><img src="ps_theme/images/home-icon.png" alt=""/>Home</a></li>
+	<li><a href="calendar.php" target="content" id="homeMenu"><img src="ps_theme/images/home-icon.png" alt=""/>Home</a></li>
 
 
 	<li><a href="ps_record_employees.php"  target="_blank" id="recordMenu"><img src="ps_theme/images/record-icon.png" alt=""/>Employees Record</a></li>
