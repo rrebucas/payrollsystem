@@ -68,20 +68,22 @@ $('input.val-warning').change(function(){
 });
 
 $('.remove-btn').click(function(){
-	//$(this).closest('tr').remove();
-  //alert('hi');
-  //$('#dialog-confirm-remove').dialog('open');
+	/*$(this).closest('tr').remove();
+  alert('hi');
+  $('#dialog-confirm-remove').dialog('open');
    var check_class = $(this).closest('tr').find('input.val-warning').hasClass('val-warning') ;
    if (check_class == 0) {
       $(this).closest('tr').remove();
    }else{
       alert("Remove input value or Set input value to 0");
       $(this).closest('tr').find('input.val-warning').trigger('focus');
-   }
-
-   
-   
-
+   }*/
+   var r=confirm("Are you sure?");
+    if (r==true)
+      {
+        $(this).closest('tr').remove();
+      }
+    else{}
 });
 
 

@@ -206,6 +206,7 @@ require_once 'ps_connect_db.php';
 		<form action="<?=$_SERVER['PHP_SELF']?>" method="post" id="validateForm" class="formular">
 		<div class="employee">
 				<label>Name of Employee: <span><?php echo "$var_employee_name";?></span></label>
+				<input type="hidden" name="employee_name" value="<?php echo "$var_employee_name";?>" />
 				<p class="batch">Batch Number: <span><?php echo "$var_batchname"; ?></span></p>	
 		</div>
 
@@ -283,20 +284,18 @@ require_once 'ps_connect_db.php';
 					$var_date_store_array[]=  $row_date_array[$row_tr];
 					?>
 					<tr class="<?php if ( "$i" > 1 ){ echo 'error';} else {echo "$class_tr"; } ?>">
-						<td style=" font-weight: bold; "><?php echo $row_date_array[$row_tr];
-
+						<td>
+						
+						<?php
 						if ($class_tr == 'warning') {
 							?>
-							<br>
-							<a  title="Remove" class="remove-btn" style="cursor:pointer;"> <i class="icon-remove"></i> </a>
+							<a  title="Remove" class="remove-btn" style="cursor:pointer;float: left;position: absolute;margin-left: 1px;margin-top:7px;"> <i class="icon-remove"></i> </a>
 							<?php
 							
-						}else{
-
-						}
-
-
-						?></td>
+						}else{}
+						?>
+						<input type="text" name="date[]" value="<?php echo $row_date_array[$row_tr] ?>" style="margin-top:5px;margin-left:20px;margin-bottom:5px;margin-right:5px;width:72px;padding:2px;text-align:center;" readonly  />
+						</td>
 						<td style="width: 18px;"><input name="night_checkbox-<?php echo "$row_tr"; ?>" class="night" type="checkbox" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> > </td>
 						<td style="width: 18px;"><input name="holiday_checkbox-<?php echo "$row_tr"; ?>" class="holiday" type="checkbox" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
 						<td style="width: 18px;"><input name="ot_checkbox-<?php echo "$row_tr"; ?>" class="ot" type="checkbox" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
@@ -318,15 +317,15 @@ require_once 'ps_connect_db.php';
 								
 						
 							?>
-							<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="am-in-hr-<?php echo "$row_tr"; ?> " class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-							<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="am-in-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+							<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="am-in-hr[] " class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+							<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="am-in-min[]" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
 							<?php
 								}// end if  AM IN
 								else{
 	
 									?>
-									<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-hr-<?php echo "$row_tr"; ?> " class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-									<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+									<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-hr[] " class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+									<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
 
 
 							<?php
@@ -342,23 +341,23 @@ require_once 'ps_connect_db.php';
 								$var_min =	$var_time_explode[1];
 
 						?>
-							<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="am-out-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-							<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="am-out-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+							<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="am-out-hr[]" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+							<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="am-out-min[]" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
 						<?php
 						} //end if  AM OUT
 						else{
 
 								
 						?>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-							<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+							<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
 						<?php	
 						} //end else AM OUT
 						?>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-in-hr-<?php echo "$row_tr"; ?> " class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-in-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?>  ></td>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-in-hr[] " class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-in-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?>  ></td>
+						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
 						<?php
 							}// end if AM
 						?>
@@ -369,10 +368,10 @@ require_once 'ps_connect_db.php';
 
 
 						?>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
 						<?php
 							if ( (strpos($row_date_time_employee_status_array[$row_tr],"C/In")) !=false )  {
 
@@ -384,16 +383,16 @@ require_once 'ps_connect_db.php';
 								
 						
 							?>
-						<td style="width: 30px;"><input  value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="pm-in-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?>" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-						<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="pm-in-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?>" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+						<td style="width: 30px;"><input  value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="pm-in-hr[]" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?>" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+						<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="pm-in-min[]" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?>" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
 						<?php
 								}// end if  PM IN
 								else{
 
 									
 						?>
-									<td style="width: 30px;"><input  value="" type="text" maxlength="2" name="pm-in-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-									<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-in-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+									<td style="width: 30px;"><input  value="" type="text" maxlength="2" name="pm-in-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+									<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-in-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
 						<?php
 									} //end else PM IN
 
@@ -409,15 +408,15 @@ require_once 'ps_connect_db.php';
 
 						?>
 
-						<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="pm-out-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-						<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="pm-out-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+						<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="pm-out-hr[]" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+						<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="pm-out-min[]" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
 						<?php
 					} // end if PM OUT
 					else {
 						
 						?>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-hr-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?>></td>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-min-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?>></td>
+						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?>></td>
+						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?>></td>
 
 						<?php
 						} //end else PM OUT
@@ -432,12 +431,12 @@ require_once 'ps_connect_db.php';
 
 						}	//end if PM
 						?>
-						<td style="width: 30px;"><input type="text" maxlength="2" name="actual_hrs-<?php echo "$row_tr"; ?>" class="validate[custom[number]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<td style="width: 30px;"><input type="text" maxlength="2" name="cred_hrs-<?php echo "$row_tr"; ?>" class="validate[custom[number]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<td style="width:30px;"><input class="nightvalue validate[custom[number]] text-input" type="text" name="night_textbox-<?php echo "$row_tr"; ?>"  maxlength="5" value="" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> /></td>
-						<td style="width:30px;"><input class="holidayvalue validate[custom[number]] text-input" type="text" value="" maxlength="5" name="holiday_textbox-<?php echo "$row_tr"; ?>" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> /></td>
-						<td style="width: 30px;"><input class="otvalue validate[custom[number]] text-input" type="text" value="" maxlength="5" name="ot_textbox-<?php echo "$row_tr"; ?>" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> /></td>
-						<td><input type="text" maxlength="2" name="remarks-<?php echo "$row_tr"; ?>" class="validate[custom[integer]] text-input" style="margin:5px;width:72px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+						<td style="width: 30px;"><input type="text" maxlength="2" name="actual_hrs[]" class="validate[custom[number]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+						<td style="width: 30px;"><input type="text" maxlength="2" name="cred_hrs[]" class="validate[custom[number]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+						<td style="width:30px;"><input class="nightvalue validate[custom[number]] text-input" type="text" name="night_textbox[]"  maxlength="5" value="" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> /></td>
+						<td style="width:30px;"><input class="holidayvalue validate[custom[number]] text-input" type="text" value="" maxlength="5" name="holiday_textbox[]" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> /></td>
+						<td style="width: 30px;"><input class="otvalue validate[custom[number]] text-input" type="text" value="" maxlength="5" name="ot_textbox[]" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> /></td>
+						<td><input type="text" maxlength="2" name="remarks[]" class="validate[custom[integer]] text-input" style="margin:5px;width:72px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
 					</tr>
 					<?php
 						} //end for
@@ -532,6 +531,7 @@ require_once 'ps_connect_db.php';
 
 		 	<?php
 		}// end else
+
 	} //end if
 
 	//end employee record
@@ -542,6 +542,39 @@ require_once 'ps_connect_db.php';
 		if (isset($_POST['submit_btn_export'])) {
 			
 			echo "<h1 class='text-success'>Success.. Ready for export</h1>";
+
+			$employee_name = $_POST['employee_name'];
+
+			//AM
+			$am_in_hr_arr = $_POST['am-in-hr']; //array  am in  hr time
+			$am_in_min_arr = $_POST['am-in-min']; //array  am in min time
+
+			$am_out_hr_arr = $_POST['am-out-hr']; //array  am out hr  time
+			$am_out_min_arr = $_POST['am-out-min']; //array am out min time
+
+			//PM
+			$pm_in_hr_arr = $_POST['pm-in-hr']; //array  pm in  hr time
+			$pm_in_min_arr = $_POST['pm-in-min']; //array  pm in min time
+
+			$pm_out_hr_arr = $_POST['pm-out-hr']; //array  pm out hr  time
+			$pm_out_min_arr = $_POST['pm-out-min']; //array pm out min time
+
+
+			/*$am_in_hr_arr = array('one','two','three');
+			foreach ($am_in_hr_arr as $key => $value) {
+			    echo "Key: $key; Value: $value<br />\n";
+			}*/
+			?>
+			<br>
+			
+
+			<form action="ps_export_as_excel.php" method="POST">
+				<input type="hidden" value="<?php echo $employee_name; ?>" name="employee_name">
+				<button href='ps_export_as_excel.php' name="submit" class="btn btn-success">Download As Excel</button>
+			</form>
+
+
+		<?php
 		}
 
 ?>
