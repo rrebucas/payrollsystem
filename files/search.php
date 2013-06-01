@@ -136,7 +136,7 @@ $('#mytable :checkbox.ot').change(function() {
 				</thead>
 				<tbody>
 					<?php 
-							$result = mysqli_query($con,"SELECT * FROM seg_employee_import");
+							$result = mysqli_query($con,"SELECT * FROM seg_employee_import WHERE id=1");
 							while($row = mysqli_fetch_array($result)){
 								$id=$row['id'];
 
@@ -148,6 +148,7 @@ $('#mytable :checkbox.ot').change(function() {
 								$timediff = $row['date_time'];
 
 
+
 							?>
 					<tr>
 						<td><?php echo $explode_space[0]; ?></td>
@@ -156,20 +157,27 @@ $('#mytable :checkbox.ot').change(function() {
 						<td style="width: 18px;"><input class="ot" type="checkbox"></td>
 						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">
 							<?php
-								$mystring = $row['date_time'];		//checker if AM or PM
-								$findme   = 'AM';					//checker if AM or PM
-								$pos = strpos($mystring, $findme);	//checker if AM or PM
+								$mystring = $row['date_time'];		//checking if AM or PM
+								$findme   = 'AM';					//checking if AM or PM
+								$pos = strpos($mystring, $findme);	//checking if AM or PM
 
-								
-								//$checker = $row['status'];
-								//if()
-
+							
 
 								if ($pos === false) {
 								    echo "";
 								} else {
-								    echo $explode_time[0];
-								}
+										$checker = $row['status'];	//checking if it is in or out 
+										$findin = 'C/In';			//checking if it is in or out 
+									 	$hours = $explode_time[0];	//checking if it is in or out 
+									 	$str = strpos($checker, $findin);
+										if($str === false){
+											echo "";
+										}
+										else{
+											echo "$hours";
+										}		   
+									}
+								
 								?>								
 						</td>
 						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">
@@ -178,21 +186,186 @@ $('#mytable :checkbox.ot').change(function() {
 								$findme   = 'AM';
 								$pos = strpos($mystring, $findme);
 
-								// Note our use of ===.  Simply == would not work as expected
-								// because the position of 'a' was the 0th (first) character.
+
 								if ($pos === false) {
-								    echo " ";
+								    echo "";
 								} else {
-								    echo $explode_time[1];
-								}
-							?>
+										$checker = $row['status'];	//checking if it is in or out 
+										$findin = 'C/In';			//checking if it is in or out 
+									 	$minutes = $explode_time[1];	//checking if it is in or out 
+									 	$str = strpos($checker, $findin);
+										if($str === false){
+											echo "";
+										}
+										else{
+											echo "$minutes";
+										}		   
+									}
+								
+								?>
 							</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">&nbsp;</td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"></td>
-						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"></td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">
+
+								<?php
+								$mystring = $row['date_time'];		//checking if AM or PM
+								$findme   = 'AM';					//checking if AM or PM
+								$pos = strpos($mystring, $findme);	//checking if AM or PM
+
+							
+
+								if ($pos === false) {
+								    echo "";
+								} else {
+										$checker = $row['status'];	//checking if it is in or out 
+										$findin = 'C/Out';			//checking if it is in or out 
+									 	$hours = $explode_time[0];	//checking if it is in or out 
+									 	$str = strpos($checker, $findin);
+										if($str === false){
+											echo "";
+										}
+										else{
+											echo "$hours";
+										}		   
+									}
+								
+								?>	
+
+						</td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">
+
+							<?php
+								$mystring = $row['date_time'];		//checking if AM or PM
+								$findme   = 'AM';					//checking if AM or PM
+								$pos = strpos($mystring, $findme);	//checking if AM or PM
+
+							
+
+								if ($pos === false) {
+								    echo "";
+								} else {
+										$checker = $row['status'];	//checking if it is in or out 
+										$findin = 'C/Out';			//checking if it is in or out 
+									 	$minutes = $explode_time[1];	//checking if it is in or out 
+									 	$str = strpos($checker, $findin);
+										if($str === false){
+											echo "";
+										}
+										else{
+											echo "$minutes";
+										}		   
+									}
+								
+								?>
+
+						</td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">
+
+							<?php
+								$mystring = $row['date_time'];		//checking if AM or PM
+								$findme   = 'PM';					//checking if AM or PM
+								$pos = strpos($mystring, $findme);	//checking if AM or PM
+
+							
+
+								if ($pos === false) {
+								    echo "";
+								} else {
+										$checker = $row['status'];	//checking if it is in or out 
+										$findin = 'C/In';			//checking if it is in or out 
+									 	$hours = $explode_time[0];	//checking if it is in or out 
+									 	$str = strpos($checker, $findin);
+										if($str === false){
+											echo "";
+										}
+										else{
+											echo "$hours";
+										}		   
+									}
+								
+								?>
+
+						</td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">
+
+							<?php
+								$mystring = $row['date_time'];		//checking if AM or PM
+								$findme   = 'PM';					//checking if AM or PM
+								$pos = strpos($mystring, $findme);	//checking if AM or PM
+
+							
+
+								if ($pos === false) {
+								    echo "";
+								} else {
+										$checker = $row['status'];	//checking if it is in or out 
+										$findin = 'C/In';			//checking if it is in or out 
+									 	$minutes = $explode_time[1];	//checking if it is in or out 
+									 	$str = strpos($checker, $findin);
+										if($str === false){
+											echo "";
+										}
+										else{
+											echo "$minutes";
+										}		   
+									}
+								
+								?>
+
+						</td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">
+
+							<?php
+								$mystring = $row['date_time'];		//checking if AM or PM
+								$findme   = 'PM';					//checking if AM or PM
+								$pos = strpos($mystring, $findme);	//checking if AM or PM
+
+							
+
+								if ($pos === false) {
+								    echo "";
+								} else {
+										$checker = $row['status'];	//checking if it is in or out 
+										$findin = 'C/Out';			//checking if it is in or out 
+									 	$hours = $explode_time[0];	//checking if it is in or out 
+									 	$str = strpos($checker, $findin);
+										if($str === false){
+											echo "";
+										}
+										else{
+											echo "$hours";
+										}		   
+									}
+								
+								?>
+
+						</td>
+						<td style="width: 30px;" onDblClick="javascript:changeContent(this);">
+
+							<?php
+								$mystring = $row['date_time'];		//checking if AM or PM
+								$findme   = 'PM';					//checking if AM or PM
+								$pos = strpos($mystring, $findme);	//checking if AM or PM
+
+							
+
+								if ($pos === false) {
+								    echo "";
+								} else {
+										$checker = $row['status'];	//checking if it is in or out 
+										$findin = 'C/Out';			//checking if it is in or out 
+									 	$minutes = $explode_time[1];	//checking if it is in or out 
+									 	$str = strpos($checker, $findin);
+										if($str === false){
+											echo "";
+										}
+										else{
+											echo "$minutes";
+										}		   
+									}
+								
+								?>
+
+						</td>
 						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"></td>
 						<td style="width: 30px;" onDblClick="javascript:changeContent(this);"></td>
 						<td style="width: 48px;height: 34px;"><input class="nightvalue" type="text" value="" /><span class="orignightvalue">0.0</span></td>
