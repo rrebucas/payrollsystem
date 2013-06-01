@@ -12,7 +12,6 @@ require_once 'ps_connect_db.php';
 <link rel="stylesheet" type="text/css" href="ps_theme/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="ps_theme/css/record.css"/>
 <link rel="stylesheet" type="text/css" href="ps_theme/css/jquery-ui.css"/>
-
 <link rel="stylesheet" type="text/css" href="ps_includes/jquery_validator/css/validationEngine.jquery.css" />
 <link rel="stylesheet" type="text/css" href="ps_theme/css/floating_img.css"/>
 
@@ -571,8 +570,8 @@ require_once 'ps_connect_db.php';
 				<input type="hidden" value="<?php echo $employee_name; ?>" name="employee_name">
 				<button class="btn btn-success" onclick="export_excel();" name="submit_btn_export_excel">Export As Excel</button>
 			</form>
-			<form action="#" method="POST">
-				<input type="hidden" value="" name="employee_name">
+			<form action="tcpdf/examples/example_048.php" method="POST">
+				<input type="hidden" value="<?php echo $employee_name; ?>" name="employee_name">
 				<button class="btn btn-danger" name="submit_btn_export_pdf">Export As PDF</button>
 			</form>
 
