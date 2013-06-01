@@ -1,0 +1,6 @@
+SELECT id,
+SUBSTRING_INDEX(MIN(CONCAT(timein_out,typ)),'C/In',1) AS ind,
+SUBSTRING_INDEX(MAX(CONCAT(timein_out,typ)),'C/Out',1) AS outd,
+TIMEDIFF(SUBSTRING_INDEX(MAX(CONCAT(timein_out,typ)),'C/Out',1),SUBSTRING_INDEX(MIN(CONCAT(timein_out,typ)),'C/In',1)) AS tottime
+FROM aa a 
+GROUP BY a.id, DATE(timein_out);

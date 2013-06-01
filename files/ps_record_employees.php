@@ -165,373 +165,137 @@ require_once 'ps_connect_db.php';
 			$var_batchname = $_POST['filename'];
 
 			$query_employee_name = mysqli_query($con, "SELECT name FROM seg_employee_list WHERE id = $var_employee_name_id");
+			$query_employee_date = mysqli_query($con, "SELECT date_time FROM seg_employee_import WHERE id = $var_employee_name_id ");
+			$employee_date_arr = array(); //store date
+			while( $row_date = mysqli_fetch_array($query_employee_date)){
+
+				$timestamp = strtotime($row_date['date_time']);
+				$employee_date_arr[] = date('F d, Y', $timestamp);
+			}
+
+
 			while($row_employee_name = mysqli_fetch_array($query_employee_name))
   					{
   					$var_employee_name = $row_employee_name['name'];
   					}
-
   			$query_check_employeename_batchname = mysqli_query($con, "SELECT id FROM seg_employee_import WHERE id = $var_employee_name_id ");
-
   			$num_check_employeename_batchname = mysqli_num_rows($query_check_employeename_batchname);
 
   			//check if the employee name exist in seg_employee_import
   			if ($num_check_employeename_batchname > 0) {	
-
-	  			$query_employee_import = mysqli_query($con, "SELECT * FROM seg_employee_import WHERE id = $var_employee_name_id ");
-
-	  			$row_time_array = array();
-	  			$row_date_time_array = array();
-	  			$row_date_time_employee_status_array = array();
-	  			$row_date_array = array();
-
-	  			while ($row_employee_import_list = mysqli_fetch_array($query_employee_import) ) {
-
-	  				
-	  				$row_date_time = $row_employee_import_list['date_time'];
-	  				$row_date_time_employee_status_array[]= $row_date_time. " ".$row_employee_import_list['status']; 
-	  				$row_date_time_array[] = $row_date_time;	//array date_time
-	  				$row_date_time_explode = explode(" ", $row_date_time);	//exlplode date time
-	  				$row_date_array[] = $row_date_time_explode[0];	//array date
-	  				$row_time_array[] = $row_date_time_explode[1]." ".$row_date_time_explode[2]; //array time
-
-  					}
-
-  				$row_date_array_unique = array_unique($row_date_array);
-  				$row_date_array_seq= array_values($row_date_array_unique);
-  				$row_date_array_unique_count = count($row_date_array_unique);
-  				$row_date_time_array_count = count($row_date_time_array);
-  				$row_date_time_employee_status_array_count = count($row_date_time_employee_status_array);
-
-		?>
-		<form action="<?=$_SERVER['PHP_SELF']?>" method="post" id="validateForm" class="formular">
-		<div class="employee">
-				<label>Name of Employee: <span><?php echo "$var_employee_name";?></span></label>
-				<input type="hidden" name="employee_name" value="<?php echo "$var_employee_name";?>" />
-				<p class="batch">Batch Number: <span><?php echo "$var_batchname"; ?></span></p>	
-		</div>
-
-		<table border="0" class="date">
-		<caption>Cut off Dates</caption>
-		<tbody>
-		<tr>
-			<td>From:</td>
-			<td class="from_date_val value">
-			<?php
-				//$from_date_time = explode(" ", $row_date_time[0]);
-				//echo $from_date_time[0]; 
-				echo $row_date_array[0];
-			 ?>
-			</td>
-		</tr>
-		<tr>
-			<td>To:</td>
-			<td class="to_date_val value">
-			<?php
-				//$to_date_time = explode(" ", end($row_date_time));
-			 	//echo $to_date_time[0];
-			 	echo end($row_date_array); 
-			?>
-			</td>
-		</tr>
-		</tbody>
-		</table>
-			
-		
-			<table class="table table-striped data" border="1" id="mytable" width="800">
-				<thead>
-					<tr>
-						<td rowspan="2" style="text-align:center;vertical-align:middle;">Date</td>
-						<td colspan="3">&nbsp;</td>
-						<td colspan="4" style="text-align:center;">AM</td>
-						<td colspan="4" style="text-align:center;">PM</td>					
-						<td rowspan="2" style="word-wrap:break-word;width:20px;text-align:center;">Actual Hours</td>
-						<td rowspan="2" style="word-wrap:break-word;width:20px;text-align:center;">Cred. Hours</td>
-						<td colspan="3">&nbsp;</td>
-						<td rowspan="2" style="text-align:center;vertical-align:middle;">Remarks</td>
-					</tr>		
-					<tr>
-						<td style="text-align:center;">Night?</td>
-						<td style="text-align:center;">Holiday?</td>
-						<td style="text-align:center;">OT?</td>
-						<td colspan="2" style="text-align:center;">In</td>
-						<td colspan="2" style="text-align:center;">Out</td>
-						<td colspan="2" style="text-align:center;">In</td>
-						<td colspan="2" style="text-align:center;">Out</td>
-						<td style="text-align:center;">Night</td>
-						<td style="text-align:center;">Holiday</td>
-						<td style="text-align:center;">OT</td>
-					</tr>
-				</thead>
-				<tbody>
-				<input value="<?php echo "$row_date_time_employee_status_array_count"; ?>" type="hidden"  name="total_increment" id="total_increment" >
+  				?>
+  				<form action="<?=$_SERVER['PHP_SELF']?>" method="POST" id="validateForm" class="formular">
+  					<div class="employee">
+						<label>Name of Employee: <span><?php echo "$var_employee_name";?></span></label>
+						<input type="hidden" name="employee_name" value="<?php echo "$var_employee_name";?>" />
+						<p class="batch">Batch Number: <span><?php echo "$var_batchname"; ?></span></p>	
+					</div>	
 					<?php
-						$var_date_store_array=array();
+					$employee_date_array_unique = array_unique($employee_date_arr);
 
-
-					for ($row_tr=0; $row_tr < $row_date_time_employee_status_array_count ; $row_tr++) {
-
-					
-
-					if (in_array($row_date_array[$row_tr], $var_date_store_array)) {
-						
-						$class_tr = "warning";
-						$i++;
-					}
-					else{
-						$class_tr = '';
-						$i= '0';
-					}
-					$var_date_store_array[]=  $row_date_array[$row_tr];
 					?>
-					<tr class="<?php if ( "$i" > 1 ){ echo 'error';} else {echo "$class_tr"; } ?>">
-						<td>
-						
-						<?php
-						if ($class_tr == 'warning') {
-							?>
-							<a  title="Remove" class="remove-btn" style="cursor:pointer;float: left;position: absolute;margin-left: 1px;margin-top:7px;"> <i class="icon-remove"></i> </a>
-							<?php
-							
-						}else{}
-						?>
-						<input type="text" name="date[]" value="<?php echo $row_date_array[$row_tr] ?>" style="margin-top:5px;margin-left:20px;margin-bottom:5px;margin-right:5px;width:72px;padding:2px;text-align:center;" readonly  />
-						</td>
-						<td style="width: 18px;"><input name="night_checkbox-<?php echo "$row_tr"; ?>" class="night" type="checkbox" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> > </td>
-						<td style="width: 18px;"><input name="holiday_checkbox-<?php echo "$row_tr"; ?>" class="holiday" type="checkbox" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<td style="width: 18px;"><input name="ot_checkbox-<?php echo "$row_tr"; ?>" class="ot" type="checkbox" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
+							<table border="0" class="date">
+							<caption>Cut off Dates</caption>
+							<tbody>
+							<tr>
+								<td>From:</td>
+								<td class="from_date_val value">
+								<?php
+									echo $employee_date_array_unique[0];
+								 ?>
+								</td>
+							</tr>
+							<tr>
+								<td>To:</td>
+								<td class="to_date_val value">
+								<?php
+									echo end($employee_date_array_unique); 
+								?>
+								</td>
+							</tr>
+							</tbody>
+							</table>
+							<table class="table table-striped data" border="1" id="mytable" width="800">
+								<thead>
+									<tr>
+										<td rowspan="2" style="text-align:center;vertical-align:middle;">Date</td>
+										<td colspan="3">&nbsp;</td>
+										<td colspan="4" style="text-align:center;">AM</td>
+										<td colspan="4" style="text-align:center;">PM</td>					
+										<td rowspan="2" style="word-wrap:break-word;width:20px;text-align:center;">Actual Hours</td>
+										<td rowspan="2" style="word-wrap:break-word;width:20px;text-align:center;">Cred. Hours</td>
+										<td colspan="3">&nbsp;</td>
+										<td rowspan="2" style="text-align:center;vertical-align:middle;">Remarks</td>
+									</tr>		
+									<tr>
+										<td style="text-align:center;">Night?</td>
+										<td style="text-align:center;">Holiday?</td>
+										<td style="text-align:center;">OT?</td>
+										<td colspan="2" style="text-align:center;">In</td>
+										<td colspan="2" style="text-align:center;">Out</td>
+										<td colspan="2" style="text-align:center;">In</td>
+										<td colspan="2" style="text-align:center;">Out</td>
+										<td style="text-align:center;">Night</td>
+										<td style="text-align:center;">Holiday</td>
+										<td style="text-align:center;">OT</td>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
 
-						<?php
-						//$con_AM = strpos($row_date_time_employee_status_array[$row_tr],"AM");
+									$query_employee_import = mysqli_query($con, "SELECT id, 
+  										SUBSTRING_INDEX(MIN(CONCAT(date_time,`status`)),'C/In',1) AS date_time_in,
+										SUBSTRING_INDEX(MAX(CONCAT(date_time,`status`)),'C/Out',1) AS date_time_out,
+										TIMEDIFF(SUBSTRING_INDEX(MAX(CONCAT(date_time,`status`)),'C/Out',1),SUBSTRING_INDEX(MIN(CONCAT
 
-						if ( (strpos($row_date_time_employee_status_array[$row_tr],"AM")) !=false )  {
-						?>
+										(date_time,`status`)),'C/In',1)) AS date_time_total
+										FROM `seg_employee_import` import_tbl WHERE id=$var_employee_name_id
+										GROUP BY import_tbl.id, DATE(date_time)");
 
-							<?php
-							if ( (strpos($row_date_time_employee_status_array[$row_tr],"C/In")) !=false )  {
-
-								$var_time_date_explode = explode(" ", $row_date_time_employee_status_array[$row_tr] );
-								$var_time = $var_time_date_explode[1]; // time
-								$var_time_explode= explode(":", $var_time); //explode time
-								$var_hour = $var_time_explode[0];
-								$var_min =	$var_time_explode[1];
-								
-						
-							?>
-							<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="am-in-hr[] " class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-							<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="am-in-min[]" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-							<?php
-								}// end if  AM IN
-								else{
-	
-									?>
-									<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-hr[] " class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-									<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-
-
-							<?php
-								}// end else AM IN
-							?>
-						<?php
-						if ( (strpos($row_date_time_employee_status_array[$row_tr],"C/Out")) !=false )  {
-
-								$var_time_date_explode = explode(" ", $row_date_time_employee_status_array[$row_tr] );
-								$var_time = $var_time_date_explode[1]; // time
-								$var_time_explode= explode(":", $var_time); //explode time
-								$var_hour = $var_time_explode[0];
-								$var_min =	$var_time_explode[1];
-
-						?>
-							<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="am-out-hr[]" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-							<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="am-out-min[]" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-						<?php
-						} //end if  AM OUT
-						else{
-
-								
-						?>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-							<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<?php	
-						} //end else AM OUT
-						?>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-in-hr[] " class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-in-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?>  ></td>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<?php
-							}// end if AM
-						?>
-						<?php
-						
-						if ( (strpos($row_date_time_employee_status_array[$row_tr],"PM")) !=false )  {
+  									while ($row_employee_import_list = mysqli_fetch_array($query_employee_import) ) {
 
 
+  									?>
+									<tr>
+										<td></td>
+										<td style="width: 18px;"><input name="night_checkbox" class="night" type="checkbox"> </td>
+										<td style="width: 18px;"><input name="holiday_checkbox" class="holiday" type="checkbox"> </td>
+										<td style="width: 18px;"><input name="ot_checkbox" class="ot" type="checkbox"> </td>
+										<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-hr[] " class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+										<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+										<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+										<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
 
-						?>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<?php
-							if ( (strpos($row_date_time_employee_status_array[$row_tr],"C/In")) !=false )  {
-
-								$var_time_date_explode = explode(" ", $row_date_time_employee_status_array[$row_tr] );
-								$var_time = $var_time_date_explode[1]; // time
-								$var_time_explode= explode(":", $var_time); //explode time
-								$var_hour = $var_time_explode[0];
-								$var_min =	$var_time_explode[1];
-								
-						
-							?>
-						<td style="width: 30px;"><input  value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="pm-in-hr[]" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?>" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-						<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="pm-in-min[]" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?>" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-						<?php
-								}// end if  PM IN
-								else{
-
+										<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-in-hr[] " class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+										<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-in-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+										<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+										<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
 									
-						?>
-									<td style="width: 30px;"><input  value="" type="text" maxlength="2" name="pm-in-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-									<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-in-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<?php
-									} //end else PM IN
+										<td style="width: 30px;"><input type="text" maxlength="2" name="actual_hrs[]" class="validate[custom[number]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"  ></td>
+										<td style="width: 30px;"><input type="text" maxlength="2" name="cred_hrs[]" class="validate[custom[number]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+										<td style="width:30px;"><input class="nightvalue validate[custom[number]] text-input" type="text" name="night_textbox[]"  maxlength="5" value="" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;"  /></td>
+										<td style="width:30px;"><input class="holidayvalue validate[custom[number]] text-input" type="text" value="" maxlength="5" name="holiday_textbox[]" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;"/></td>
+										<td style="width: 30px;"><input class="otvalue validate[custom[number]] text-input" type="text" value="" maxlength="5" name="ot_textbox[]" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;" /></td>
+										<td><input type="text" maxlength="2" name="remarks[]" class="validate[custom[integer]] text-input" style="margin:5px;width:72px;padding:2px;text-align:center;"  ></td>
 
-						?>
-						<?php
-						if ( (strpos($row_date_time_employee_status_array[$row_tr],"C/Out")) !=false )  {
+									</tr>
+									<?php } // end while ?>
+								</tbody>
+							</table>
+  				</form>
 
-								$var_time_date_explode = explode(" ", $row_date_time_employee_status_array[$row_tr] );
-								$var_time = $var_time_date_explode[1]; // time
-								$var_time_explode= explode(":", $var_time); //explode time
-								$var_hour = $var_time_explode[0];
-								$var_min =	$var_time_explode[1];
+  				<?php
 
-						?>
-
-						<td style="width: 30px;"><input value="<?php echo "$var_hour"; ?>" type="text" maxlength="2" name="pm-out-hr[]" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-						<td style="width: 30px;"><input value="<?php echo "$var_min"; ?>" type="text" maxlength="2" name="pm-out-min[]" class="validate[custom[integer]] text-input <?php if ( "$class_tr" == 'warning'){ echo 'val-warning';}else{} ?> " style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-						<?php
-					} // end if PM OUT
-					else {
-						
-						?>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?>></td>
-						<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?>></td>
-
-						<?php
-						} //end else PM OUT
-						?>
-
-
-
-
-
-						<?php
-
-
-						}	//end if PM
-						?>
-						<td style="width: 30px;"><input type="text" maxlength="2" name="actual_hrs[]" class="validate[custom[number]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<td style="width: 30px;"><input type="text" maxlength="2" name="cred_hrs[]" class="validate[custom[number]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-						<td style="width:30px;"><input class="nightvalue validate[custom[number]] text-input" type="text" name="night_textbox[]"  maxlength="5" value="" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> /></td>
-						<td style="width:30px;"><input class="holidayvalue validate[custom[number]] text-input" type="text" value="" maxlength="5" name="holiday_textbox[]" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> /></td>
-						<td style="width: 30px;"><input class="otvalue validate[custom[number]] text-input" type="text" value="" maxlength="5" name="ot_textbox[]" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> /></td>
-						<td><input type="text" maxlength="2" name="remarks[]" class="validate[custom[integer]] text-input" style="margin:5px;width:72px;padding:2px;text-align:center;" <?php if ($class_tr == 'warning') {echo "disabled";}else{} ?> ></td>
-					</tr>
-					<?php
-						} //end for
-					?>
-					<tr>
-						<td colspan="18">&nbsp;</td>
-					</tr>
-					<tr class="total">
-						<td>Total</td>
-						<td colspan="11">&nbsp;</td>
-						<td style="width: 30px;"><input type="text" name="subTotal_actualHours"  style="margin:5px;width:36px;padding:2px;text-align:center;" readonly></td>
-						<td style="width: 30px;"><input type="text" name="subTotal_credHours"  style="margin:5px;width:36px;padding:2px;text-align:center;" readonly></td>
-						<td style="width: 30px;"><input type="text" name="subTotal_nightHours"  style="margin:5px;width:36px;padding:2px;text-align:center;" readonly></td>
-						<td style="width: 30px;"><input type="text" name="subTotal_holidayHours"  style="margin:5px;width:36px;padding:2px;text-align:center;" readonly></td>
-						<td style="width: 30px;"><input type="text" name="total_otHours"  style="margin:5px;width:36px;padding:2px;text-align:center;" readonly></td>
-						<td>&nbsp;</td>
-					</tr>
-				</tbody>
-			</table>
-			<div class="row">
-				<div class="span6">
-					<table class="table" style=" width: 433px;font-size:11px; ">
-					  <thead>
-				   		 <tr>
-					      <th style=" width: 35%; ">Legend</th>
-					      <th>Description</th>
-					    </tr>
-					  </thead>
-					  <tbody>
-					    <tr>
-					      <td style="background-color:#fcf8e3;"></td>
-					      <td>Indicates a warning that might need attention</td>
-					    </tr>
-					    <!--<tr>
-					      <td style="background-color:#f2dede;"></td>
-					      <td>Indicates a dangerous  negative action.</td>
-					    </tr>-->
-					  </tbody>
-					</table>
-				</div>
-				<div class="span5">
-					<p class="button">
-						<button class="btn btn-info" type="submit" name="submit_btn_export">Save</button>
-					</p>
-				</div>
-					<div class="pull-right">
-					<table class="table table-striped summary">
-						<tr>
-							<td>Creditable Hours</td>
-							<td><input type="text" name="total_credHours" style="margin:5px;width:36px;padding:2px;text-align:center;" readonly/></td>
-						</tr>
-						<tr>
-							<td>Night Premium</td>
-							<td><input type="text" name="total_nightPremium" style="margin:5px;width:36px;padding:2px;text-align:center;" readonly/></td>
-						</tr>
-						<tr>
-							<td>Total Holidays</td>
-							<td><input type="text" name="total_holidays" style="margin:5px;width:36px;padding:2px;text-align:center;" readonly/></td>
-						</tr>
-						<tr>
-							<td>Total Overtime</td>
-							<td><input type="text" name="total_overTime" style="margin:5px;width:36px;padding:2px;text-align:center;" readonly/></td>
-						</tr>
-						<tr>
-							<td>Total Hours</td>
-							<td><input type="text" name="total_hours" style="margin:5px;width:36px;padding:2px;text-align:center;" readonly/></td>
-						</tr>
-				</table>
-				</div>
-			</div>
-			<?php
-
-			/*print_r($var_date_store_array);*/
-
-			?>
-			
-		</form>
-		<?php
-
-		
-		?>
-		<div class="clear"></div>
-	
-		
-		<?php
-
-		 } else {
+  			}// end else employee exit in filename
+  			else {
 		 	?>
 
 		 	<p class="text-error" style=" text-align: center; font-size: 14px;"> <strong><em>'<?php echo "$var_employee_name";?>'</em></strong> does not exist in <strong><?php echo "$var_batchname"; ?></strong></p>
 
 		 	<?php
-		}// end else
+			}// end else employee exit in filename
 
-	} //end if
+		} //end if
 
 	//end employee record
 		?>

@@ -201,7 +201,50 @@ else {
 			   $val[] = $cell->getValue();
 			 }
 
-			 $sql="INSERT INTO seg_employee_import(batch_name, id, date_time, status) VALUES('$filename','" . $val[1] . "','" . $val[2]. "','" . $val[3]. "')";
+			 // Added by Renante 06/01/2013
+			 if (strpos($val[2], "AM")) {
+			 	$val_am = trim(str_replace("AM", "", $val[2]));
+			 	$val_am_explode = explode(" ", $val_am);
+			 	$val_am_date_exp = explode("/", $val_am_explode[0]);
+			 	$val_am_date_mm = $val_am_date_exp[0];
+			 	$val_am_date_dd = $val_am_date_exp[1];
+			 	$val_am_date_yyyy = $val_am_date_exp[2];
+			 	$val_am_date = $val_am_date_yyyy."-".$val_am_date_mm."-".$val_am_date_dd;
+			 	$val_am_time = $val_am_explode[1];
+			 	$val_am_time_explode = explode(":", $val_am_time);
+			 	$val_am_time_hr = $val_am_time_explode[0];
+
+			 	if (strlen($val_am_time_hr) < 2) {
+			 		$val_am_hr = "0".$val_am_time_hr;
+					$val_str = $val_am_date." ".$val_am_hr.":".$val_am_time_explode[1].":".$val_am_time_explode[2];
+			 	}else{
+			 		$val_str = $val_am_date." ".$val_am_time_hr.":".$val_am_time_explode[1].":".$val_am_time_explode[2];
+			 	}
+
+			 }
+			 else if (strpos($val[2], "PM")){
+			 	$val_pm = trim(str_replace("PM", "", $val[2])); 
+			 	$val_pm_explode = explode(" ", $val_pm); 
+			 	$val_pm_date_exp = explode("/", $val_pm_explode[0]);
+
+			 	$val_pm_date_mm = $val_pm_date_exp[0];
+			 	$val_pm_date_dd = $val_pm_date_exp[1];
+			 	$val_pm_date_yyyy = $val_pm_date_exp[2];
+			 	$val_pm_date = $val_pm_date_yyyy."-".$val_pm_date_mm."-".$val_pm_date_dd;
+
+
+			 	$val_pm_time = $val_pm_explode[1];	
+			 	$val_pm_time_explode = explode(":", $val_pm_time); 
+			 	$val_pm_time_hr = $val_pm_time_explode[0]; 
+			 	$val_pm_time_12hr = $val_pm_time_hr + 12 ; 
+			 	$val_str = $val_pm_date." ".$val_pm_time_12hr.":".$val_pm_time_explode[1].":".$val_pm_time_explode[2];		 	
+			 }
+			 else{
+			 	//Error
+			 }
+
+
+			 $sql="INSERT INTO seg_employee_import(batch_name, id, date_time, status) VALUES('$filename','" . $val[1] . "','" . $val_str. "','" . $val[3]. "')";
 
 			 $result = mysqli_query($con, $sql);
 

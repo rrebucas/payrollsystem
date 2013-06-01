@@ -75,7 +75,7 @@ require_once ('ps_connect_db.php');
 			$fetchall_employee_list = mysqli_fetch_row($queryall_employee_list);
 			$searchall_employee_list = $fetchall_employee_list[0];
 			// number of rows to show per page
-			$rowsperpage_search = 5;
+			$rowsperpage_search = 10;
 			$totalpages_search = ceil($searchall_employee_list / $rowsperpage_search);
 			if (isset($_GET['searchpage']) && is_numeric($_GET['searchpage'])) {
 			   $currentpage_search = (int) $_GET['searchpage'];
