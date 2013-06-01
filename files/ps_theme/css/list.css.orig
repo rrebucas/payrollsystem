@@ -11,6 +11,22 @@ body {
 	margin-left: 35px;
 }
 header{
+<<<<<<< HEAD
+	background: none #323030;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 63px;
+
+}
+header h1{
+	color: #fff;
+	font-size: 23px;
+	margin-left: 35px;
+}
+header h1 span{
+	color: #0095D1;
+=======
 	background-color: #454647;
 	box-shadow: 1px 1px 5px #777;
 	position: fixed;
@@ -29,19 +45,30 @@ header h1 span{
 }
 #top-btn{
 	float: right;
+>>>>>>> 8166ea9589b7fcbf3682c33249a670476275c5e2
 }
 #top-btn{
 	position: fixed;
 	top: 0;
 	z-index: 2;
 	right: 20px;
+<<<<<<< HEAD
+	margin: 20px;
+=======
 	top: 15px;
+>>>>>>> 8166ea9589b7fcbf3682c33249a670476275c5e2
 }
 #top-btn a{
 	color: #fff;
 	text-decoration: none;
 	cursor: pointer;
 }
+<<<<<<< HEAD
+#top-btn a:hover{
+	color: #fff;
+}
+=======
+>>>>>>> 8166ea9589b7fcbf3682c33249a670476275c5e2
 #top-btn a#refresh-btn{
 	background: url(../images/refresh-icon.png) no-repeat scroll 0 0 transparent;
 	display: inline-block;
@@ -50,6 +77,17 @@ header h1 span{
 	text-indent: -9999px;
 	margin-right: 10px;
 }
+<<<<<<< HEAD
+#top-btn a#back-btn{
+	background: url(../images/back-icon.png) no-repeat scroll 0 0 transparent;
+	display: inline-block;
+	width: 30px;
+	height: 35px;
+	text-indent: -9999px;
+	margin-right: 10px;
+}
+=======
+>>>>>>> 8166ea9589b7fcbf3682c33249a670476275c5e2
 #top-btn a#close-btn{
 	background: url(../images/close-icon.png) no-repeat scroll 0 0 transparent;
 	display: inline-block;

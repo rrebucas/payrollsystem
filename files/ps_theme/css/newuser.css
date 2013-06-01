@@ -46,7 +46,7 @@ header span {
 }
 #form_newuser h2{
 	color: #161a19;
-	margin: 15px 0 0 40px;
+	text-align: center;
 }
 .tooltip {
 	display:none;
@@ -57,4 +57,7 @@ header span {
 	padding:10px;
 	color:#fff;
 	font-size:12px Arial;
+}
+#form_newuser a{
+	color: green;
 }

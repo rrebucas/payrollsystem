@@ -1,0 +1,110 @@
+body{
+	font-family: 'Arial Narrow', sans-serif;'
+}
+.wrapper{
+	margin: 0 auto;
+	position: relative;
+}
+header{
+	background-color:#454647;
+	box-shadow: 1px 1px 5px #777;
+	position: fixed;
+	top: 0;
+	height: 63px;
+	width: 100%;
+	z-index: 2;
+}
+header h1{
+	color: #fff;
+	font-size: 23px;
+	font-weight: bold;
+	margin: 20px;
+	text-shadow: -2px -1px 1px #000;
+}
+header h1 span{
+	color:#0095d1;
+}
+#content{
+	margin-top: 80px;
+}
+.main{
+	margin: 0 auto;
+	width: 400px;
+}
+.main h2{
+	background-color: #02a9ec;
+	border-top: 1px solid #828384;
+	border-bottom: 1px solid #828384;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 5px;
+}
+#datepicker{
+	margin-top: 10px;
+}
+#datepicker .ui-datepicker{
+	width: 22.2em;
+	border-radius: 0;
+}
+#datepicker .ui-state-default{
+	background: #02A9EC;
+	border: none;
+	color: #fff;
+	font-size: 12px;
+	margin: 0 0 10px 10px;
+	padding: 10px;
+	text-align: center;
+}
+#datepicker .ui-state-default:hover{
+	background: #00a0e0;
+}
+#datepicker .ui-state-active{
+	background-color: #2572EB;
+}
+#calc-holder{
+	border: 1px solid #aaa;
+	margin-top: 10px;
+}
+.calculator-space{
+	margin-top: 20px;
+}
+.main h3{
+	background-color: #4CC40B;
+	border-top: 1px solid #828384;
+	border-bottom: 1px solid #828384;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 5px;
+}
+.blackCalculator form input[type="text"] {
+	background-color: #fff;
+}
+.blackCalculator{
+	margin: 20px auto !important;
+}
+.blackCalculator a{
+	background-color: #4dc60b !important;
+	box-shadow: none !important;
+	border-radius: 0 !important;
+	border: none !important;
+	color: #fff !important;
+	font-size: 12px !important;
+}
+.blackCalculator a:hover{
+	background-color: #44af0a !important;
+}
+/*#sidebar{
+	float: right;
+	width: 200px;
+}
+#sidebar h2{
+	background-color: #4CC40B;
+	border-top: 1px solid #828384;
+	border-bottom: 1px solid #828384;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 5px;
+}*/

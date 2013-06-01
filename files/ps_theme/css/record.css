@@ -9,6 +9,7 @@ body{
 }
 #top-title{
 	background-color: #262626;
+	box-shadow: 1px 1px 5px #777;
 	position: fixed;
 	top: 0;
 	height: 80px;
@@ -17,6 +18,7 @@ body{
 }
 #top-title h1{
 	color: #fff;
+	font-size: 30px;
 }
 #top-title h1 span{
 	color:#0095d1;
@@ -31,20 +33,21 @@ body{
 #top-btn a{
 	color: #fff;
 	text-decoration: none;
+	cursor: pointer;
 }
 #top-btn a:hover{
 	color: #fff;
 }
-#top-btn a#newtab-btn{
-	background: url(../images/newtab-icon.png) no-repeat scroll 0 0 transparent;
+#top-btn a#refresh-btn{
+	background: url(../images/refresh-icon.png) no-repeat scroll 0 0 transparent;
 	display: inline-block;
 	width: 30px;
 	height: 35px;
 	text-indent: -9999px;
 	margin-right: 10px;
 }
-#top-btn a#refresh-btn{
-	background: url(../images/refresh-icon.png) no-repeat scroll 0 0 transparent;
+#top-btn a#back-btn{
+	background: url(../images/back-icon.png) no-repeat scroll 0 0 transparent;
 	display: inline-block;
 	width: 30px;
 	height: 35px;
