@@ -9,6 +9,7 @@ $pdf->AddPage();
 
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(15,5,"Name:");
+
 $pdf ->Cell(5,5,"Arnel Moso");
 $pdf->Ln();
 $pdf->Cell(130,10,"Cut off Dates:");
