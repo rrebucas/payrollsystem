@@ -480,7 +480,6 @@ require_once 'ps_connect_db.php';
 				<div class="span5">
 					<p class="button">
 						<button class="btn btn-info" type="submit" name="submit_btn_export">Save</button>
-						
 					</p>
 				</div>
 					<div class="pull-right">
@@ -543,6 +542,7 @@ require_once 'ps_connect_db.php';
 			
 			echo "<h1 class='text-success'>Success.. Ready for export</h1>";
 
+			
 			$employee_name = $_POST['employee_name'];
 
 			//AM
@@ -559,7 +559,6 @@ require_once 'ps_connect_db.php';
 			$pm_out_hr_arr = $_POST['pm-out-hr']; //array  pm out hr  time
 			$pm_out_min_arr = $_POST['pm-out-min']; //array pm out min time
 
-
 			/*$am_in_hr_arr = array('one','two','three');
 			foreach ($am_in_hr_arr as $key => $value) {
 			    echo "Key: $key; Value: $value<br />\n";
@@ -570,7 +569,11 @@ require_once 'ps_connect_db.php';
 
 			<form action="ps_export_as_excel.php" method="POST">
 				<input type="hidden" value="<?php echo $employee_name; ?>" name="employee_name">
-				<button href='ps_export_as_excel.php' name="submit" class="btn btn-success">Download As Excel</button>
+				<button class="btn btn-success" onclick="export_excel();" name="submit_btn_export_excel">Export As Excel</button>
+			</form>
+			<form action="#" method="POST">
+				<input type="hidden" value="" name="employee_name">
+				<button class="btn btn-danger" name="submit_btn_export_pdf">Export As PDF</button>
 			</form>
 
 
@@ -614,7 +617,7 @@ jQuery(document).ready(function(){
 	    });
 	   
  </script>
-
+</script>
 </body>
 </html>
 <?php

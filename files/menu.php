@@ -26,11 +26,11 @@
 	<a href="ps_list_employees.php" target="content" id="listMenu"><img src="ps_theme/images/listemployee-icon.png" alt=""/>List of Employees</a></li>
 	
 	<li><a href="ps_import.php" target="content" id="importMenu"><img src="ps_theme/images/import-icon.png" alt=""/>Import</a></li>
-	<li><a href="ps_export.php" target="content" id="exportMenu"><img src="ps_theme/images/export-icon.png" alt=""/>Export</a></li>
-	<li>
+	<!--<li><a href="ps_export.php" target="content" id="exportMenu"><img src="ps_theme/images/export-icon.png" alt=""/>Export</a></li>-->
+	<!--<li>
 	<a href="ps_settings.php" target="content" id="settingMenu"><img src="ps_theme/images/settings-icon.png" alt=""/>Settings</a></li>
 	
-	<li><a href="#" id="logout"><img src="ps_theme/images/logout-icon.png" alt=""/>Logout</a></li>
+	<li><a href="#" id="logout"><img src="ps_theme/images/logout-icon.png" alt=""/>Logout</a></li>-->
 	
 </ul>
 </aside>
