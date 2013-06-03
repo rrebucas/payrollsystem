@@ -254,10 +254,15 @@ require_once 'ps_connect_db.php';
 
   									while ($row_employee_import_list = mysqli_fetch_array($query_employee_import) ) {
 
-
+  										$var_timeDate = $row_employee_import_list['date_time_in'];
+  										
   									?>
 									<tr>
-										<td></td>
+										<td>
+										<?php 
+										echo $var_timeDate;
+										?>
+										</td>
 										<td style="width: 18px;"><input name="night_checkbox" class="night" type="checkbox"> </td>
 										<td style="width: 18px;"><input name="holiday_checkbox" class="holiday" type="checkbox"> </td>
 										<td style="width: 18px;"><input name="ot_checkbox" class="ot" type="checkbox"> </td>
