@@ -412,6 +412,19 @@ require_once 'ps_connect_db.php';
 
 									</tr>
 									<?php } // end while ?>
+									<tr>
+										<td colspan="18">&nbsp;</td>
+									</tr>
+									<tr class="total">
+										<td>Total</td>
+										<td colspan="11">&nbsp;</td>
+										<td style="width: 30px;"><input type="text" name="subTotal_actualHours"  style="margin:5px;width:36px;padding:2px;text-align:center;" readonly></td>
+										<td style="width: 30px;"><input type="text" name="subTotal_credHours"  style="margin:5px;width:36px;padding:2px;text-align:center;" readonly></td>
+										<td style="width: 30px;"><input type="text" name="subTotal_nightHours"  style="margin:5px;width:36px;padding:2px;text-align:center;" readonly></td>
+										<td style="width: 30px;"><input type="text" name="subTotal_holidayHours"  style="margin:5px;width:36px;padding:2px;text-align:center;" readonly></td>
+										<td style="width: 30px;"><input type="text" name="total_otHours"  style="margin:5px;width:36px;padding:2px;text-align:center;" readonly></td>
+										<td>&nbsp;</td>
+									</tr>
 								</tbody>
 							</table>
 							<div class="row">
