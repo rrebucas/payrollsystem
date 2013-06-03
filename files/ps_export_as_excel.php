@@ -1,7 +1,7 @@
 <?php
 
 
-$getname = $_POST['employee_name'];
+$getname = 'Name';
 /**
  * PHPExcel
  *

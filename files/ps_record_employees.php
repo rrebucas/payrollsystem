@@ -243,49 +243,208 @@ require_once 'ps_connect_db.php';
 									<?php
 
 									$query_employee_import = mysqli_query($con, "SELECT id, 
-  										SUBSTRING_INDEX(MIN(CONCAT(date_time,`status`)),'C/In',1) AS date_time_in,
-										SUBSTRING_INDEX(MAX(CONCAT(date_time,`status`)),'C/Out',1) AS date_time_out,
+  										SUBSTRING_INDEX(MIN(CONCAT(date_time,`status`)),'C/In',2) AS dateTime_MIN,
+										SUBSTRING_INDEX(MAX(CONCAT(date_time,`status`)),'C/Out',2) AS dateTime_MAX,
 										TIMEDIFF(SUBSTRING_INDEX(MAX(CONCAT(date_time,`status`)),'C/Out',1),SUBSTRING_INDEX(MIN(CONCAT
 
-										(date_time,`status`)),'C/In',1)) AS date_time_total
+										(date_time,`status`)),'C/In',1)) AS dateTime_TOTAL
 										FROM `seg_employee_import` import_tbl WHERE id=$var_employee_name_id
 										GROUP BY import_tbl.id, DATE(date_time)");
 
-  									while ($row_employee_import_list = mysqli_fetch_array($query_employee_import) ) {
 
-  										$var_timeDate = $row_employee_import_list['date_time_in'];
+									$var_timeDate_arr = array();
+
+									$var_timeDateMIN_array = array();
+									$var_timeDateMAX_array = array();
+
+									$i = 0;
+  									while ($row_employee_import_list = mysqli_fetch_array($query_employee_import) ) {
+  										
+  										$var_timeDate_MIN = $row_employee_import_list['dateTime_MIN'];
+  										$var_timeDateMIN_array[] = $var_timeDate_MIN;
+
+  										$var_timeDate_MAX = $row_employee_import_list['dateTime_MAX'];
+  										$var_timeDateMAX_array[] = $var_timeDate_MAX;
+
+  										$var_timeDate_TOTAL = $row_employee_import_list['dateTime_TOTAL'];
+
+
+  										//to get date (dateTimeMin) timestamp
+  										$var_timeDate_repIN = str_replace("C/In", "", $var_timeDate_MIN);
+  										$var_timeDate_repOUT = str_replace("C/Out", "", $var_timeDate_repIN);
+  										$var_timeDate_timestamp_MIN = trim($var_timeDate_repOUT); // 2/3/1012 09:00:00
+
+  										$var_timeDate_timestamp = strtotime(trim($var_timeDate_repOUT)); // 12358358351832
+  										$var_timeDate_arr[] = date('M d (D)', $var_timeDate_timestamp); // to get the date list
+
+  										//to get date (dateTimeMax) timestamp
+  										$var_timeDate_repIN_MAX = str_replace("C/In", "", $var_timeDate_MAX);
+  										$var_timeDate_repOUT_MAX = str_replace("C/Out", "", $var_timeDate_repIN_MAX);
+  										$var_timeDate_timestamp_MAX = trim($var_timeDate_repOUT_MAX); // 2/3/1012 09:00:00
+  										
+  										//to get total
+
+  										$timeDate_total_explode = explode(":", $var_timeDate_TOTAL);
+  										$timeDate_total_hr = $timeDate_total_explode[0];
+  										$timeDate_total_min = $timeDate_total_explode[1];
+  										$timeDate_total = $timeDate_total_hr.".".$timeDate_total_min;
   										
   									?>
 									<tr>
-										<td>
+										<td style=" vertical-align: middle; text-align: left; padding-left: 15px; ">
 										<?php 
-										echo $var_timeDate;
+										echo $var_timeDate_arr[$i];
+										$i++;
 										?>
 										</td>
 										<td style="width: 18px;"><input name="night_checkbox" class="night" type="checkbox"> </td>
 										<td style="width: 18px;"><input name="holiday_checkbox" class="holiday" type="checkbox"> </td>
 										<td style="width: 18px;"><input name="ot_checkbox" class="ot" type="checkbox"> </td>
-										<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-hr[] " class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-										<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-in-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-										<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-										<td style="width: 30px;"><input value="" type="text" maxlength="2" name="am-out-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+										<?php 
 
-										<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-in-hr[] " class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-										<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-in-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-										<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
-										<td style="width: 30px;"><input value="" type="text" maxlength="2" name="pm-out-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+
+										//dateTime Min
+										$var_timeDate_MIN_explode = explode(" ", $var_timeDate_timestamp_MIN); //explode the dateTimeMin
+										$var_timeDate_timeMin = $var_timeDate_MIN_explode[1];	//the dateTimeMin time
+										$var_timeDate_timeMin_explode = explode(":", $var_timeDate_timeMin); //explode the dateTimeMin time
+										$var_timeDate_timeMin_hr = $var_timeDate_timeMin_explode[0]; // the dateTimeMin Hour
+										$var_timeDate_timeMin_min = $var_timeDate_timeMin_explode[1]; //the dateTimeMin Min
+
+										//dateTime Max
+										$var_timeDate_MAX_explode = explode(" ", $var_timeDate_timestamp_MAX); //explode the dateTimeMax
+										$var_timeDate_timeMax = $var_timeDate_MAX_explode[1];	//the dateTimeMax time
+										$var_timeDate_timeMax_explode = explode(":", $var_timeDate_timeMax); //explode the dateTimeMax time
+										$var_timeDate_timeMax_hr = $var_timeDate_timeMax_explode[0]; // the dateTimeMax Hour
+										$var_timeDate_timeMax_min = $var_timeDate_timeMax_explode[1]; //the dateTimeMax Min
+
+										//AM time
+										$timeAM_InHr = ''; //AM IN Hour
+										$timeAM_InMin = ''; //AM IN Min
+										$timeAM_OutHr = ''; //AM Out Hour
+										$timeAM_OutMin = ''; //AM Out Min
+
+										//PM time
+										$timePM_InHr = ''; //PM IN Hour
+										$timePM_InMin= ''; //PM IN Min
+										$timePM_OutHr = ''; //PM Out Hour
+										$timePM_OutMin = ''; //PM Out Min
+
+											
+
+
+										//AM  datetimeMax
+											if ($var_timeDate_timeMin_hr <= 12 ) {
+												// IN 
+												if (strpos($var_timeDate_MIN, "C/In")) {
+													$timeAM_InHr = $var_timeDate_timeMin_hr;
+													$timeAM_InMin = $var_timeDate_timeMin_min;
+												}
+												//Out
+												else{
+													$timeAM_OutHr = $var_timeDate_timeMin_hr;
+													$timeAM_OutMin = $var_timeDate_timeMin_min;
+												}	
+												
+											}
+											//PM datetimeMin
+											else{
+												// IN 
+												if (strpos($var_timeDate_MIN, "C/In")) {
+													$timePM_InHr = $var_timeDate_timeMin_hr - 12;
+													$timePM_InMin = $var_timeDate_timeMin_min;
+												}
+												//Out
+												else{
+													$timePM_OutHr = $var_timeDate_timeMin_hr - 12;
+													$timePM_OutMin = $var_timeDate_timeMin_min;
+												}
+											} // end else
+
+
+
+
+											//AM  datetimeMax
+											if ($var_timeDate_timeMax_hr <= 12 ) {	
+												// IN 
+												if (strpos($var_timeDate_MAX, "C/In")) {
+													$timeAM_InHr = $var_timeDate_timeMax_hr;
+													$timeAM_InMin = $var_timeDate_timeMax_min;
+												}
+												//Out
+												else{
+													$timeAM_OutHr = $var_timeDate_timeMax_hr;
+													$timeAM_OutMin = $var_timeDate_timeMax_min;
+												}
+
+												
+											}
+											//PM datetimeMin
+											else{
+												// IN 
+												if (strpos($var_timeDate_MAX, "C/In")) {
+													$timePM_InHr = $var_timeDate_timeMax_hr - 12;
+													$timePM_InMin = $var_timeDate_timeMax_min;
+												}
+												//Out
+												else{
+													$timePM_OutHr = $var_timeDate_timeMax_hr - 12;
+													$timePM_OutMin = $var_timeDate_timeMax_min;
+												}
+											} // end else
 									
-										<td style="width: 30px;"><input type="text" maxlength="2" name="actual_hrs[]" class="validate[custom[number]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"  ></td>
+										?>
+										<td style="width: 30px;"><input value="<?php echo $timeAM_InHr; ?>" type="text" maxlength="2" name="am-in-hr[] " class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+										<td style="width: 30px;"><input value="<?php echo $timeAM_InMin; ?>" type="text" maxlength="2" name="am-in-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+										<td style="width: 30px;"><input value="<?php echo $timeAM_OutHr; ?>" type="text" maxlength="2" name="am-out-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+										<td style="width: 30px;"><input value="<?php echo $timeAM_OutMin; ?>" type="text" maxlength="2" name="am-out-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+
+										<td style="width: 30px;"><input value="<?php echo $timePM_InHr; ?>" type="text" maxlength="2" name="pm-in-hr[] " class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+										<td style="width: 30px;"><input value="<?php echo $timePM_InMin; ?>" type="text" maxlength="2" name="pm-in-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+										<td style="width: 30px;"><input value="<?php echo $timePM_OutHr; ?>" type="text" maxlength="2" name="pm-out-hr[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+										<td style="width: 30px;"><input value="<?php echo $timePM_OutMin; ?>" type="text" maxlength="2" name="pm-out-min[]" class="validate[custom[integer]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
+									
+										<td style="width: 30px;"><input value="<?php echo ltrim($timeDate_total, "0"); ?>" type="text" maxlength="5" name="actual_hrs[]" class="validate[custom[number]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"  ></td>
 										<td style="width: 30px;"><input type="text" maxlength="2" name="cred_hrs[]" class="validate[custom[number]] text-input" style="margin:5px;width:36px;padding:2px;text-align:center;"></td>
 										<td style="width:30px;"><input class="nightvalue validate[custom[number]] text-input" type="text" name="night_textbox[]"  maxlength="5" value="" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;"  /></td>
 										<td style="width:30px;"><input class="holidayvalue validate[custom[number]] text-input" type="text" value="" maxlength="5" name="holiday_textbox[]" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;"/></td>
 										<td style="width: 30px;"><input class="otvalue validate[custom[number]] text-input" type="text" value="" maxlength="5" name="ot_textbox[]" style="margin:5px;width: 36px;padding:2px;text-align:center;font-size: 14px;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: bold;" /></td>
-										<td><input type="text" maxlength="2" name="remarks[]" class="validate[custom[integer]] text-input" style="margin:5px;width:72px;padding:2px;text-align:center;"  ></td>
+										<td><input type="text" maxlength="30" name="remarks[]" class="text-input" style="margin:5px;width:72px;padding:2px;text-align:center;"  ></td>
 
 									</tr>
 									<?php } // end while ?>
 								</tbody>
 							</table>
+							<div class="row">
+								<div class="span5">
+									<p class="button" style=" text-align: left; margin-left: 20px; ">
+										<button class="btn btn-info" type="submit" name="submit_btn_export">Save</button>
+									</p>
+								</div>
+									<div class="pull-right">
+									<table class="table table-striped summary">
+										<tr>
+											<td>Creditable Hours</td>
+											<td><input type="text" name="total_credHours" style="margin:5px;width:36px;padding:2px;text-align:center;" readonly/></td>
+										</tr>
+										<tr>
+											<td>Night Premium</td>
+											<td><input type="text" name="total_nightPremium" style="margin:5px;width:36px;padding:2px;text-align:center;" readonly/></td>
+										</tr>
+										<tr>
+											<td>Total Holidays</td>
+											<td><input type="text" name="total_holidays" style="margin:5px;width:36px;padding:2px;text-align:center;" readonly/></td>
+										</tr>
+										<tr>
+											<td>Total Overtime</td>
+											<td><input type="text" name="total_overTime" style="margin:5px;width:36px;padding:2px;text-align:center;" readonly/></td>
+										</tr>
+										<tr>
+											<td>Total Hours</td>
+											<td><input type="text" name="total_hours" style="margin:5px;width:36px;padding:2px;text-align:center;" readonly/></td>
+										</tr>
+								</table>
+								</div>
+							</div>
   				</form>
 
   				<?php
