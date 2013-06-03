@@ -1,9 +1,9 @@
 <?php
-
+$getname = $_POST['employee_name'];
 
 // Include tde main TCPDF library (search for installation patd).
 require_once('tcpdf_include.php');
-include "../../ps_connect_db.php";
+
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -31,10 +31,6 @@ $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
 // set image scale factor
 //$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
-
-
-
-
 // set font
 $pdf->SetFont('helvetica', 'B', 20);
 
@@ -45,8 +41,17 @@ $pdf->AddPage();
 
 $pdf->SetFont('helvetica', '', 9);
 
-$html = <<<EOF
-<style>
+$Array_jar = Array('2:45','3:00','5:00','3:21');
+$time = '';
+foreach ($Array_jar as $key => $value) {
+  $time .= '<tr nobr="true">
+  <td>May 16, 2013</td>
+  <td>'.$value.'</td>
+ </tr>';
+}
+
+
+$html ='<style>
 h1{
   font-size:16px;
 }
@@ -64,7 +69,7 @@ tbody tr:even td{
   background-color-yellow;
 }
 </style>
-<h1>Name: <span>Arnel Moso</span></h1>
+<h1>Name: '.$getname.'</h1>
 <p class="cut">Cut off Dates</p>
 <p class="from">From: <span>05/20/13</span></p>
 <p class="to">To: <span>05/31/2013</span></p>
@@ -91,6 +96,7 @@ tbody tr:even td{
  </tr>
  </thead>
  <tbody>
+
  <tr nobr="true">
   <td>May 16, 2013</td>
   <td>5:40</td>
@@ -131,15 +137,18 @@ tbody tr:even td{
   <td>9</td>
   <td></td>
    </tr>
-</table>
-EOF;
+</table>';
+
 
 $pdf->writeHTML($html, true, false, true, false, '');
 
 
 
-$tbl = <<<EOD
-<table border="1" cellpadding="0" cellspacing="0" align="center">
+
+$tbl2 = "Hello";
+
+
+$tbl1 = '<table border="1" cellpadding="0" cellspacing="0" align="center">
  <tr nobr="true">
   <td>Creditable Hours</td>
   <td>16</td>
@@ -149,6 +158,7 @@ $tbl = <<<EOD
   <td>0</td>
 
  </tr>
+ '.$time.'
  <tr nobr="true">
   <td>Total Holiday</td>
   <td>2</td>
@@ -159,12 +169,11 @@ $tbl = <<<EOD
  </tr>
  <tr nobr="true">
   <td>Total Hours</td>
-  <td>18</td>
+  <td>'.$tbl2.'</td>
  </tr>
-</table>
-EOD;
+</table>';
 
-$pdf->writeHTML($tbl, true, false, false, false, '');
+$pdf->writeHTML($tbl1, true, false, false, false, '');
 
 // -----------------------------------------------------------------------------
 
